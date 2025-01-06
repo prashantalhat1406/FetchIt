@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "593432997572",
+    "project_id": "fetchit-a4181",
+    "storage_bucket": "fetchit-a4181.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593432997572:android:e8bf1a52974aa749a26391",
+        "android_client_info": {
+          "package_name": "com.sinprl.fetchit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkoOR_cviXd_c82GfzJ1aNi-KZbksFTvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
