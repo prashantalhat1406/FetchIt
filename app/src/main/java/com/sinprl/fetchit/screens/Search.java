@@ -58,6 +58,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
 
         populate_data();
 
+
     }
 
     private void populate_data() {
