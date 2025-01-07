@@ -47,4 +47,11 @@
     <string name="search_button_text">SEARCH</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_mobile">Mobile</string>
+    <string name="profile_Address">Address</string>
+    <string name="profile_type_of_product">Type Of Product</string>
+    <string name="profile_choice_of_bank">Choice Of Bank</string>
+    <string name="profile_save_button">Save</string>
+    <string name="profile_cancel_button">Cancel</string>
 </resources>

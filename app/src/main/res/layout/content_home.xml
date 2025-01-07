@@ -7,21 +7,47 @@
     android:backgroundTint="#ffffff"
     android:background="#ffffff"
     android:layout_height="match_parent"
+    android:padding="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-    <Button
-        android:id="@+id/button_home_add"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/add_button_text"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
         android:layout_weight="0.5"
-        />
-    <Button
-        android:id="@+id/button_home_search"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/roundbutton_blue"
+            android:id="@+id/button_home_add"
+            android:text="@string/add_button_text"
+            android:layout_gravity="center"
+            android:textSize="@dimen/textLabels"
+            android:layout_weight="0.5"
+            />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/search_button_text"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
         android:layout_weight="0.5"
-        />
+        >
+        <Button
+            android:background="@drawable/roundbutton_blue"
+            android:id="@+id/button_home_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/search_button_text"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:textSize="@dimen/textLabels"
+            />
+    </LinearLayout>
+
+
 
 </LinearLayout>
