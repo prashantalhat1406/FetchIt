@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -42,38 +43,30 @@ public class Profile extends AppCompatActivity {
         choice_of_bank = findViewById(R.id.text_choice_of_bank);
 
         Button button_save = findViewById(R.id.button_profile_save);
-        button_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                save_profile_data_to_database();
-                finish();
-                Intent home_screen = new Intent(Profile.this, Home.class);
-                startActivity(home_screen);
-            }
+        button_save.setOnClickListener(v -> {
+            save_profile_data_to_database();
+            finish();
+            Intent home_screen = new Intent(Profile.this, Home.class);
+            startActivity(home_screen);
         });
 
         Button button_cancel = findViewById(R.id.button_profile_cancel);
-        button_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent home_screen = new Intent(Profile.this, Home.class);
-                startActivity(home_screen);
-            }
+        button_cancel.setOnClickListener(v -> {
+            finish();
+            Intent home_screen = new Intent(Profile.this, Home.class);
+            startActivity(home_screen);
         });
 
     }
 
     private void save_profile_data_to_database() {
         DatabaseReference databaseReference = database.getReference("Profiles/");
-
         DataEntry new_data_entry = new DataEntry();
         new_data_entry.setName(user_name.getText().toString());
         new_data_entry.setAddress(user_address.getText().toString());
         new_data_entry.setMobile(user_mobile.getText().toString());
         new_data_entry.setTypeofproduct(type_of_product.getText().toString());
         new_data_entry.setChoiceofbank(choice_of_bank.getText().toString());
-
         databaseReference.push().setValue(new_data_entry);
     }
 }
