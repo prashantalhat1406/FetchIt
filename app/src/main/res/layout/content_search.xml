@@ -7,23 +7,28 @@
     android:background="#ffffff"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_data" android:layout_weight="0.1"
+        android:id="@+id/list_data"
+        android:layout_weight="0.09"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_data_entry" />
+
+
     <Button
+        android:layout_weight="0.91"
+        android:background="@drawable/roundbutton_blue"
         android:id="@+id/button_search_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home"
-        android:layout_weight="0.9"
+        android:text="@string/home_button_text"
+        android:layout_gravity="center"
+        android:textSize="@dimen/textLabels"
         />
+
 </LinearLayout>

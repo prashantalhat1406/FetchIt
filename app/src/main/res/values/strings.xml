@@ -45,6 +45,7 @@
     </string>
     <string name="add_button_text">ADD</string>
     <string name="search_button_text">SEARCH</string>
+    <string name="home_button_text">HOME</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="profile_name">Name</string>
