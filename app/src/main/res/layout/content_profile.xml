@@ -142,10 +142,9 @@
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
                 />
-
-            <EditText
+            <Spinner
                 android:background="@drawable/edittextbox"
-                android:id="@+id/text_type_of_product"
+                android:id="@+id/spinner_type_of_product"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
@@ -154,7 +153,6 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_type_of_product"
                 android:visibility="visible"
-                android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
                 />
 
         </LinearLayout>
@@ -176,10 +174,9 @@
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
                 />
-
-            <EditText
+            <Spinner
                 android:background="@drawable/edittextbox"
-                android:id="@+id/text_choice_of_bank"
+                android:id="@+id/spinner_choice_of_bank"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
@@ -188,7 +185,6 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_choice_of_bank"
                 android:visibility="visible"
-                android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
                 />
 
         </LinearLayout>

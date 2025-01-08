@@ -1,10 +1,14 @@
 package com.sinprl.fetchit.screens;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 
 import androidx.activity.EdgeToEdge;
@@ -21,7 +25,8 @@ import com.sinprl.fetchit.data.DataEntry;
 public class Profile extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText user_name, user_address, user_mobile, type_of_product, choice_of_bank;
+    EditText user_name, user_address, user_mobile;
+    Spinner type_of_product, choice_of_bank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +44,24 @@ public class Profile extends AppCompatActivity {
         user_name = findViewById(R.id.text_user_name);
         user_address = findViewById(R.id.text_user_address);
         user_mobile = findViewById(R.id.text_user_mobile);
-        type_of_product = findViewById(R.id.text_type_of_product);
-        choice_of_bank = findViewById(R.id.text_choice_of_bank);
+
+        type_of_product = findViewById(R.id.spinner_type_of_product);
+        ArrayAdapter<CharSequence> product_adaptor = ArrayAdapter.createFromResource(
+                this,
+                R.array.type_of_products,
+                android.R.layout.simple_spinner_item
+        );
+        product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        type_of_product.setAdapter(product_adaptor);
+
+        choice_of_bank = findViewById(R.id.spinner_choice_of_bank);
+        ArrayAdapter<CharSequence> bank_adaptor = ArrayAdapter.createFromResource(
+                this,
+                R.array.choice_of_bank,
+                android.R.layout.simple_spinner_item
+        );
+        bank_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        choice_of_bank.setAdapter(bank_adaptor);
 
         Button button_save = findViewById(R.id.button_profile_save);
         button_save.setOnClickListener(v -> {
@@ -67,8 +88,8 @@ public class Profile extends AppCompatActivity {
             new_data_entry.setName(user_name.getText().toString());
             new_data_entry.setAddress(user_address.getText().toString());
             new_data_entry.setMobile(user_mobile.getText().toString());
-            new_data_entry.setTypeofproduct(type_of_product.getText().toString());
-            new_data_entry.setChoiceofbank(choice_of_bank.getText().toString());
+            new_data_entry.setTypeofproduct(type_of_product.getSelectedItem().toString());
+            new_data_entry.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
             databaseReference.push().setValue(new_data_entry);
             return true;
         }
@@ -93,14 +114,15 @@ public class Profile extends AppCompatActivity {
             user_address.setError("Address is mandatory");
             return false;
         }
-        if (type_of_product.getText().toString().isEmpty()){
-            type_of_product.setError("Product Type is mandatory");
+        if (type_of_product.getSelectedItem().toString().equals("Type Of Products")){
+            ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
             return false;
         }
-        if (choice_of_bank.getText().toString().isEmpty()){
-            choice_of_bank.setError("Bank Name is mandatory");
+        if (choice_of_bank.getSelectedItem().toString().equals("Select Bank")){
+            ((TextView) choice_of_bank.getSelectedView()).setError("Select Bank Name");
             return false;
         }
+
         return true;
     }
 }
