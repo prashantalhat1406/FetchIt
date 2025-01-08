@@ -44,10 +44,11 @@ public class Profile extends AppCompatActivity {
 
         Button button_save = findViewById(R.id.button_profile_save);
         button_save.setOnClickListener(v -> {
-            save_profile_data_to_database();
-            finish();
-            Intent home_screen = new Intent(Profile.this, Home.class);
-            startActivity(home_screen);
+            if (save_profile_data_to_database()) {
+                finish();
+                Intent home_screen = new Intent(Profile.this, Home.class);
+                startActivity(home_screen);
+            }
         });
 
         Button button_cancel = findViewById(R.id.button_profile_cancel);
@@ -59,14 +60,47 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    private void save_profile_data_to_database() {
-        DatabaseReference databaseReference = database.getReference("Profiles/");
-        DataEntry new_data_entry = new DataEntry();
-        new_data_entry.setName(user_name.getText().toString());
-        new_data_entry.setAddress(user_address.getText().toString());
-        new_data_entry.setMobile(user_mobile.getText().toString());
-        new_data_entry.setTypeofproduct(type_of_product.getText().toString());
-        new_data_entry.setChoiceofbank(choice_of_bank.getText().toString());
-        databaseReference.push().setValue(new_data_entry);
+    private boolean save_profile_data_to_database() {
+        if(valid_input()) {
+            DatabaseReference databaseReference = database.getReference("Profiles/");
+            DataEntry new_data_entry = new DataEntry();
+            new_data_entry.setName(user_name.getText().toString());
+            new_data_entry.setAddress(user_address.getText().toString());
+            new_data_entry.setMobile(user_mobile.getText().toString());
+            new_data_entry.setTypeofproduct(type_of_product.getText().toString());
+            new_data_entry.setChoiceofbank(choice_of_bank.getText().toString());
+            databaseReference.push().setValue(new_data_entry);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private boolean valid_input() {
+        if (user_name.getText().toString().isEmpty()){
+            user_name.setError("Name is mandatory");
+            return false;
+        }
+        if (user_mobile.getText().toString().isEmpty()){
+            user_mobile.setError("Mobile is mandatory");
+            return false;
+        }
+        if (user_mobile.getText().toString().length() != 10){
+            user_mobile.setError("Mobile must be 10 digits");
+            return false;
+        }
+        if (user_address.getText().toString().isEmpty()){
+            user_address.setError("Address is mandatory");
+            return false;
+        }
+        if (type_of_product.getText().toString().isEmpty()){
+            type_of_product.setError("Product Type is mandatory");
+            return false;
+        }
+        if (choice_of_bank.getText().toString().isEmpty()){
+            choice_of_bank.setError("Bank Name is mandatory");
+            return false;
+        }
+        return true;
     }
 }
