@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:backgroundTint="#ffffff"
@@ -27,6 +28,7 @@
             >
 
             <TextView
+                android:id="@+id/text_profile_details_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Vikas Malhotra"
@@ -40,6 +42,7 @@
                 />
 
             <TextView
+                android:id="@+id/text_profile_details_mobile"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="9823956268"
@@ -60,6 +63,7 @@
             android:padding="5dp"
             >
             <TextView
+                android:id="@+id/text_profile_details_address"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:text="Lane 11, Gokul, FC Road, Pune"
@@ -92,6 +96,7 @@
             >
 
             <TextView
+                android:id="@+id/text_profile_details_choice_of_bank"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="State Bank Of India"
@@ -104,6 +109,7 @@
                 />
 
             <TextView
+                android:id="@+id/text_profile_details_type_of_product"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Home Loan"
@@ -112,7 +118,7 @@
                 android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_gravity="bottom"
-                android:gravity="bottom"
+                android:gravity="right"
                 />
 
         </LinearLayout>
@@ -125,27 +131,29 @@
             >
 
             <TextView
+                android:id="@+id/text_profile_details_amount"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="8900000"
-                android:layout_weight="0.75"
+                android:layout_weight="0.5"
                 android:textColor="@color/black"
-                android:padding="10dp"
+                android:padding="2dp"
+                android:paddingStart="20dp"
                 android:layout_gravity="bottom"
-                android:gravity="bottom"
+                android:gravity="center_horizontal|left|center"
                 android:textSize="@dimen/list_name_size"
                 />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:id="@+id/text_profile_details_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="NEW"
-                android:textSize="@dimen/list_mobile_size"
-                android:layout_weight="0.75"
+                android:textSize="@dimen/textLabels"
                 android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_gravity="bottom"
-                android:gravity="bottom"
+                android:gravity="center_horizontal|center"
                 />
 
         </LinearLayout>
@@ -154,43 +162,62 @@
 
     <LinearLayout
         android:layout_weight="0.56"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp">
 
-    <LinearLayout
-        android:layout_weight="0.08"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        >
-
-        <Button
-            android:layout_weight="0.5"
-            android:padding="5dp"
-            android:id="@+id/button_profile_save"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_weight="0.85"
+            android:id="@+id/list_profile_history"
             android:layout_width="match_parent"
-            android:background="@drawable/roundbutton_blue"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_height="50dp"
-            android:textSize="@dimen/textLabels"
-            android:text="@string/profile_details_edit_button"
-            android:textColor="#ffffff" />
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            tools:listitem="@layout/item_profile_history" />
 
-        <Button
-            android:layout_weight="0.5"
-            android:padding="5dp"
-            android:id="@+id/button_profile_cancel"
+        <LinearLayout
+            android:id="@+id/ll_profile_details_button"
+            android:layout_weight="0.15"
             android:layout_width="match_parent"
-            android:background="@drawable/roundbutton_blue"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_height="50dp"
-            android:textSize="@dimen/textLabels"
-            android:text="@string/profile_details_close_button"
-            android:textColor="#ffffff" />
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            >
+
+            <Button
+                android:layout_weight="0.5"
+                android:id="@+id/button_profile_details_edit"
+                android:layout_width="match_parent"
+                android:background="@drawable/roundbutton_blue"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="50dp"
+                android:textSize="@dimen/textLabels"
+                android:text="@string/profile_details_edit_button"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:layout_weight="0.5"
+                android:id="@+id/button_profile_details_close"
+                android:layout_width="match_parent"
+                android:background="@drawable/roundbutton_blue"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="50dp"
+                android:textSize="@dimen/textLabels"
+                android:text="@string/profile_details_close_button"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
+
+
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.sinprl.fetchit.data;
 
 public class DataEntry {
+    public String id;
     public String name;
     public String address;
     public String mobile;
@@ -11,6 +12,14 @@ public class DataEntry {
     public String entry_date;
 
     public DataEntry() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

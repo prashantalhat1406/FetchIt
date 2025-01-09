@@ -58,6 +58,7 @@
     <string name="profile_cancel_button">Cancel</string>
     <string name="profile_details_edit_button">Edit</string>
     <string name="profile_details_close_button">Close</string>
+    <string name="add_comment">ADD</string>
     <string-array name="type_of_products">
         <item>Type Of Products</item>
         <item>Car Loan</item>

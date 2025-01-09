@@ -3,7 +3,10 @@ package com.sinprl.fetchit.screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -55,8 +58,10 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
         data_recycle_view = findViewById(R.id.list_data);
-
         populate_data();
+
+
+
 
 
     }
@@ -76,10 +81,9 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
                 all_data_entries.clear();
                 for (DataSnapshot s:snapshot.getChildren()) {
                     DataEntry dataEntry = s.getValue(DataEntry.class);
+                    dataEntry.setId(s.getKey());
                     all_data_entries.add(dataEntry);
                 }
-
-//                DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this,all_data_entries, Search.this);
                 DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, all_data_entries, Search.this);
                 data_recycle_view.setAdapter(dataListAdaptor);
             }
@@ -95,6 +99,8 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
 
     @Override
     public void onItemClick(View view, int position) {
-
+        Intent intent = new Intent(view.getContext(), Profile_Details.class);
+        intent.putExtra("userID", all_data_entries.get(position).getId());
+        startActivity(intent);
     }
 }
