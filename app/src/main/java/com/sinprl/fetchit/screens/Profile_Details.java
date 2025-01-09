@@ -96,13 +96,15 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             final EditText input = new EditText(this);
             alert.setView(input);
             alert.setPositiveButton("Add", (dialog, whichButton) -> {
-                DatabaseReference databaseReference = database.getReference("Profiles/"+userID+"/Comments/");
-                Comment new_comment = new Comment();
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date date = new Date();
-                new_comment.setComment_date(dateFormat.format(date));
-                new_comment.setComment_text(input.getText().toString());
-                databaseReference.push().setValue(new_comment);
+                if(!input.getText().toString().isEmpty()) {
+                    DatabaseReference databaseReference = database.getReference("Profiles/" + userID + "/Comments/");
+                    Comment new_comment = new Comment();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = new Date();
+                    new_comment.setComment_date(dateFormat.format(date));
+                    new_comment.setComment_text(input.getText().toString());
+                    databaseReference.push().setValue(new_comment);
+                }
             });
             alert.setNegativeButton("Cancel", (dialog, whichButton) -> {
             });
@@ -117,7 +119,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
 
         DatabaseReference databaseReference = database.getReference("Profiles/"+userID+"/Comments/");
 
-        all_comments_list = new ArrayList<Comment>();
+        all_comments_list = new ArrayList<>();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
