@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sinprl.fetchit.R;
-import com.sinprl.fetchit.data.DataEntry;
+import com.sinprl.fetchit.data.Porfile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.util.List;
@@ -19,10 +19,10 @@ public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHo
 
     private final Context context;
     private final LayoutInflater layoutInflater;
-    private final List<DataEntry> data_entries;
+    private final List<Porfile> data_entries;
     private final OnItemClickListener mOnItemClickListener;
 
-    public DataListAdaptor(Context mContext, List<DataEntry> data_entries, OnItemClickListener mOnItemClickListener){
+    public DataListAdaptor(Context mContext, List<Porfile> data_entries, OnItemClickListener mOnItemClickListener){
         this.context = mContext;
         layoutInflater = LayoutInflater.from(mContext);
         this.data_entries = data_entries;
@@ -40,12 +40,12 @@ public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull DataListAdaptor.ViewHolder holder, int position) {
-        DataEntry dataEntry = data_entries.get(position);
-        holder.user_name.setText(dataEntry.getName());
-        holder.user_mobile.setText(dataEntry.getMobile());
-        holder.user_status.setText(dataEntry.getStatus());
-        holder.created_date.setText(dataEntry.getEntry_date());
-        switch (dataEntry.getStatus()){
+        Porfile profile = data_entries.get(position);
+        holder.user_name.setText(profile.getName());
+        holder.user_mobile.setText(profile.getMobile());
+        holder.user_status.setText(profile.getStatus());
+        holder.created_date.setText(profile.getEntry_date());
+        switch (profile.getStatus()){
             case "NEW": holder.user_status.setBackground(context.getDrawable(R.color.status_new));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
@@ -62,9 +62,6 @@ public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHo
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
         }
-//        holder.user_address.setText(dataEntry.getAddress());
-//        holder.type_of_product.setText(dataEntry.getTypeofproduct());
-//        holder.choice_of_bank.setText(dataEntry.getChoiceofbank());
         holder.itemView.setOnClickListener(view -> mOnItemClickListener.onItemClick(view, position));
     }
 
@@ -79,9 +76,6 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
     public final TextView user_mobile;
     public final TextView user_status;
     public final TextView created_date;
-//    public final TextView user_address;
-//    public final TextView type_of_product;
-//    public final TextView choice_of_bank;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -89,9 +83,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
         user_mobile =  itemView.findViewById(R.id.text_item_data_mobile);
         user_status =  itemView.findViewById(R.id.text_item_data_status);
         created_date =  itemView.findViewById(R.id.text_item_data_createddate);
-//        user_address =  itemView.findViewById(R.id.text_item_data_address);
-//        type_of_product =  itemView.findViewById(R.id.text_item_data_type_of_product);
-//        choice_of_bank =  itemView.findViewById(R.id.text_item_data_choice_of_bank);
+
     }
 }
 }

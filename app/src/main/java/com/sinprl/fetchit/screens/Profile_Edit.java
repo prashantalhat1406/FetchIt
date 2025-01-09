@@ -1,6 +1,5 @@
 package com.sinprl.fetchit.screens;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,11 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
-import com.sinprl.fetchit.data.DataEntry;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.sinprl.fetchit.data.Porfile;
 
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
@@ -138,14 +133,14 @@ public class Profile_Edit extends AppCompatActivity {
         userreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DataEntry dataEntry = snapshot.getValue(DataEntry.class);
-                dataEntry.setId(snapshot.getKey());
-                user_name.setText(dataEntry.getName());
-                user_mobile.setText(dataEntry.getMobile());
-                user_address.setText(dataEntry.getAddress());
-                user_amount.setText(dataEntry.getAmount());
-                choice_of_bank.setSelection(bank_adaptor.getPosition(dataEntry.getChoiceofbank()));
-                type_of_product.setSelection(product_adaptor.getPosition(dataEntry.getTypeofproduct()));
+                Porfile profile = snapshot.getValue(Porfile.class);
+                profile.setId(snapshot.getKey());
+                user_name.setText(profile.getName());
+                user_mobile.setText(profile.getMobile());
+                user_address.setText(profile.getAddress());
+                user_amount.setText(profile.getAmount());
+                choice_of_bank.setSelection(bank_adaptor.getPosition(profile.getChoiceofbank()));
+                type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
             }
 
             @Override

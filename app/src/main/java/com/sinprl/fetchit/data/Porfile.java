@@ -1,6 +1,6 @@
 package com.sinprl.fetchit.data;
 
-public class DataEntry {
+public class Porfile {
     public String id;
     public String name;
     public String address;
@@ -11,7 +11,7 @@ public class DataEntry {
     public String status;
     public String entry_date;
 
-    public DataEntry() {
+    public Porfile() {
     }
 
     public String getId() {

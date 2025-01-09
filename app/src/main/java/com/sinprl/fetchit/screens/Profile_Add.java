@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Comment;
-import com.sinprl.fetchit.data.DataEntry;
+import com.sinprl.fetchit.data.Porfile;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -90,18 +90,18 @@ public class Profile_Add extends AppCompatActivity {
             DatabaseReference rootRef = database.getReference();
             String uniqueKey = rootRef.child("Profiles").push().getKey();
             DatabaseReference databaseReference = database.getReference("Profiles/");
-            DataEntry new_data_entry = new DataEntry();
-            new_data_entry.setName(user_name.getText().toString());
-            new_data_entry.setAddress(user_address.getText().toString());
-            new_data_entry.setMobile(user_mobile.getText().toString());
-            new_data_entry.setTypeofproduct(type_of_product.getSelectedItem().toString());
-            new_data_entry.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
-            new_data_entry.setAmount(user_amount.getText().toString());
-            new_data_entry.setStatus("NEW");
+            Porfile new_profile = new Porfile();
+            new_profile.setName(user_name.getText().toString());
+            new_profile.setAddress(user_address.getText().toString());
+            new_profile.setMobile(user_mobile.getText().toString());
+            new_profile.setTypeofproduct(type_of_product.getSelectedItem().toString());
+            new_profile.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
+            new_profile.setAmount(user_amount.getText().toString());
+            new_profile.setStatus("NEW");
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
-            new_data_entry.setEntry_date(dateFormat.format(date));
-            databaseReference.child(uniqueKey).setValue(new_data_entry);
+            new_profile.setEntry_date(dateFormat.format(date));
+            databaseReference.child(uniqueKey).setValue(new_profile);
 
             DatabaseReference comment_ref = database.getReference("Profiles/"+uniqueKey+"/Comments/");
             Comment new_comment = new Comment();

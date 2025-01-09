@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.CommentAdaptor;
 import com.sinprl.fetchit.data.Comment;
-import com.sinprl.fetchit.data.DataEntry;
+import com.sinprl.fetchit.data.Porfile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.text.DateFormat;
@@ -144,15 +144,15 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         userreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DataEntry dataEntry = snapshot.getValue(DataEntry.class);
-                dataEntry.setId(snapshot.getKey());
-                user_name.setText(dataEntry.getName());
-                user_mobile.setText(dataEntry.getMobile());
-                user_address.setText(dataEntry.getAddress());
-                user_amount.setText(dataEntry.getAmount());
-                choice_of_bank.setText(dataEntry.getChoiceofbank());
-                type_of_product.setText(dataEntry.getTypeofproduct());
-                update_status(dataEntry.getStatus());
+                Porfile profile = snapshot.getValue(Porfile.class);
+                profile.setId(snapshot.getKey());
+                user_name.setText(profile.getName());
+                user_mobile.setText(profile.getMobile());
+                user_address.setText(profile.getAddress());
+                user_amount.setText(profile.getAmount());
+                choice_of_bank.setText(profile.getChoiceofbank());
+                type_of_product.setText(profile.getTypeofproduct());
+                update_status(profile.getStatus());
 
             }
 

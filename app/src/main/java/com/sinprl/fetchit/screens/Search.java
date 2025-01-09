@@ -3,10 +3,7 @@ package com.sinprl.fetchit.screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -24,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.DataListAdaptor;
-import com.sinprl.fetchit.data.DataEntry;
+import com.sinprl.fetchit.data.Porfile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ import java.util.List;
 
 public class Search extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
-    List<DataEntry> all_data_entries;
+    List<Porfile> all_data_entries;
     RecyclerView data_recycle_view;
 
     @Override
@@ -47,13 +44,10 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
         });
 
         Button button_home = findViewById(R.id.button_search_home);
-        button_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent search_screen = new Intent(Search.this, Home.class);
-                startActivity(search_screen);
-            }
+        button_home.setOnClickListener(v -> {
+            finish();
+            Intent search_screen = new Intent(Search.this, Home.class);
+            startActivity(search_screen);
         });
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -72,17 +66,15 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
         data_recycle_view.setLayoutManager(data_entry_layoutmanager);
 
         DatabaseReference databaseReference = database.getReference("Profiles/");
-
-        all_data_entries = new ArrayList<DataEntry>();
-
+        all_data_entries = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 all_data_entries.clear();
                 for (DataSnapshot s:snapshot.getChildren()) {
-                    DataEntry dataEntry = s.getValue(DataEntry.class);
-                    dataEntry.setId(s.getKey());
-                    all_data_entries.add(dataEntry);
+                    Porfile profile = s.getValue(Porfile.class);
+                    profile.setId(s.getKey());
+                    all_data_entries.add(profile);
                 }
                 DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, all_data_entries, Search.this);
                 data_recycle_view.setAdapter(dataListAdaptor);
