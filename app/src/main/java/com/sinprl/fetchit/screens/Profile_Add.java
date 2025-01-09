@@ -1,9 +1,7 @@
 package com.sinprl.fetchit.screens;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +25,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Profile extends AppCompatActivity {
+public class Profile_Add extends AppCompatActivity {
 
     FirebaseDatabase database;
     EditText user_name, user_address, user_mobile, user_amount;
@@ -37,7 +35,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile_add);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -73,7 +71,7 @@ public class Profile extends AppCompatActivity {
         button_save.setOnClickListener(v -> {
             if (save_profile_data_to_database()) {
                 finish();
-                Intent home_screen = new Intent(Profile.this, Home.class);
+                Intent home_screen = new Intent(Profile_Add.this, Home.class);
                 startActivity(home_screen);
             }
         });
@@ -81,7 +79,7 @@ public class Profile extends AppCompatActivity {
         Button button_cancel = findViewById(R.id.button_profile_cancel);
         button_cancel.setOnClickListener(v -> {
             finish();
-            Intent home_screen = new Intent(Profile.this, Home.class);
+            Intent home_screen = new Intent(Profile_Add.this, Home.class);
             startActivity(home_screen);
         });
 
@@ -89,6 +87,8 @@ public class Profile extends AppCompatActivity {
 
     private boolean save_profile_data_to_database() {
         if(valid_input()) {
+            DatabaseReference rootRef = database.getReference();
+            String uniqueKey = rootRef.child("Profiles").push().getKey();
             DatabaseReference databaseReference = database.getReference("Profiles/");
             DataEntry new_data_entry = new DataEntry();
             new_data_entry.setName(user_name.getText().toString());
@@ -101,7 +101,14 @@ public class Profile extends AppCompatActivity {
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             new_data_entry.setEntry_date(dateFormat.format(date));
-            databaseReference.push().setValue(new_data_entry);
+            databaseReference.child(uniqueKey).setValue(new_data_entry);
+
+            DatabaseReference comment_ref = database.getReference("Profiles/"+uniqueKey+"/Comments/");
+            Comment new_comment = new Comment();
+            new_comment.setComment_date(dateFormat.format(date));
+            new_comment.setComment_text("NEW entry created");
+            comment_ref.push().setValue(new_comment);
+
             return true;
         }
         else

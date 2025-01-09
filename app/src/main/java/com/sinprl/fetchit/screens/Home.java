@@ -31,7 +31,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent profile_screen = new Intent(Home.this, Profile.class);
+                Intent profile_screen = new Intent(Home.this, Profile_Add.class);
                 startActivity(profile_screen);
             }
         });

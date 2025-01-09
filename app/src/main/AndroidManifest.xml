@@ -22,7 +22,7 @@
             android:name=".screens.Search"
             android:exported="false" />
         <activity
-            android:name=".screens.Profile"
+            android:name=".screens.Profile_Add"
             android:exported="false" />
         <activity
             android:name=".screens.Home"
