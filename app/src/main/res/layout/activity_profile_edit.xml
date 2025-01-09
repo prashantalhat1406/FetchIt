@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.Profile">
+    tools:context=".screens.Profile_Edit">
 
-    <include layout="@layout/content_profile_add" />
+    <include layout="@layout/content_profile_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

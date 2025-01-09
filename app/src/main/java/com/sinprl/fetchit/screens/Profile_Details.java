@@ -1,13 +1,11 @@
 package com.sinprl.fetchit.screens;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -24,11 +22,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.CommentAdaptor;
-import com.sinprl.fetchit.adaptor.DataListAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.DataEntry;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
@@ -85,6 +81,14 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
 //            startActivity(home_screen);
         });
 
+        Button button_edit = findViewById(R.id.button_profile_details_edit);
+        button_edit.setOnClickListener(v -> {
+            finish();
+            Intent intent = new Intent(Profile_Details.this, Profile_Edit.class);
+            intent.putExtra("userID", userID);
+            startActivity(intent);
+        });
+
         add_comment = findViewById(R.id.button_profile_details_addcomment);
         add_comment.setOnClickListener(v -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -126,7 +130,6 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 CommentAdaptor commentAdaptor = new CommentAdaptor(Profile_Details.this, all_comments_list, Profile_Details.this);
                 comments_recyclerview.setAdapter(commentAdaptor);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

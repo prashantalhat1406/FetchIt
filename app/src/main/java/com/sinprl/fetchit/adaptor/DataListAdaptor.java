@@ -44,6 +44,7 @@ public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHo
         holder.user_name.setText(dataEntry.getName());
         holder.user_mobile.setText(dataEntry.getMobile());
         holder.user_status.setText(dataEntry.getStatus());
+        holder.created_date.setText(dataEntry.getEntry_date());
         switch (dataEntry.getStatus()){
             case "NEW": holder.user_status.setBackground(context.getDrawable(R.color.status_new));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
@@ -77,6 +78,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
     public final TextView user_name;
     public final TextView user_mobile;
     public final TextView user_status;
+    public final TextView created_date;
 //    public final TextView user_address;
 //    public final TextView type_of_product;
 //    public final TextView choice_of_bank;
@@ -86,6 +88,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
         user_name =  itemView.findViewById(R.id.text_item_data_name);
         user_mobile =  itemView.findViewById(R.id.text_item_data_mobile);
         user_status =  itemView.findViewById(R.id.text_item_data_status);
+        created_date =  itemView.findViewById(R.id.text_item_data_createddate);
 //        user_address =  itemView.findViewById(R.id.text_item_data_address);
 //        type_of_product =  itemView.findViewById(R.id.text_item_data_type_of_product);
 //        choice_of_bank =  itemView.findViewById(R.id.text_item_data_choice_of_bank);
