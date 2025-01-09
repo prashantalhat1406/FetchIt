@@ -20,6 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
+import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.DataEntry;
 
 import java.text.DateFormat;
