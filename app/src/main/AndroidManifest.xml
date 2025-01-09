@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FetchIt"
         tools:targetApi="31">
         <activity
+            android:name=".screens.Profile_Details"
+            android:exported="false" />
+        <activity
             android:name=".screens.Search"
             android:exported="false" />
         <activity
