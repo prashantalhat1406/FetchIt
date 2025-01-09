@@ -195,6 +195,38 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/profile_amount"
+                android:textSize="@dimen/textLabels"
+                android:layout_weight="0.75"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                />
+            <EditText
+                android:background="@drawable/edittextbox"
+                android:id="@+id/text_user_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:textSize="@dimen/textLabels"
+                android:hint="@string/profile_amount"
+                android:visibility="visible"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

@@ -22,10 +22,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.DataEntry;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Profile extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText user_name, user_address, user_mobile;
+    EditText user_name, user_address, user_mobile, user_amount;
     Spinner type_of_product, choice_of_bank;
 
     @Override
@@ -44,6 +48,7 @@ public class Profile extends AppCompatActivity {
         user_name = findViewById(R.id.text_user_name);
         user_address = findViewById(R.id.text_user_address);
         user_mobile = findViewById(R.id.text_user_mobile);
+        user_amount = findViewById(R.id.text_user_amount);
 
         type_of_product = findViewById(R.id.spinner_type_of_product);
         ArrayAdapter<CharSequence> product_adaptor = ArrayAdapter.createFromResource(
@@ -90,6 +95,11 @@ public class Profile extends AppCompatActivity {
             new_data_entry.setMobile(user_mobile.getText().toString());
             new_data_entry.setTypeofproduct(type_of_product.getSelectedItem().toString());
             new_data_entry.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
+            new_data_entry.setAmount(user_amount.getText().toString());
+            new_data_entry.setStatus("New");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            new_data_entry.setEntry_date(dateFormat.format(date));
             databaseReference.push().setValue(new_data_entry);
             return true;
         }
@@ -120,6 +130,10 @@ public class Profile extends AppCompatActivity {
         }
         if (choice_of_bank.getSelectedItem().toString().equals("Select Bank")){
             ((TextView) choice_of_bank.getSelectedView()).setError("Select Bank Name");
+            return false;
+        }
+        if (user_amount.getText().toString().isEmpty()){
+            user_amount.setError("Amount is mandatory");
             return false;
         }
 

@@ -6,21 +6,11 @@ public class DataEntry {
     public String mobile;
     public String typeofproduct;
     public String choiceofbank;
+    public String amount;
+    public String status;
+    public String entry_date;
 
     public DataEntry() {
-    }
-
-    public DataEntry(String name, String address) {
-        this.name = name;
-        this.address = address;
-    }
-
-    public DataEntry(String name, String address, String mobile, String typeofproduct, String choiceofbank) {
-        this.name = name;
-        this.address = address;
-        this.mobile = mobile;
-        this.typeofproduct = typeofproduct;
-        this.choiceofbank = choiceofbank;
     }
 
     public String getName() {
@@ -39,9 +29,7 @@ public class DataEntry {
         this.address = address;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
+    public String getMobile() { return mobile; }
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
@@ -61,5 +49,29 @@ public class DataEntry {
 
     public void setChoiceofbank(String choiceofbank) {
         this.choiceofbank = choiceofbank;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEntry_date() {
+        return entry_date;
+    }
+
+    public void setEntry_date(String entry_date) {
+        this.entry_date = entry_date;
     }
 }
