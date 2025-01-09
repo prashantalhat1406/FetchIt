@@ -69,4 +69,11 @@
         <item>ICICI Bank</item>
         <item>Axis Bank</item>
     </string-array>
+    <string-array name="status">
+        <item>NEW</item>
+        <item>KYC</item>
+        <item>LOG</item>
+        <item>SAN</item>
+        <item>DIS</item>
+    </string-array>
 </resources>

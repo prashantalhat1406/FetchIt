@@ -96,7 +96,7 @@ public class Profile extends AppCompatActivity {
             new_data_entry.setTypeofproduct(type_of_product.getSelectedItem().toString());
             new_data_entry.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
             new_data_entry.setAmount(user_amount.getText().toString());
-            new_data_entry.setStatus("New");
+            new_data_entry.setStatus("NEW");
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             new_data_entry.setEntry_date(dateFormat.format(date));
