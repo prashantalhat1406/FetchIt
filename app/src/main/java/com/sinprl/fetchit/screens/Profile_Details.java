@@ -30,6 +30,8 @@ import com.sinprl.fetchit.data.Porfile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -149,7 +151,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_name.setText(profile.getName());
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(profile.getAddress());
-                user_amount.setText(profile.getAmount());
+                DecimalFormat df = new DecimalFormat("##,##,##,###");
+                user_amount.setText(getResources().getString(R.string.rupee) + " " + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
                 type_of_product.setText(profile.getTypeofproduct());
                 update_status(profile.getStatus());
@@ -183,18 +186,28 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 break;
             case "KYC": user_status.setBackground(getDrawable(R.color.status_kyc));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 break;
             case "LOG": user_status.setBackground(getDrawable(R.color.status_log));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 break;
             case "SAN": user_status.setBackground(getDrawable(R.color.status_san));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 break;
             case "DIS": user_status.setBackground(getDrawable(R.color.status_dis));
                 user_status.setTextColor(getResources().getColor(R.color.white));
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
+                circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
                 break;
         }

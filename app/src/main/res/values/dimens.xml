@@ -1,5 +1,7 @@
 <resources>
+
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="textLabelsSmall">14sp</dimen>
     <dimen name="textLabels">16sp</dimen>
     <dimen name="list_name_size">22sp</dimen>
     <dimen name="list_mobile_size">18sp</dimen>

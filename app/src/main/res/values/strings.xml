@@ -80,4 +80,5 @@
         <item>SAN</item>
         <item>DIS</item>
     </string-array>
+    <string name="rupee">\u20B9</string>
 </resources>
