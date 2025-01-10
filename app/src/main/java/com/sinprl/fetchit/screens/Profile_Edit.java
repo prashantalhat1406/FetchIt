@@ -19,11 +19,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
+import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Porfile;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
-    String userID;
+    String userID, old_status;
     TextView user_name, user_mobile, user_address, user_amount;
     Spinner choice_of_bank, type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
@@ -99,6 +104,18 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("choiceofbank").setValue(choice_of_bank.getSelectedItem().toString());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
             userreference.child("status").setValue(user_status.getSelectedItem().toString());
+
+            String new_status = user_status.getSelectedItem().toString();
+            if (!new_status.equals(old_status)){
+                DatabaseReference comment_ref = database.getReference("Profiles/"+userID+"/Comments/");
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                Comment new_comment = new Comment();
+                new_comment.setComment_date(dateFormat.format(date));
+                new_comment.setComment_text("Status changed to: " + new_status);
+                comment_ref.push().setValue(new_comment);
+            }
+
             return true;
         }
         else
@@ -151,7 +168,9 @@ public class Profile_Edit extends AppCompatActivity {
                 user_amount.setText(profile.getAmount());
                 choice_of_bank.setSelection(bank_adaptor.getPosition(profile.getChoiceofbank()));
                 type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
-                user_status.setSelection(status_adaptor.getPosition(profile.getStatus()));
+                old_status = profile.getStatus();
+                user_status.setSelection(status_adaptor.getPosition(old_status));
+
             }
 
             @Override
