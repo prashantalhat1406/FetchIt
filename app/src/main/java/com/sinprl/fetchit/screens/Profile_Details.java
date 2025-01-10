@@ -153,7 +153,6 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 choice_of_bank.setText(profile.getChoiceofbank());
                 type_of_product.setText(profile.getTypeofproduct());
                 update_status(profile.getStatus());
-
             }
 
             @Override
@@ -164,22 +163,39 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
     }
 
     private void update_status(String status) {
+        TextView circle1 = findViewById(R.id.circle_1);
+        TextView circle2 = findViewById(R.id.circle_2);
+        TextView circle3 = findViewById(R.id.circle_3);
+        TextView circle4 = findViewById(R.id.circle_4);
+        TextView circle5 = findViewById(R.id.circle_5);
+
+        circle1.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle2.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle3.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle4.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle5.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+
         user_status.setText(status);
         switch (status){
             case "NEW": user_status.setBackground(getResources().getDrawable(R.color.status_new));
                 user_status.setTextColor(getResources().getColor(R.color.white));
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 break;
             case "KYC": user_status.setBackground(getDrawable(R.color.status_kyc));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 break;
             case "LOG": user_status.setBackground(getDrawable(R.color.status_log));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 break;
             case "SAN": user_status.setBackground(getDrawable(R.color.status_san));
                 user_status.setTextColor(getResources().getColor(R.color.black));
+                circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 break;
             case "DIS": user_status.setBackground(getDrawable(R.color.status_dis));
                 user_status.setTextColor(getResources().getColor(R.color.white));
+                circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
                 break;
         }
     }
