@@ -227,6 +227,38 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/profile_status"
+                android:textSize="@dimen/textLabels"
+                android:layout_weight="0.6"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                />
+            <Spinner
+                android:background="@drawable/edittextbox"
+                android:id="@+id/spinner_edit_user_status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:padding="10dp"
+                android:maxLength="50"
+                android:textSize="@dimen/textLabels"
+                android:hint="@string/profile_status"
+                android:visibility="visible"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

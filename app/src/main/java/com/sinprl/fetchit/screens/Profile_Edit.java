@@ -25,8 +25,8 @@ public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
     String userID;
     TextView user_name, user_mobile, user_address, user_amount;
-    Spinner choice_of_bank, type_of_product;
-    ArrayAdapter<CharSequence> product_adaptor, bank_adaptor;
+    Spinner choice_of_bank, type_of_product, user_status;
+    ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,15 @@ public class Profile_Edit extends AppCompatActivity {
         product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type_of_product.setAdapter(product_adaptor);
 
+        user_status = findViewById(R.id.spinner_edit_user_status);
+        status_adaptor = ArrayAdapter.createFromResource(
+                this,
+                R.array.status,
+                android.R.layout.simple_spinner_item
+        );
+        status_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        user_status.setAdapter(status_adaptor);
+
         populate_userinformation();
 
         Button button_save = findViewById(R.id.button_profile_edit_save);
@@ -89,6 +98,7 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("amount").setValue(user_amount.getText().toString());
             userreference.child("choiceofbank").setValue(choice_of_bank.getSelectedItem().toString());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
+            userreference.child("status").setValue(user_status.getSelectedItem().toString());
             return true;
         }
         else
@@ -141,6 +151,7 @@ public class Profile_Edit extends AppCompatActivity {
                 user_amount.setText(profile.getAmount());
                 choice_of_bank.setSelection(bank_adaptor.getPosition(profile.getChoiceofbank()));
                 type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
+                user_status.setSelection(status_adaptor.getPosition(profile.getStatus()));
             }
 
             @Override
