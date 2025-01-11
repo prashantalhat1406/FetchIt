@@ -25,6 +25,7 @@ import com.sinprl.fetchit.data.Porfile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Search extends AppCompatActivity implements OnItemClickListener {
@@ -76,6 +77,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
                     profile.setId(s.getKey());
                     all_data_entries.add(profile);
                 }
+                Collections.reverse(all_data_entries);
                 DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, all_data_entries, Search.this);
                 data_recycle_view.setAdapter(dataListAdaptor);
             }
