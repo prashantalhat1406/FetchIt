@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -30,17 +28,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
-import com.sinprl.fetchit.adaptor.DataListAdaptor;
-import com.sinprl.fetchit.data.Porfile;
+import com.sinprl.fetchit.adaptor.ProfileListAdaptor;
+import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Search extends AppCompatActivity implements OnItemClickListener {
+public class Profile_Display extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
-    List<Porfile> all_data_entries;
+    List<Profile> all_profiles;
     RecyclerView data_recycle_view;
     EditText search_user;
 
@@ -48,7 +46,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_profile_display);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -58,7 +56,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
         Button button_home = findViewById(R.id.button_search_home);
         button_home.setOnClickListener(v -> {
             finish();
-            Intent search_screen = new Intent(Search.this, Home.class);
+            Intent search_screen = new Intent(Profile_Display.this, Home.class);
             startActivity(search_screen);
         });
 
@@ -95,12 +93,12 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 search_user.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_clear, 0);
-                List<Porfile> tempList = new ArrayList<>();
+                List<Profile> tempList = new ArrayList<>();
                 if (search_user.getText().length() == 0)
-                    tempList = all_data_entries;
+                    tempList = all_profiles;
                 else {
                     tempList.clear();
-                    for (Porfile profile : all_data_entries) {
+                    for (Profile profile : all_profiles) {
                         try {
                             if (profile.getName().toUpperCase().contains(search_user.getText().toString().trim().toUpperCase()))
                                 tempList.add(profile);
@@ -109,8 +107,8 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
                         }
                     }
                 }
-                DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, tempList, Search.this);
-                data_recycle_view.setAdapter(dataListAdaptor);
+                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, tempList, Profile_Display.this);
+                data_recycle_view.setAdapter(profileListAdaptor);
             }
             @Override
             public void afterTextChanged(Editable s) {           }
@@ -129,19 +127,19 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
         data_recycle_view.setLayoutManager(data_entry_layoutmanager);
 
         DatabaseReference databaseReference = database.getReference("Profiles/");
-        all_data_entries = new ArrayList<>();
+        all_profiles = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                all_data_entries.clear();
+                all_profiles.clear();
                 for (DataSnapshot s:snapshot.getChildren()) {
-                    Porfile profile = s.getValue(Porfile.class);
+                    Profile profile = s.getValue(Profile.class);
                     profile.setId(s.getKey());
-                    all_data_entries.add(profile);
+                    all_profiles.add(profile);
                 }
-                Collections.reverse(all_data_entries);
-                DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, all_data_entries, Search.this);
-                data_recycle_view.setAdapter(dataListAdaptor);
+                Collections.reverse(all_profiles);
+                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);
+                data_recycle_view.setAdapter(profileListAdaptor);
             }
 
             @Override
@@ -156,7 +154,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(view.getContext(), Profile_Details.class);
-        intent.putExtra("userID", all_data_entries.get(position).getId());
+        intent.putExtra("userID", all_profiles.get(position).getId());
         startActivity(intent);
     }
 }

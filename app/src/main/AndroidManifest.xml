@@ -19,7 +19,7 @@
             android:name=".screens.Profile_Details"
             android:exported="false" />
         <activity
-            android:name=".screens.Search"
+            android:name=".screens.Profile_Display"
             android:exported="false" />
         <activity
             android:name=".screens.Profile_Add"

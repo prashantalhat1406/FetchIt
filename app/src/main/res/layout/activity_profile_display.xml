@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.Search">
+    tools:context=".screens.Profile_Display">
 
-    <include layout="@layout/content_search" />
+    <include layout="@layout/content_profile_display" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

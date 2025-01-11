@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sinprl.fetchit.R;
-import com.sinprl.fetchit.data.Porfile;
+import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.util.List;
 
-public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHolder> {
+public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.ViewHolder> {
 
     private final Context context;
     private final LayoutInflater layoutInflater;
-    private final List<Porfile> data_entries;
+    private final List<Profile> data_entries;
     private final OnItemClickListener mOnItemClickListener;
 
-    public DataListAdaptor(Context mContext, List<Porfile> data_entries, OnItemClickListener mOnItemClickListener){
+    public ProfileListAdaptor(Context mContext, List<Profile> data_entries, OnItemClickListener mOnItemClickListener){
         this.context = mContext;
         layoutInflater = LayoutInflater.from(mContext);
         this.data_entries = data_entries;
@@ -33,14 +33,14 @@ public class DataListAdaptor extends RecyclerView.Adapter<DataListAdaptor.ViewHo
 
     @NonNull
     @Override
-    public DataListAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = layoutInflater.inflate(R.layout.item_data_entry, parent, false);
+    public ProfileListAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = layoutInflater.inflate(R.layout.item_profile_card, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DataListAdaptor.ViewHolder holder, int position) {
-        Porfile profile = data_entries.get(position);
+    public void onBindViewHolder(@NonNull ProfileListAdaptor.ViewHolder holder, int position) {
+        Profile profile = data_entries.get(position);
         holder.user_name.setText(profile.getName());
         holder.user_mobile.setText(profile.getMobile());
         holder.user_status.setText(profile.getStatus());

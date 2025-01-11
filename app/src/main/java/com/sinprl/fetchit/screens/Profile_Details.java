@@ -27,12 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.CommentAdaptor;
 import com.sinprl.fetchit.data.Comment;
-import com.sinprl.fetchit.data.Porfile;
+import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -98,7 +97,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             alert.setTitle("Add Comment here");
 //            final EditText input = new EditText(this);
 //            alert.setView(input);
-            final View customLayout = getLayoutInflater().inflate(R.layout.comment_view, null);
+            final View customLayout = getLayoutInflater().inflate(R.layout.add_comment, null);
             CheckBox important = customLayout.findViewById(R.id.checkbox_comment_important);
             EditText comment_text = customLayout.findViewById(R.id.text_comment_text);
             alert.setView(customLayout);
@@ -155,7 +154,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         userreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Porfile profile = snapshot.getValue(Porfile.class);
+                Profile profile = snapshot.getValue(Profile.class);
                 profile.setId(snapshot.getKey());
                 user_name.setText(profile.getName());
                 user_mobile.setText(profile.getMobile());

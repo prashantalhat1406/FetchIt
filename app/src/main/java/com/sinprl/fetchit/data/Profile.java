@@ -1,6 +1,6 @@
 package com.sinprl.fetchit.data;
 
-public class Porfile {
+public class Profile {
     public String id;
     public String name;
     public String address;
@@ -12,7 +12,7 @@ public class Porfile {
     public String entry_date;
     public String code;
 
-    public Porfile() {
+    public Profile() {
     }
 
     public String getId() {

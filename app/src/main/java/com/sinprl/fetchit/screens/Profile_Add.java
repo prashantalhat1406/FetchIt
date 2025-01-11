@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Comment;
-import com.sinprl.fetchit.data.Porfile;
+import com.sinprl.fetchit.data.Profile;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -83,7 +83,7 @@ public class Profile_Add extends AppCompatActivity {
             DatabaseReference rootRef = database.getReference();
             String uniqueKey = rootRef.child("Profiles").push().getKey();
             DatabaseReference databaseReference = database.getReference("Profiles/");
-            Porfile new_profile = new Porfile();
+            Profile new_profile = new Profile();
             new_profile.setName(user_name.getText().toString());
             new_profile.setAddress(user_address.getText().toString());
             new_profile.setMobile(user_mobile.getText().toString());

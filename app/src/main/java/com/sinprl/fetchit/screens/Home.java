@@ -41,7 +41,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent search_screen = new Intent(Home.this, Search.class);
+                Intent search_screen = new Intent(Home.this, Profile_Display.class);
                 startActivity(search_screen);
             }
         });

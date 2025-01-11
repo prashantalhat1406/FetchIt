@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Comment;
-import com.sinprl.fetchit.data.Porfile;
+import com.sinprl.fetchit.data.Profile;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -163,7 +163,7 @@ public class Profile_Edit extends AppCompatActivity {
         userreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Porfile profile = snapshot.getValue(Porfile.class);
+                Profile profile = snapshot.getValue(Profile.class);
                 profile.setId(snapshot.getKey());
                 user_name.setText(profile.getName());
                 user_mobile.setText(profile.getMobile());
