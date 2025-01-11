@@ -6,6 +6,7 @@
     <string name="home_button_text">HOME</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="search_name">Type User Name to search...</string>
     <string name="profile_name">Name</string>
     <string name="profile_mobile">Mobile</string>
     <string name="profile_Address">Address</string>

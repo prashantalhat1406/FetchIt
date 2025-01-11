@@ -1,9 +1,19 @@
 package com.sinprl.fetchit.screens;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -32,6 +42,7 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
     List<Porfile> all_data_entries;
     RecyclerView data_recycle_view;
+    EditText search_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +65,57 @@ public class Search extends AppCompatActivity implements OnItemClickListener {
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
         data_recycle_view = findViewById(R.id.list_data);
         populate_data();
+        search_user = findViewById(R.id.text_search_user_name);
+
+        search_user.setOnTouchListener((v, event) -> {
+            if (search_user.getText().length() > 0){
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (search_user.getRight() - search_user.getCompoundDrawables()[2].getBounds().width())) {
+                        search_user.setText("");
+                        search_user.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                        return true;
+                    }
+                }}
+            return false;
+        });
+
+        search_user.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                search_user.clearFocus();
+                return true;
+            }
+            return false;
+        });
+
+        search_user.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                search_user.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_clear, 0);
+                List<Porfile> tempList = new ArrayList<>();
+                if (search_user.getText().length() == 0)
+                    tempList = all_data_entries;
+                else {
+                    tempList.clear();
+                    for (Porfile profile : all_data_entries) {
+                        try {
+                            if (profile.getName().toUpperCase().contains(search_user.getText().toString().trim().toUpperCase()))
+                                tempList.add(profile);
+                        }catch (Exception e) {
+                            Log.d("searchProfile", e.getMessage());
+                        }
+                    }
+                }
+                DataListAdaptor dataListAdaptor = new DataListAdaptor(Search.this, tempList, Search.this);
+                data_recycle_view.setAdapter(dataListAdaptor);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {           }
+        });
+
 
 
 

@@ -7,18 +7,39 @@
     android:background="#ffffff"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
+        <EditText
+            android:background="@drawable/edittextbox"
+            android:id="@+id/text_search_user_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.95"
+            android:padding="10dp"
+            android:maxLength="50"
+            android:textSize="@dimen/textLabels"
+            android:hint="@string/search_name"
+            android:autofillHints="name"
+            android:visibility="visible"
+            android:inputType="text"
+            android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
+            />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_data"
-        android:layout_weight="0.07"
+        android:layout_weight="0.15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         tools:listitem="@layout/item_data_entry" />
-
 
     <Button
         android:layout_weight="0.95"
@@ -29,6 +50,7 @@
         android:text="@string/home_button_text"
         android:layout_gravity="center"
         android:textSize="@dimen/textLabels"
+        android:layout_margin="5dp"
         />
 
 </LinearLayout>
