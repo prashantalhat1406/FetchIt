@@ -62,9 +62,15 @@
     <string name="add_comment">ADD</string>
     <string-array name="type_of_products">
         <item>Type Of Products</item>
-        <item>Car Loan</item>
         <item>Home Loan</item>
+        <item>LAP - Mortgage Loan</item>
+        <item>Construction Loan</item>
+        <item>Car Loan - New</item>
+        <item>Car Loan - Used</item>
+        <item>Car Loan - ReFinance</item>
+        <item>Gold Loan</item>
         <item>Personal Loan</item>
+        <item>Business Loan</item>
     </string-array>
     <string-array name="choice_of_bank">
         <item>Select Bank</item>
