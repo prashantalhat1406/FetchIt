@@ -100,7 +100,7 @@ public class Profile_Add extends AppCompatActivity {
             DatabaseReference comment_ref = database.getReference("Profiles/"+uniqueKey+"/Comments/");
             Comment new_comment = new Comment();
             new_comment.setComment_date(dateFormat.format(date));
-            new_comment.setComment_text("NEW entry created");
+            new_comment.setComment_text("Status changed to: NEW");
             new_comment.setImportant(Boolean.FALSE);
             comment_ref.push().setValue(new_comment);
 

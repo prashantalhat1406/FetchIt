@@ -110,6 +110,7 @@ public class Profile_Edit extends AppCompatActivity {
                 Comment new_comment = new Comment();
                 new_comment.setComment_date(dateFormat.format(date));
                 new_comment.setComment_text("Status changed to: " + new_status);
+                new_comment.setImportant(Boolean.FALSE);
                 comment_ref.push().setValue(new_comment);
             }
 

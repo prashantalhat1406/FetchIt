@@ -80,7 +80,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="0.20"
+        android:layout_weight="0.22"
         android:background="@drawable/roundbutton_lightblue"
         android:orientation="vertical"
         android:paddingTop="5dp"
@@ -112,7 +112,7 @@
                 android:id="@+id/text_profile_details_type_of_product"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Home Loan"
+                android:text="LAP - Mortgage Loan"
                 android:textSize="@dimen/list_mobile_size"
                 android:layout_weight="0.75"
                 android:textColor="@color/black"
@@ -241,7 +241,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="0.52"
+        android:layout_weight="0.51"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp">
