@@ -28,7 +28,7 @@ import java.util.Date;
 public class Profile_Add extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText user_name, user_address, user_mobile, user_amount;
+    EditText user_name, user_address, user_mobile, user_amount, user_code;
     Spinner type_of_product, choice_of_bank;
 
     @Override
@@ -48,6 +48,7 @@ public class Profile_Add extends AppCompatActivity {
         user_address = findViewById(R.id.text_user_address);
         user_mobile = findViewById(R.id.text_user_mobile);
         user_amount = findViewById(R.id.text_user_amount);
+        user_code = findViewById(R.id.text_user_code);
 
         type_of_product = findViewById(R.id.spinner_type_of_product);
         ArrayAdapter<CharSequence> product_adaptor = ArrayAdapter.createFromResource(
@@ -97,6 +98,7 @@ public class Profile_Add extends AppCompatActivity {
             new_profile.setTypeofproduct(type_of_product.getSelectedItem().toString());
             new_profile.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
             new_profile.setAmount(user_amount.getText().toString());
+            new_profile.setCode(user_code.getText().toString());
             new_profile.setStatus("NEW");
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
@@ -142,6 +144,10 @@ public class Profile_Add extends AppCompatActivity {
         }
         if (user_amount.getText().toString().isEmpty()){
             user_amount.setError("Amount is mandatory");
+            return false;
+        }
+        if (user_code.getText().toString().isEmpty()){
+            user_code.setError("Code is mandatory");
             return false;
         }
 

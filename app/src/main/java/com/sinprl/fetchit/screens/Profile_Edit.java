@@ -29,7 +29,7 @@ import java.util.Date;
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
     String userID, old_status;
-    TextView user_name, user_mobile, user_address, user_amount;
+    TextView user_name, user_mobile, user_address, user_amount, user_code;
     Spinner choice_of_bank, type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
 
@@ -51,6 +51,7 @@ public class Profile_Edit extends AppCompatActivity {
         user_mobile = findViewById(R.id.text_edit_user_mobile);
         user_address = findViewById(R.id.text_edit_user_address);
         user_amount = findViewById(R.id.text_edit_user_amount);
+        user_code = findViewById(R.id.text_edit_user_code);
         choice_of_bank = findViewById(R.id.spinner_edit_choice_of_bank);
         bank_adaptor = ArrayAdapter.createFromResource(
                 this,
@@ -104,6 +105,7 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("choiceofbank").setValue(choice_of_bank.getSelectedItem().toString());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
             userreference.child("status").setValue(user_status.getSelectedItem().toString());
+            userreference.child("code").setValue(user_code.getText().toString());
 
             String new_status = user_status.getSelectedItem().toString();
             if (!new_status.equals(old_status)){
@@ -151,6 +153,11 @@ public class Profile_Edit extends AppCompatActivity {
             user_amount.setError("Amount is mandatory");
             return false;
         }
+        if (user_code.getText().toString().isEmpty()){
+            user_code.setError("Code is mandatory");
+            return false;
+        }
+
 
         return true;
     }
@@ -166,11 +173,11 @@ public class Profile_Edit extends AppCompatActivity {
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(profile.getAddress());
                 user_amount.setText(profile.getAmount());
+                user_code.setText(profile.getCode());
                 choice_of_bank.setSelection(bank_adaptor.getPosition(profile.getChoiceofbank()));
                 type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
                 old_status = profile.getStatus();
                 user_status.setSelection(status_adaptor.getPosition(old_status));
-
             }
 
             @Override

@@ -10,12 +10,21 @@ public class Porfile {
     public String amount;
     public String status;
     public String entry_date;
+    public String code;
 
     public Porfile() {
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setId(String id) {

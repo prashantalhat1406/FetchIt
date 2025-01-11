@@ -40,7 +40,7 @@ import java.util.List;
 public class Profile_Details extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
     String userID;
-    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status;
+    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code;
     FloatingActionButton add_comment;
     RecyclerView comments_recyclerview;
     List<Comment> all_comments_list;
@@ -69,7 +69,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         user_amount = findViewById(R.id.text_profile_details_amount);
         choice_of_bank = findViewById(R.id.text_profile_details_choice_of_bank);
         type_of_product = findViewById(R.id.text_profile_details_type_of_product);
-        user_status = findViewById(R.id.text_profile_details_status);
+        user_code = findViewById(R.id.text_profile_details_code);
         comments_recyclerview = findViewById(R.id.list_profile_history);
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -151,6 +151,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_name.setText(profile.getName());
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(profile.getAddress());
+                user_code.setText(profile.getCode());
                 DecimalFormat df = new DecimalFormat("##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + " " + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
@@ -178,32 +179,26 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         circle4.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle5.setBackground(getResources().getDrawable(R.drawable.circle_gray));
 
-        user_status.setText(status);
         switch (status){
-            case "NEW": user_status.setBackground(getResources().getDrawable(R.color.status_new));
-                user_status.setTextColor(getResources().getColor(R.color.white));
+            case "NEW":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 break;
-            case "KYC": user_status.setBackground(getDrawable(R.color.status_kyc));
-                user_status.setTextColor(getResources().getColor(R.color.black));
+            case "KYC":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 break;
-            case "LOG": user_status.setBackground(getDrawable(R.color.status_log));
-                user_status.setTextColor(getResources().getColor(R.color.black));
+            case "LOG":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 break;
-            case "SAN": user_status.setBackground(getDrawable(R.color.status_san));
-                user_status.setTextColor(getResources().getColor(R.color.black));
+            case "SAN":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 break;
-            case "DIS": user_status.setBackground(getDrawable(R.color.status_dis));
-                user_status.setTextColor(getResources().getColor(R.color.white));
+            case "DIS":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
