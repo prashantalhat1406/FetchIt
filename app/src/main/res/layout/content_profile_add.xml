@@ -277,12 +277,14 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/square_greyborder"
         android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
 
     <LinearLayout
+        android:background="@drawable/square_greyborder"
         android:layout_weight="0.05"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
