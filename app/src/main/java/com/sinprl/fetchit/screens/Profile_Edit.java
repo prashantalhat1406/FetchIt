@@ -3,6 +3,7 @@ package com.sinprl.fetchit.screens;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -29,8 +30,8 @@ import java.util.Date;
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
     String userID, old_status;
-    TextView user_name, user_mobile, user_address, user_amount, user_code;
-    Spinner choice_of_bank, type_of_product, user_status;
+    EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank;
+    Spinner type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
 
     @Override
@@ -52,14 +53,8 @@ public class Profile_Edit extends AppCompatActivity {
         user_address = findViewById(R.id.text_edit_user_address);
         user_amount = findViewById(R.id.text_edit_user_amount);
         user_code = findViewById(R.id.text_edit_user_code);
-        choice_of_bank = findViewById(R.id.spinner_edit_choice_of_bank);
-        bank_adaptor = ArrayAdapter.createFromResource(
-                this,
-                R.array.choice_of_bank,
-                android.R.layout.simple_spinner_item
-        );
-        bank_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        choice_of_bank.setAdapter(bank_adaptor);
+        user_bank = findViewById(R.id.text_edit_user_bank);
+
 
         type_of_product = findViewById(R.id.spinner_edit_type_of_product);
         product_adaptor = ArrayAdapter.createFromResource(
@@ -102,7 +97,7 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("address").setValue(user_address.getText().toString());
             userreference.child("mobile").setValue(user_mobile.getText().toString());
             userreference.child("amount").setValue(user_amount.getText().toString());
-            userreference.child("choiceofbank").setValue(choice_of_bank.getSelectedItem().toString());
+            userreference.child("choiceofbank").setValue(user_bank.getText().toString());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
             userreference.child("status").setValue(user_status.getSelectedItem().toString());
             userreference.child("code").setValue(user_code.getText().toString());
@@ -145,8 +140,8 @@ public class Profile_Edit extends AppCompatActivity {
             ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
             return false;
         }
-        if (choice_of_bank.getSelectedItem().toString().equals("Select Bank")){
-            ((TextView) choice_of_bank.getSelectedView()).setError("Select Bank Name");
+        if (user_bank.getText().toString().isEmpty()){
+            user_bank.setError("Bank is mandatory");
             return false;
         }
         if (user_amount.getText().toString().isEmpty()){
@@ -174,7 +169,7 @@ public class Profile_Edit extends AppCompatActivity {
                 user_address.setText(profile.getAddress());
                 user_amount.setText(profile.getAmount());
                 user_code.setText(profile.getCode());
-                choice_of_bank.setSelection(bank_adaptor.getPosition(profile.getChoiceofbank()));
+                user_bank.setText(profile.getChoiceofbank());
                 type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
                 old_status = profile.getStatus();
                 user_status.setSelection(status_adaptor.getPosition(old_status));

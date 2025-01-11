@@ -28,8 +28,8 @@ import java.util.Date;
 public class Profile_Add extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText user_name, user_address, user_mobile, user_amount, user_code;
-    Spinner type_of_product, choice_of_bank;
+    EditText user_name, user_address, user_mobile, user_amount, user_code, user_bank;
+    Spinner type_of_product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class Profile_Add extends AppCompatActivity {
         user_mobile = findViewById(R.id.text_user_mobile);
         user_amount = findViewById(R.id.text_user_amount);
         user_code = findViewById(R.id.text_user_code);
+        user_bank = findViewById(R.id.text_user_choice_of_bank);
 
         type_of_product = findViewById(R.id.spinner_type_of_product);
         ArrayAdapter<CharSequence> product_adaptor = ArrayAdapter.createFromResource(
@@ -58,15 +59,6 @@ public class Profile_Add extends AppCompatActivity {
         );
         product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type_of_product.setAdapter(product_adaptor);
-
-        choice_of_bank = findViewById(R.id.spinner_choice_of_bank);
-        ArrayAdapter<CharSequence> bank_adaptor = ArrayAdapter.createFromResource(
-                this,
-                R.array.choice_of_bank,
-                android.R.layout.simple_spinner_item
-        );
-        bank_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        choice_of_bank.setAdapter(bank_adaptor);
 
         Button button_save = findViewById(R.id.button_profile_save);
         button_save.setOnClickListener(v -> {
@@ -96,7 +88,7 @@ public class Profile_Add extends AppCompatActivity {
             new_profile.setAddress(user_address.getText().toString());
             new_profile.setMobile(user_mobile.getText().toString());
             new_profile.setTypeofproduct(type_of_product.getSelectedItem().toString());
-            new_profile.setChoiceofbank(choice_of_bank.getSelectedItem().toString());
+            new_profile.setChoiceofbank(user_bank.getText().toString());
             new_profile.setAmount(user_amount.getText().toString());
             new_profile.setCode(user_code.getText().toString());
             new_profile.setStatus("NEW");
@@ -138,8 +130,8 @@ public class Profile_Add extends AppCompatActivity {
             ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
             return false;
         }
-        if (choice_of_bank.getSelectedItem().toString().equals("Select Bank")){
-            ((TextView) choice_of_bank.getSelectedView()).setError("Select Bank Name");
+        if (user_bank.getText().toString().isEmpty()){
+            user_bank.setError("Bank is mandatory");
             return false;
         }
         if (user_amount.getText().toString().isEmpty()){
