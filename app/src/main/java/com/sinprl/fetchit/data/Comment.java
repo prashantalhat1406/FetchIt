@@ -3,8 +3,17 @@ package com.sinprl.fetchit.data;
 public class Comment {
     public String comment_text;
     public String comment_date;
+    public Boolean important;
 
     public Comment() {
+    }
+
+    public Boolean getImportant() {
+        return important;
+    }
+
+    public void setImportant(Boolean important) {
+        this.important = important;
     }
 
     public String getComment_text() {

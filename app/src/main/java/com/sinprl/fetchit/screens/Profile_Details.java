@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -95,16 +96,24 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         add_comment.setOnClickListener(v -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setTitle("Add Comment here");
-            final EditText input = new EditText(this);
-            alert.setView(input);
+//            final EditText input = new EditText(this);
+//            alert.setView(input);
+            final View customLayout = getLayoutInflater().inflate(R.layout.comment_view, null);
+            CheckBox important = customLayout.findViewById(R.id.checkbox_comment_important);
+            EditText comment_text = customLayout.findViewById(R.id.text_comment_text);
+            alert.setView(customLayout);
             alert.setPositiveButton("Add", (dialog, whichButton) -> {
-                if(!input.getText().toString().isEmpty()) {
+                if(!comment_text.getText().toString().isEmpty()) {
                     DatabaseReference databaseReference = database.getReference("Profiles/" + userID + "/Comments/");
                     Comment new_comment = new Comment();
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = new Date();
                     new_comment.setComment_date(dateFormat.format(date));
-                    new_comment.setComment_text(input.getText().toString());
+                    new_comment.setComment_text(comment_text.getText().toString());
+                    if (important.isChecked())
+                        new_comment.setImportant(Boolean.TRUE);
+                    else
+                        new_comment.setImportant(Boolean.FALSE);
                     databaseReference.push().setValue(new_comment);
                 }
             });

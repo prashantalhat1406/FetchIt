@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sinprl.fetchit.R;
@@ -43,6 +44,12 @@ public class CommentAdaptor extends RecyclerView.Adapter<CommentAdaptor.ViewHold
         Comment comment = comments.get(position);
         holder.comment_text.setText(comment.getComment_text());
         holder.comment_date.setText(comment.getComment_date());
+
+        if (comment.getImportant())
+            holder.comment_card.setBackground(context.getDrawable(R.drawable.roundbutton_lightpink));
+        else
+            holder.comment_card.setBackground(context.getDrawable(R.drawable.roundbutton_lightgreen));
+
         holder.itemView.setOnClickListener(view -> mOnItemClickListener.onItemClick(view, position));
     }
 
@@ -55,12 +62,15 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
 
     public final TextView comment_text;
     public final TextView comment_date;
+    public final ConstraintLayout comment_card;
+
 
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         comment_text =  itemView.findViewById(R.id.text_item_profile_history_text);
         comment_date =  itemView.findViewById(R.id.text_item_profile_history_date);
+        comment_card = itemView.findViewById(R.id.comment_background);
     }
 }
 }

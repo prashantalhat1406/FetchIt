@@ -101,6 +101,7 @@ public class Profile_Add extends AppCompatActivity {
             Comment new_comment = new Comment();
             new_comment.setComment_date(dateFormat.format(date));
             new_comment.setComment_text("NEW entry created");
+            new_comment.setImportant(Boolean.FALSE);
             comment_ref.push().setValue(new_comment);
 
             return true;
