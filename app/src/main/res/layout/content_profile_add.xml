@@ -266,6 +266,7 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:inputType="number"
+                android:maxLength="12"
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_amount"
                 android:visibility="visible"

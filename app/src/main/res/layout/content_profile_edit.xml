@@ -225,6 +225,7 @@
                 android:inputType="number"
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_amount"
+                android:maxLength="12"
                 android:visibility="visible"
                 />
         </LinearLayout>

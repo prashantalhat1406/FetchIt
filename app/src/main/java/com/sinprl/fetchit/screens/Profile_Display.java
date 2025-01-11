@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -64,7 +65,7 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
         data_recycle_view = findViewById(R.id.list_data);
         populate_data();
         search_user = findViewById(R.id.text_search_user_name);
-
+        search_user.setText("");
         search_user.setOnTouchListener((v, event) -> {
             if (search_user.getText().length() > 0){
                 if(event.getAction() == MotionEvent.ACTION_UP) {
@@ -154,7 +155,8 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(view.getContext(), Profile_Details.class);
-        intent.putExtra("userID", all_profiles.get(position).getId());
+        String selected = ((TextView) view.findViewById(R.id.text_item_profile_id)).getText().toString();
+        intent.putExtra("userID", selected);
         startActivity(intent);
     }
 
@@ -164,5 +166,12 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
         finish();
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        search_user.setText("");
+        search_user.clearFocus();
     }
 }

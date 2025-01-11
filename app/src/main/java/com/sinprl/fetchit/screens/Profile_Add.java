@@ -146,4 +146,12 @@ public class Profile_Add extends AppCompatActivity {
 
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 }

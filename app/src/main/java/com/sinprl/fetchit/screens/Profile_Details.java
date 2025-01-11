@@ -50,6 +50,14 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(this, Profile_Display.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -79,8 +87,6 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         Button button_close = findViewById(R.id.button_profile_details_close);
         button_close.setOnClickListener(v -> {
             finish();
-//            Intent home_screen = new Intent(Profile.this, Home.class);
-//            startActivity(home_screen);
         });
 
         Button button_edit = findViewById(R.id.button_profile_details_edit);
@@ -95,8 +101,6 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         add_comment.setOnClickListener(v -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setTitle("Add Comment here");
-//            final EditText input = new EditText(this);
-//            alert.setView(input);
             final View customLayout = getLayoutInflater().inflate(R.layout.add_comment, null);
             CheckBox important = customLayout.findViewById(R.id.checkbox_comment_important);
             EditText comment_text = customLayout.findViewById(R.id.text_comment_text);
@@ -160,7 +164,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(profile.getAddress());
                 user_code.setText(profile.getCode());
-                DecimalFormat df = new DecimalFormat("##,##,##,###");
+                DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + " " + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
                 type_of_product.setText(profile.getTypeofproduct());

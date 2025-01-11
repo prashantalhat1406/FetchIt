@@ -18,6 +18,14 @@
             android:background="@drawable/roundbutton_lightblue"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/text_item_profile_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="profile_id"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_item_data_name"
@@ -82,52 +90,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_item_data_mobile"
                 />
-
-<!--            <TextView-->
-<!--                android:id="@+id/text_item_data_address"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="28dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:layout_marginBottom="0dp"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:text="This is address text"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/text_item_data_name"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/text_item_data_type_of_product"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:text="Type of Product"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/text_item_data_choice_of_bank"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_marginEnd="8dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:text="Choice Of Bank"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-
-<!--                />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
