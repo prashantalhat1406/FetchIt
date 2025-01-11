@@ -1,5 +1,6 @@
 package com.sinprl.fetchit.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -79,15 +80,22 @@ public class Profile_Edit extends AppCompatActivity {
         Button button_save = findViewById(R.id.button_profile_edit_save);
         button_save.setOnClickListener(v -> {
             if (save_profile_data_to_database()) {
-                finish();
+                goto_profile_details();
             }
         });
 
         Button button_cancel = findViewById(R.id.button_profile_edit_cancel);
         button_cancel.setOnClickListener(v -> {
-            finish();
+            goto_profile_details();
         });
 
+    }
+
+    private void goto_profile_details() {
+        finish();
+        Intent intent = new Intent(Profile_Edit.this, Profile_Details.class);
+        intent.putExtra("userID", userID);
+        startActivity(intent);
     }
 
     private boolean save_profile_data_to_database() {

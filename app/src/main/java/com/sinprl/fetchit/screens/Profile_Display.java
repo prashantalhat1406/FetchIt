@@ -157,4 +157,12 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
         intent.putExtra("userID", all_profiles.get(position).getId());
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 }

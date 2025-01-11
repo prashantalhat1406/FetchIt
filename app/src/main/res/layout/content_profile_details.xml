@@ -265,6 +265,7 @@
             android:orientation="horizontal"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
+            android:layout_marginBottom="2dp"
             >
 
             <Button
@@ -277,6 +278,7 @@
                 android:layout_height="50dp"
                 android:textSize="@dimen/textLabels"
                 android:text="@string/profile_details_edit_button"
+                android:layout_margin="4dp"
                 android:textColor="#ffffff" />
 
             <Button
@@ -289,6 +291,7 @@
                 android:layout_height="50dp"
                 android:textSize="@dimen/textLabels"
                 android:text="@string/profile_details_close_button"
+                android:layout_margin="4dp"
                 android:textColor="#ffffff" />
 
         </LinearLayout>

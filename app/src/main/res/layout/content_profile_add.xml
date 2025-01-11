@@ -301,6 +301,7 @@
             android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_cancel_button"
+            android:layout_margin="4dp"
             android:textColor="#ffffff" />
 
         <Button
@@ -314,6 +315,7 @@
             android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_save_button"
+            android:layout_margin="4dp"
             android:textColor="#ffffff" />
 
 

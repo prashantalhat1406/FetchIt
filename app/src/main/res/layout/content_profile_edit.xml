@@ -229,6 +229,17 @@
                 />
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0.1"
+        android:background="@drawable/square_greyborder"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -300,7 +311,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-
     <LinearLayout
         android:layout_weight="0.05"
         android:layout_width="match_parent"
@@ -320,6 +330,7 @@
             android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_cancel_button"
+            android:layout_margin="4dp"
             android:textColor="#ffffff" />
 
         <Button
@@ -333,6 +344,7 @@
             android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_save_button"
+            android:layout_margin="4dp"
             android:textColor="#ffffff" />
 
 
