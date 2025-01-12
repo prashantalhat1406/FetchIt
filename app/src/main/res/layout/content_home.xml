@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
 
-    android:backgroundTint="#ffffff"
+
     android:background="@drawable/square_greyborder"
     android:layout_height="match_parent"
     android:padding="20dp"
@@ -108,8 +108,9 @@
                 android:background="@drawable/roundbutton_blue"
                 android:id="@+id/button_home_about"
                 android:layout_height="match_parent"
-                android:text="About"
+                android:text="ABOUT"
                 app:iconGravity="textTop"
+                app:icon="@drawable/about"
                 android:layout_margin="4dp"
                 />
 
