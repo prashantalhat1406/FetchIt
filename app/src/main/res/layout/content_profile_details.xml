@@ -11,14 +11,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
     <LinearLayout
-        android:layout_weight="0.22"
         android:background="@drawable/roundbutton_lightblue"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:padding="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,9 +37,9 @@
                 android:text="Vikas Malhotra"
                 android:layout_weight="0.65"
                 android:textColor="@color/black"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:gravity="center|start"
+                android:padding="5dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:gravity="center|start|center_horizontal|center_vertical"
                 android:textSize="@dimen/list_name_size"
                 android:textStyle="bold"
                 />
@@ -44,11 +47,11 @@
             <TextView
                 android:id="@+id/text_profile_details_mobile"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="9823956268"
+                android:drawableLeft="@drawable/phone"
                 android:textSize="@dimen/list_mobile_size"
-                android:layout_weight="0.35"
-                android:textColor="@color/black"
+                android:layout_weight="0.45"
                 android:padding="10dp"
                 android:layout_gravity="center|end"
                 android:gravity="center|end"
@@ -65,11 +68,10 @@
             <TextView
                 android:id="@+id/text_profile_details_address"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:text="Lane 11, Gokul, FC Road, Pune"
                 android:textSize="@dimen/list_mobile_size"
                 android:layout_weight="0.75"
-                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_gravity="bottom"
                 android:gravity="top|start"
@@ -80,13 +82,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="0.22"
         android:background="@drawable/roundbutton_lightblue"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,7 +105,6 @@
                 android:layout_height="match_parent"
                 android:text="State Bank Of India"
                 android:layout_weight="0.75"
-                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
@@ -115,7 +118,6 @@
                 android:text="LAP - Mortgage Loan"
                 android:textSize="@dimen/list_mobile_size"
                 android:layout_weight="0.75"
-                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_gravity="bottom"
                 android:gravity="right"
@@ -136,7 +138,6 @@
                 android:layout_height="match_parent"
                 android:text="8900000"
                 android:layout_weight="0.5"
-                android:textColor="@color/black"
                 android:padding="2dp"
                 android:paddingStart="15dp"
                 android:layout_gravity="bottom"
@@ -151,7 +152,6 @@
                 android:text="NEW"
                 android:layout_weight="0.5"
                 android:textSize="@dimen/textLabels"
-                android:textColor="@color/black"
                 android:padding="10dp"
                 android:visibility="visible"
                 android:layout_gravity="center"

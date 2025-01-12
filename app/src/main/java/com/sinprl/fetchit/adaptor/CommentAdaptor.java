@@ -14,6 +14,9 @@ import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class CommentAdaptor extends RecyclerView.Adapter<CommentAdaptor.ViewHolder> {
@@ -43,7 +46,16 @@ public class CommentAdaptor extends RecyclerView.Adapter<CommentAdaptor.ViewHold
     public void onBindViewHolder(@NonNull CommentAdaptor.ViewHolder holder, int position) {
         Comment comment = comments.get(position);
         holder.comment_text.setText(comment.getComment_text());
-        holder.comment_date.setText(comment.getComment_date());
+
+        SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
+        Date fromatedDate = null;
+        try {
+            fromatedDate = spf.parse(comment.getComment_date());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        spf= new SimpleDateFormat("dd-MMM-yyyy");
+        holder.comment_date.setText(spf.format(fromatedDate));
 
         if (comment.getImportant())
             holder.comment_card.setBackground(context.getDrawable(R.drawable.comment_important));

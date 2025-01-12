@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="130dp">
+    android:layout_height="90dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/lay_appt_list_item"
@@ -32,13 +32,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Vikas Malhotra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/list_name_size"
                 android:textStyle="bold"
+                android:inputType="textCapWords"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,10 +50,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="0dp"
                 android:text="  9823956268"
+                android:visibility="gone"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,35 +62,34 @@
 
             <TextView
                 android:id="@+id/text_item_data_createddate"
-                android:textSize="@dimen/list_mobile_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="01/09/2025"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-
-            <TextView
-                android:id="@+id/text_item_data_status"
-                android:textSize="@dimen/list_mobile_size"
+                android:textSize="@dimen/textLabels"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:text="01/09/2025"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintTop_toBottomOf="@id/text_item_data_name"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/text_item_data_status"
+                android:textSize="@dimen/textLabelsVerySmall"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="10dp"
                 android:text="NEW"
-                android:background="@color/status_new"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/circle_new"
                 android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/text_item_data_mobile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

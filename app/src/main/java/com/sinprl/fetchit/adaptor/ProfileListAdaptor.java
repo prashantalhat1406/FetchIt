@@ -13,6 +13,9 @@ import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.ViewHolder> {
@@ -43,23 +46,34 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
         Profile profile = data_entries.get(position);
         holder.profile_id.setText(profile.getId());
         holder.user_name.setText(profile.getName());
-        holder.user_mobile.setText(profile.getMobile());
+//        holder.user_mobile.setText(context.getResources().getString(R.mipmap.phone) + profile.getMobile());
         holder.user_status.setText(profile.getStatus());
-        holder.created_date.setText(profile.getEntry_date());
+//        holder.created_date.setText(profile.getEntry_date());
+
+        SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
+        Date fromatedDate = null;
+        try {
+            fromatedDate = spf.parse(profile.getEntry_date());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        spf= new SimpleDateFormat("dd-MMM-yyyy");
+        holder.created_date.setText(spf.format(fromatedDate));
+
         switch (profile.getStatus()){
-            case "NEW": holder.user_status.setBackground(context.getDrawable(R.color.status_new));
+            case "NEW": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_new));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
-            case "KYC": holder.user_status.setBackground(context.getDrawable(R.color.status_kyc));
+            case "KYC": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_kyc));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
                 break;
-            case "LOG": holder.user_status.setBackground(context.getDrawable(R.color.status_log));
+            case "LOG": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_log));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
                 break;
-            case "SAN": holder.user_status.setBackground(context.getDrawable(R.color.status_san));
+            case "SAN": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_san));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
                 break;
-            case "DIS": holder.user_status.setBackground(context.getDrawable(R.color.status_dis));
+            case "DIS": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_dis));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
         }
