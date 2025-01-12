@@ -42,6 +42,7 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
     List<Profile> all_profiles;
     RecyclerView data_recycle_view;
     EditText search_user;
+    String report_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        report_status = getIntent().getExtras().getString("report_status","ALL");
 
         Button button_home = findViewById(R.id.button_search_home);
         button_home.setOnClickListener(v -> {
@@ -135,8 +138,17 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
                 all_profiles.clear();
                 for (DataSnapshot s:snapshot.getChildren()) {
                     Profile profile = s.getValue(Profile.class);
-                    profile.setId(s.getKey());
-                    all_profiles.add(profile);
+                    if (report_status.equals("ALL")){
+                        profile.setId(s.getKey());
+                        all_profiles.add(profile);
+                    }
+                    else
+                    {
+                        if (profile.getStatus().equals(report_status)) {
+                            profile.setId(s.getKey());
+                            all_profiles.add(profile);
+                        }
+                    }
                 }
                 Collections.reverse(all_profiles);
                 ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);

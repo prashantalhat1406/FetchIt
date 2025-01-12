@@ -42,6 +42,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 Intent search_screen = new Intent(Home.this, Profile_Display.class);
+                search_screen.putExtra("report_status", "ALL");
                 startActivity(search_screen);
             }
         });

@@ -1,6 +1,7 @@
 package com.sinprl.fetchit.screens;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
+import java.net.URI;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -94,6 +96,12 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             finish();
             Intent intent = new Intent(Profile_Details.this, Profile_Edit.class);
             intent.putExtra("userID", userID);
+            startActivity(intent);
+        });
+
+        user_mobile.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
             startActivity(intent);
         });
 

@@ -53,8 +53,11 @@
                 android:textSize="@dimen/list_mobile_size"
                 android:layout_weight="0.45"
                 android:padding="10dp"
-                android:layout_gravity="center|end"
-                android:gravity="center|end"
+                android:paddingStart="4dp"
+                android:paddingEnd="14dp"
+                android:layout_marginStart="2dp"
+                android:layout_gravity="end|center"
+                android:gravity="end|center"
                 />
 
         </LinearLayout>
@@ -76,6 +79,8 @@
                 android:layout_gravity="bottom"
                 android:gravity="top|start"
                 />
+
+
 
         </LinearLayout>
 

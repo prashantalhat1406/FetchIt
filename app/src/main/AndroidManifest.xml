@@ -29,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".screens.Profile_Details"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".screens.Profile_Display"
             android:exported="false" />
@@ -38,7 +38,11 @@
             android:exported="false" />
         <activity
             android:name=".screens.Home"
-            android:exported="false"></activity>
+            android:exported="false" />
+
     </application>
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 </manifest>
