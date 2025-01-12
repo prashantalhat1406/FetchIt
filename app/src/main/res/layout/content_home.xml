@@ -4,49 +4,97 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
+
     android:backgroundTint="#ffffff"
-    android:background="#ffffff"
+    android:background="@drawable/square_greyborder"
     android:layout_height="match_parent"
     android:padding="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
         android:layout_weight="0.5"
-        >
-        <Button
-            android:layout_width="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/roundbutton_blue"
-            android:id="@+id/button_home_add"
-            android:text="@string/add_button_text"
-            android:layout_gravity="center"
-            android:textSize="@dimen/textLabels"
-            android:layout_weight="0.5"
+            android:src="@mipmap/gfs_background"
             />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
+        android:orientation="vertical"
         android:layout_weight="0.5"
-        >
-        <Button
-            android:background="@drawable/roundbutton_blue"
-            android:id="@+id/button_home_search"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/search_button_text"
-            android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_weight="0.5"
-            android:textSize="@dimen/textLabels"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/roundbutton_blue"
+                android:id="@+id/button_home_add"
+                android:text="@string/add_button_text"
+                android:layout_gravity="center"
+                android:textSize="@dimen/textLabels"
+                android:layout_weight="0.5"
+                android:layout_margin="4dp"
+                />
+
+            <Button
+                android:background="@drawable/roundbutton_blue"
+                android:id="@+id/button_home_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/search_button_text"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:textSize="@dimen/textLabels"
+                android:layout_margin="4dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/roundbutton_blue"
+                android:text="Reports"
+                android:layout_gravity="center"
+                android:textSize="@dimen/textLabels"
+                android:layout_weight="0.5"
+                android:layout_margin="4dp"
+                />
+            <Button
+                android:background="@drawable/roundbutton_blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="About"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:textSize="@dimen/textLabels"
+                android:layout_margin="4dp"
+                />
+
+
+
+        </LinearLayout>
+
+
+
     </LinearLayout>
+
 
 
 

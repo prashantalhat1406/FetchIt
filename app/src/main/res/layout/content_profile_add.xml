@@ -48,6 +48,7 @@
                 android:autofillHints="name"
                 android:visibility="visible"
                 android:inputType="text"
+                android:layout_marginEnd="4dp"
                 android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
                 />
         </LinearLayout>
@@ -82,6 +83,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_mobile"
                 android:visibility="visible"
+                android:layout_marginEnd="4dp"
                 />
         </LinearLayout>
 
@@ -117,6 +119,7 @@
                 android:lines="3"
                 android:maxLines="3"
                 android:gravity="top|start"
+                android:layout_marginEnd="4dp"
                 />
         </LinearLayout>
 
@@ -159,6 +162,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_type_of_product"
                 android:visibility="visible"
+                android:layout_marginEnd="4dp"
                 />
 
         </LinearLayout>
@@ -204,6 +208,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_choice_of_bank"
                 android:visibility="visible"
+                android:layout_marginEnd="4dp"
                 />
 
         </LinearLayout>
@@ -237,6 +242,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_code"
                 android:visibility="visible"
+                android:layout_marginEnd="4dp"
                 />
         </LinearLayout>
 
@@ -270,6 +276,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_amount"
                 android:visibility="visible"
+                android:layout_marginEnd="4dp"
                 />
         </LinearLayout>
 
@@ -277,11 +284,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:background="@drawable/square_greyborder"
-        android:layout_weight="0.5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+<!--    <LinearLayout        -->
+<!--        android:layout_weight="0.5"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 
     <LinearLayout

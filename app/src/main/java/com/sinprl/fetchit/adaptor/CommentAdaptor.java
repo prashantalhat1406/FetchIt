@@ -46,9 +46,9 @@ public class CommentAdaptor extends RecyclerView.Adapter<CommentAdaptor.ViewHold
         holder.comment_date.setText(comment.getComment_date());
 
         if (comment.getImportant())
-            holder.comment_card.setBackground(context.getDrawable(R.drawable.roundbutton_lightpink));
+            holder.comment_card.setBackground(context.getDrawable(R.drawable.comment_important));
         else
-            holder.comment_card.setBackground(context.getDrawable(R.drawable.roundbutton_lightgreen));
+            holder.comment_card.setBackground(context.getDrawable(R.drawable.comment_normal));
 
         holder.itemView.setOnClickListener(view -> mOnItemClickListener.onItemClick(view, position));
     }
