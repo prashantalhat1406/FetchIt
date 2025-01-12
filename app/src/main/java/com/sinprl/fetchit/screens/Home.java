@@ -45,5 +45,15 @@ public class Home extends AppCompatActivity {
                 startActivity(search_screen);
             }
         });
+
+        Button button_report = findViewById(R.id.button_home_report);
+        button_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent search_screen = new Intent(Home.this, Report_Statuswise.class);
+                startActivity(search_screen);
+            }
+        });
     }
 }

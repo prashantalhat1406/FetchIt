@@ -165,7 +165,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_address.setText(profile.getAddress());
                 user_code.setText(profile.getCode());
                 DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
-                user_amount.setText(getResources().getString(R.string.rupee) + " " + df.format(Integer.parseInt(profile.getAmount())));
+                user_amount.setText(getResources().getString(R.string.rupee) + "" + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
                 type_of_product.setText(profile.getTypeofproduct());
                 update_status(profile.getStatus());

@@ -140,7 +140,7 @@
                 android:text="8900000"
                 android:layout_weight="0.5"
                 android:padding="2dp"
-                android:paddingStart="15dp"
+                android:paddingStart="10dp"
                 android:layout_gravity="bottom"
                 android:gravity="center_horizontal|left|center"
                 android:textSize="@dimen/textamount"
