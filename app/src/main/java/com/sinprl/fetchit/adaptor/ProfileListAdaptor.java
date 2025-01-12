@@ -46,9 +46,7 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
         Profile profile = data_entries.get(position);
         holder.profile_id.setText(profile.getId());
         holder.user_name.setText(profile.getName());
-//        holder.user_mobile.setText(context.getResources().getString(R.mipmap.phone) + profile.getMobile());
         holder.user_status.setText(profile.getStatus());
-//        holder.created_date.setText(profile.getEntry_date());
 
         SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
         Date fromatedDate = null;

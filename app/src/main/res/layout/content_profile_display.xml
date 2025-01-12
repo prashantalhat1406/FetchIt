@@ -34,7 +34,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_data"
-        android:layout_weight="0.15"
+        android:layout_weight="0.16"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="4dp"
@@ -44,7 +44,7 @@
         tools:listitem="@layout/item_profile_card" />
 
     <Button
-        android:layout_weight="0.95"
+        android:layout_weight="0.92"
         android:background="@drawable/roundbutton_blue"
         android:id="@+id/button_search_home"
         android:layout_width="match_parent"
