@@ -80,6 +80,14 @@
                 android:gravity="top|start"
                 />
 
+<!--            <ImageButton-->
+<!--                android:id="@+id/button_whatsapp"-->
+<!--                android:layout_margin="2dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="?android:selectableItemBackground"-->
+<!--                android:src="@drawable/whatsapp"-->
+<!--                />-->
 
 
         </LinearLayout>

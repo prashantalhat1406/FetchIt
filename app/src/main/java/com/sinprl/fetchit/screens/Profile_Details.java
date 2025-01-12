@@ -1,12 +1,14 @@
 package com.sinprl.fetchit.screens;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -32,6 +34,7 @@ import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 
 import java.net.URI;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -104,6 +107,23 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
             startActivity(intent);
         });
+
+//        ImageButton button_whatsapp = findViewById(R.id.button_whatsapp);
+//        button_whatsapp.setOnClickListener(v -> {
+//            PackageManager packageManager = this.getPackageManager();
+//            Intent i = new Intent(Intent.ACTION_VIEW);
+//
+//            try {
+//                String url = "https://api.whatsapp.com/send?phone="+ user_mobile.getText().toString() +"&text=" + URLEncoder.encode("Test Mesage", "UTF-8");
+//                i.setPackage("com.whatsapp");
+//                i.setData(Uri.parse(url));
+//                if (i.resolveActivity(packageManager) != null) {
+//                    this.startActivity(i);
+//                }
+//            } catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        });
 
         add_comment = findViewById(R.id.button_profile_details_addcomment);
         add_comment.setOnClickListener(v -> {
