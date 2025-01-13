@@ -32,6 +32,7 @@ import com.sinprl.fetchit.adaptor.CommentAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
+import com.sinprl.fetchit.utils.StringUtils;
 
 import java.net.URI;
 import java.net.URLEncoder;
@@ -188,9 +189,9 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Profile profile = snapshot.getValue(Profile.class);
                 profile.setId(snapshot.getKey());
-                user_name.setText(profile.getName());
+                user_name.setText(StringUtils.toCamelCase(profile.getName()));
                 user_mobile.setText(profile.getMobile());
-                user_address.setText(profile.getAddress());
+                user_address.setText(StringUtils.toCamelCase( profile.getAddress()));
                 user_code.setText(profile.getCode());
                 DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + "" + df.format(Integer.parseInt(profile.getAmount())));

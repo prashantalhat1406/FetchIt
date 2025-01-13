@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
+import com.sinprl.fetchit.utils.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,7 +46,7 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
     public void onBindViewHolder(@NonNull ProfileListAdaptor.ViewHolder holder, int position) {
         Profile profile = data_entries.get(position);
         holder.profile_id.setText(profile.getId());
-        holder.user_name.setText(profile.getName());
+        holder.user_name.setText(StringUtils.toCamelCase(profile.getName()));
         holder.user_status.setText(profile.getStatus());
 
         SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");

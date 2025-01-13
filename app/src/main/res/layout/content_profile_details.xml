@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:backgroundTint="#ffffff"
-    android:background="#ffffff"
+    android:background="@drawable/square_greyborder"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
@@ -40,7 +40,7 @@
                 android:padding="5dp"
                 android:layout_gravity="center|center_horizontal|center_vertical"
                 android:gravity="center|start|center_horizontal|center_vertical"
-                android:textSize="@dimen/list_name_size"
+                android:textSize="@dimen/textamount"
                 android:textStyle="bold"
                 />
 
@@ -257,6 +257,7 @@
     <LinearLayout
         android:layout_weight="0.51"
         android:orientation="vertical"
+        android:background="@drawable/square_greyborder"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -273,13 +274,14 @@
 
         <LinearLayout
             android:id="@+id/ll_profile_details_button"
-            android:layout_weight="0.15"
+            android:background="@drawable/square_greyborder"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
             >
 
             <Button
