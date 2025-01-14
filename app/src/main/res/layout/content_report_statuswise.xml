@@ -77,16 +77,28 @@
         android:layout_width="match_parent" android:orientation="horizontal"
         android:layout_height="match_parent">
 
-        <Button android:id="@+id/but_reportorderwise_back"
+<!--        <Button android:id="@+id/but_reportorderwise_back"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:background="@drawable/button_blue_border"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="Prev"-->
+<!--            android:foreground="?attr/selectableItemBackground"-->
+<!--            >-->
+<!--        </Button>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/but_reportorderwise_back"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:layout_weight="0.6"
             android:background="@drawable/button_blue_border"
-            android:layout_width="match_parent"
             android:layout_gravity="center"
-            android:layout_height="40dp"
-            android:text="Prev"
+            app:icon="@drawable/back"
+            app:iconGravity="textTop"
             android:foreground="?attr/selectableItemBackground"
-            >
-        </Button>
+            />
 
         <LinearLayout android:layout_weight="0.4"
             android:layout_width="match_parent" android:paddingEnd="5dp" android:paddingStart="5dp"
@@ -105,16 +117,29 @@
             </TextView>
         </LinearLayout>
 
-        <Button android:id="@+id/but_reportorderwise_next"
+<!--        <Button android:id="@+id/but_reportorderwise_next"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:background="@drawable/button_blue_border"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:foreground="?attr/selectableItemBackground"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="Next">-->
+
+<!--            -->
+<!--        </Button>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/but_reportorderwise_next"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:layout_weight="0.6"
             android:background="@drawable/button_blue_border"
-            android:layout_width="match_parent"
             android:layout_gravity="center"
+            app:icon="@drawable/next"
+            app:iconGravity="textTop"
             android:foreground="?attr/selectableItemBackground"
-            android:layout_height="40dp"
-            android:text="Next">
-
-        </Button>
+            />
 
 
     </LinearLayout>
@@ -129,7 +154,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout android:layout_weight="0.1" android:layout_marginEnd="5dp" android:layout_marginStart="5dp"
-                android:id="@+id/layout_report_created" android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/layout_report_new" android:foreground="?attr/selectableItemBackground"
                 android:layout_width="match_parent" android:orientation="vertical"
                 android:background="@drawable/button_blue_border"
                 android:layout_height="match_parent" >
@@ -163,7 +188,7 @@
                     android:textColor="@color/black"
                     android:layout_gravity="center|center_horizontal"
                     android:gravity="top|center|center_horizontal"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="@dimen/textLabels">
 
                 </TextView>
@@ -179,7 +204,7 @@
 
             <LinearLayout android:layout_weight="0.1"
                 android:layout_marginEnd="5dp"
-                android:id="@+id/layout_report_inprogress"
+                android:id="@+id/layout_report_kyc"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:background="@drawable/button_kyc_border"
@@ -233,7 +258,8 @@
 
             </LinearLayout>
 
-            <LinearLayout android:layout_weight="0.1" android:id="@+id/layout_report_total"
+            <LinearLayout android:layout_weight="0.1"
+                android:id="@+id/layout_report_dis"
                 android:layout_marginEnd="5dp" android:layout_marginStart="5dp"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
@@ -289,7 +315,8 @@
 
             <LinearLayout android:layout_weight="0.1"
                 android:layout_marginEnd="5dp"
-                android:layout_marginStart="5dp" android:id="@+id/layout_report_completed"
+                android:layout_marginStart="5dp"
+                android:id="@+id/layout_report_log"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:background="@drawable/button_log_border"
@@ -319,7 +346,7 @@
                     android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:gravity="top|center"
-                    android:text="375"
+                    android:text="0"
                     android:textSize="@dimen/textLabels">
 
                 </TextView>
@@ -334,7 +361,7 @@
             </LinearLayout>
 
             <LinearLayout android:layout_weight="0.1" android:layout_marginEnd="5dp" android:layout_marginStart="5dp"
-                android:id="@+id/layout_report_cancelled"
+                android:id="@+id/layout_report_san"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:background="@drawable/button_san_border"

@@ -3,7 +3,8 @@ package com.sinprl.fetchit.utils;
 public class StringUtils {
 
     public static String toCamelCase(String input)
-    { StringBuilder result = new StringBuilder();
+    {
+        StringBuilder result = new StringBuilder();
         String[] words = input.split(" ");
         for (int i = 0; i < words.length; i++)
         {

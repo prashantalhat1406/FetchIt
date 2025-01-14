@@ -43,16 +43,55 @@
         android:layout_marginBottom="4dp"
         tools:listitem="@layout/item_profile_card" />
 
-    <Button
-        android:layout_weight="0.92"
-        android:background="@drawable/roundbutton_blue"
-        android:id="@+id/button_search_home"
+    <LinearLayout
+        android:background="@drawable/square_greyborder"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/home_button_text"
-        android:layout_gravity="center"
-        android:textSize="@dimen/textLabels"
-        android:layout_margin="5dp"
-        />
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_search_home"
+            android:layout_weight="0.5"
+            android:background="@drawable/roundbutton_blue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:icon="@drawable/home"
+            app:iconGravity="textStart"
+            android:text="HOME"
+            android:textSize="@dimen/textLabels"
+            android:layout_margin="2dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_weight="0.5"
+            android:id="@+id/button_search_report"
+            android:background="@drawable/roundbutton_blue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:icon="@drawable/profile_report"
+            app:iconGravity="textStart"
+            android:text="REPORTS"
+            android:textSize="@dimen/textLabels"
+            android:layout_margin="2dp"
+            />
+
+    </LinearLayout>
+
+
+
+<!--    <Button-->
+<!--        -->
+<!--        android:id="@+id/button_search_home"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/home_button_text"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:textSize="@dimen/textLabels"-->
+<!--        android:layout_margin="5dp"-->
+<!--        />-->
 
 </LinearLayout>

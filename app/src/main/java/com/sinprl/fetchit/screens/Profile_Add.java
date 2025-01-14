@@ -84,6 +84,7 @@ public class Profile_Add extends AppCompatActivity {
             String uniqueKey = rootRef.child("Profiles").push().getKey();
             DatabaseReference databaseReference = database.getReference("Profiles/");
             Profile new_profile = new Profile();
+            new_profile.setId(uniqueKey);
             new_profile.setName(user_name.getText().toString());
             new_profile.setAddress(user_address.getText().toString());
             new_profile.setMobile(user_mobile.getText().toString());

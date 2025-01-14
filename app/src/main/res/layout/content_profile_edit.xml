@@ -335,33 +335,67 @@
         android:padding="5dp"
         >
 
-        <Button
+<!--        <Button-->
+<!--            android:layout_weight="0.5"-->
+<!--            android:padding="5dp"-->
+<!--            android:id="@+id/button_profile_edit_cancel"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:background="@drawable/roundbutton_blue"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:textSize="@dimen/textLabels"-->
+<!--            android:text="@string/profile_cancel_button"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:textColor="#ffffff" />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:padding="5dp"
             android:id="@+id/button_profile_edit_cancel"
-            android:layout_width="match_parent"
             android:background="@drawable/roundbutton_blue"
+            app:icon="@drawable/cancel"
+            app:iconGravity="textStart"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_cancel_button"
             android:layout_margin="4dp"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:padding="5dp"
             android:id="@+id/button_profile_edit_save"
-            android:layout_width="match_parent"
             android:background="@drawable/roundbutton_blue"
+            app:icon="@drawable/profile_save"
+            app:iconGravity="textStart"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_height="50dp"
             android:textSize="@dimen/textLabels"
             android:text="@string/profile_save_button"
             android:layout_margin="4dp"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            />
+
+<!--        <Button-->
+<!--            android:layout_weight="0.5"-->
+<!--            android:padding="5dp"-->
+<!--            android:id="@+id/button_profile_edit_save"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:background="@drawable/roundbutton_blue"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:textSize="@dimen/textLabels"-->
+<!--            android:text="@string/profile_save_button"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:textColor="#ffffff" />-->
 
 
 

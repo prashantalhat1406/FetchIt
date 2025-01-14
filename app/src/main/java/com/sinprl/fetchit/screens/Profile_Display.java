@@ -31,8 +31,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.ProfileListAdaptor;
 import com.sinprl.fetchit.data.Profile;
+import com.sinprl.fetchit.data.ReportData;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
+import com.sinprl.fetchit.utils.ReportUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +45,8 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
     List<Profile> all_profiles;
     RecyclerView data_recycle_view;
     EditText search_user;
-    String report_status;
+    String report_status, base_date;
+    Integer period;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +59,24 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
             return insets;
         });
 
-        report_status = getIntent().getExtras().getString("report_status","ALL");
+        Bundle b = getIntent().getExtras();
+
+        report_status = b.getString("report_status","ALL");
+        base_date = b.getString("base_date","");
+        period = b.getInt("period",-1);
 
         Button button_home = findViewById(R.id.button_search_home);
         button_home.setOnClickListener(v -> {
             finish();
             Intent search_screen = new Intent(Profile_Display.this, Home.class);
             startActivity(search_screen);
+        });
+
+        Button button_report = findViewById(R.id.button_search_report);
+        button_report.setOnClickListener(v -> {
+            finish();
+            Intent report_screen = new Intent(Profile_Display.this, Report_Statuswise.class);
+            startActivity(report_screen);
         });
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -151,7 +166,34 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
                     }
                 }
                 Collections.reverse(all_profiles);
-                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);
+
+                List<Profile> tempProfiles = new ArrayList<>();
+                ReportData rd;
+
+                switch (period){
+                    case -1:
+                        tempProfiles = all_profiles;
+                        break;
+                    case 0:
+                        rd = ReportUtils.getReportDataForDay(all_profiles, base_date);
+                        tempProfiles = rd.filtered_profiles;
+                        break;
+                    case 1:
+                        rd = ReportUtils.getReportDataForWeek(all_profiles, base_date);
+                        tempProfiles = rd.filtered_profiles;
+                        break;
+                    case 2:
+                        rd = ReportUtils.getReportDataForMonth(all_profiles, base_date);
+                        tempProfiles = rd.filtered_profiles;
+                        break;
+                }
+
+
+
+
+
+//                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);
+                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, tempProfiles, Profile_Display.this);
                 data_recycle_view.setAdapter(profileListAdaptor);
             }
 
@@ -166,6 +208,7 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
 
     @Override
     public void onItemClick(View view, int position) {
+        finish();
         Intent intent = new Intent(view.getContext(), Profile_Details.class);
         String selected = ((TextView) view.findViewById(R.id.text_item_profile_id)).getText().toString();
         intent.putExtra("userID", selected);
