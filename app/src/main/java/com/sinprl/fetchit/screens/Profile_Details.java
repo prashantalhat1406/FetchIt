@@ -50,6 +50,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
     FloatingActionButton add_comment;
     RecyclerView comments_recyclerview;
     List<Comment> all_comments_list;
+    String report_status, base_date;
+    Integer period;
 
     @Override
     public void onItemClick(View view, int position) {
@@ -75,7 +77,11 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             return insets;
         });
 
-        userID = getIntent().getExtras().getString("userID","");
+        Bundle b = getIntent().getExtras();
+        report_status = b.getString("report_status","ALL");
+        base_date = b.getString("base_date","");
+        period = b.getInt("period",-1);
+        userID = b.getString("userID","");
         
         user_name = findViewById(R.id.text_profile_details_name);
         user_mobile = findViewById(R.id.text_profile_details_mobile);
@@ -93,6 +99,13 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         Button button_close = findViewById(R.id.button_profile_details_close);
         button_close.setOnClickListener(v -> {
             finish();
+            Intent profileDisplay = new Intent(Profile_Details.this, Profile_Display.class);
+            Bundle extras = new Bundle();
+            extras.putString("report_status", report_status);
+            extras.putString("base_date", base_date);
+            extras.putInt("period", -1);
+            profileDisplay.putExtras(extras);
+            startActivity(profileDisplay);
         });
 
         Button button_edit = findViewById(R.id.button_profile_details_edit);

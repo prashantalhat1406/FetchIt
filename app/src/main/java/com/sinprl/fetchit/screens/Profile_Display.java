@@ -60,7 +60,6 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
         });
 
         Bundle b = getIntent().getExtras();
-
         report_status = b.getString("report_status","ALL");
         base_date = b.getString("base_date","");
         period = b.getInt("period",-1);
@@ -209,10 +208,15 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
     @Override
     public void onItemClick(View view, int position) {
         finish();
-        Intent intent = new Intent(view.getContext(), Profile_Details.class);
+        Intent profile_details_intent = new Intent(view.getContext(), Profile_Details.class);
         String selected = ((TextView) view.findViewById(R.id.text_item_profile_id)).getText().toString();
-        intent.putExtra("userID", selected);
-        startActivity(intent);
+        Bundle extras = new Bundle();
+        extras.putString("report_status", report_status);
+        extras.putString("base_date", base_date);
+        extras.putString("userID", selected);
+        extras.putInt("period", -1);
+        profile_details_intent.putExtras(extras);
+        startActivity(profile_details_intent);
     }
 
     @Override
