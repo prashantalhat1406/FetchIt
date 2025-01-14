@@ -31,7 +31,7 @@ public class ReportUtils {
         return  currWeek;
     }
 
-    public static boolean isDateInCurrentWeek(Date date, String baseDate) {
+    public static boolean isDateInCurrentWeek(Date profile_date, String baseDate) {
         Calendar currentCalendar = Calendar.getInstance();
         try {
             currentCalendar.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(baseDate));
@@ -42,7 +42,7 @@ public class ReportUtils {
         min = currentCalendar.getTime();
         currentCalendar.add(Calendar.DAY_OF_MONTH, 6);
         max = currentCalendar.getTime();
-        return date.compareTo(min) >= 0 && date.compareTo(max) <= 0;
+        return profile_date.compareTo(min) >= 0 && profile_date.compareTo(max) <= 0;
     }
 
     public static String get_formatted_date(String bDate){
@@ -81,16 +81,31 @@ public class ReportUtils {
 
         String _temp_basedate = ReportUtils.get_formatted_date(reportDate);
         String _temp_currentmonth = _temp_basedate.split("/")[1];
+        String _temp_currentyear = _temp_basedate.split("/")[2];
 
         for (Profile profile : all_profiles) {
-            if (profile.entry_date.split("/")[1].equals(_temp_currentmonth)) {
-                reportData.filtered_profiles.add(profile);
-                switch (profile.status) {
-                    case "NEW": reportData.setStatus_new(reportData.getStatus_new() + 1); break;
-                    case "KYC": reportData.setStatus_kyc(reportData.getStatus_kyc() + 1); break;
-                    case "LOG": reportData.setStatus_log(reportData.getStatus_log() + 1); break;
-                    case "SAN": reportData.setStatus_san(reportData.getStatus_san() + 1); break;
-                    case "DIS": reportData.setStatus_dis(reportData.getStatus_dis() + 1); break;
+            if (profile.entry_date.split("/")[1].equals(_temp_currentmonth))
+            {
+                if (profile.entry_date.split("/")[2].equals(_temp_currentyear)) {
+                    reportData.filtered_profiles.add(profile);
+                    switch (profile.status)
+                    {
+                        case "NEW":
+                            reportData.setStatus_new(reportData.getStatus_new() + 1);
+                            break;
+                        case "KYC":
+                            reportData.setStatus_kyc(reportData.getStatus_kyc() + 1);
+                            break;
+                        case "LOG":
+                            reportData.setStatus_log(reportData.getStatus_log() + 1);
+                            break;
+                        case "SAN":
+                            reportData.setStatus_san(reportData.getStatus_san() + 1);
+                            break;
+                        case "DIS":
+                            reportData.setStatus_dis(reportData.getStatus_dis() + 1);
+                            break;
+                    }
                 }
             }
         }
