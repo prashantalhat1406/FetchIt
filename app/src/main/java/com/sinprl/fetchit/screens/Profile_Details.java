@@ -155,24 +155,6 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             }
         });
 
-
-//        ImageButton button_whatsapp = findViewById(R.id.button_whatsapp);
-//        button_whatsapp.setOnClickListener(v -> {
-//            PackageManager packageManager = this.getPackageManager();
-//            Intent i = new Intent(Intent.ACTION_VIEW);
-//
-//            try {
-//                String url = "https://api.whatsapp.com/send?phone="+ user_mobile.getText().toString() +"&text=" + URLEncoder.encode("Test Mesage", "UTF-8");
-//                i.setPackage("com.whatsapp");
-//                i.setData(Uri.parse(url));
-//                if (i.resolveActivity(packageManager) != null) {
-//                    this.startActivity(i);
-//                }
-//            } catch (Exception e){
-//                e.printStackTrace();
-//            }
-//        });
-
         add_comment = findViewById(R.id.button_profile_details_addcomment);
         add_comment.setOnClickListener(v -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
