@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -186,13 +187,10 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
                         tempProfiles = rd.filtered_profiles;
                         break;
                 }
+                all_profiles = tempProfiles;
 
-
-
-
-
-//                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);
-                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, tempProfiles, Profile_Display.this);
+                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, all_profiles, Profile_Display.this);
+//                ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, tempProfiles, Profile_Display.this);
                 data_recycle_view.setAdapter(profileListAdaptor);
             }
 

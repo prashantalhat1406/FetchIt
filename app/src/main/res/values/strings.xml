@@ -16,10 +16,10 @@
     <string name="profile_amount">Amount</string>
     <string name="profile_code">Code</string>
     <string name="profile_status">Status</string>
-    <string name="profile_save_button">Save</string>
-    <string name="profile_cancel_button">Cancel</string>
-    <string name="profile_details_edit_button">Edit</string>
-    <string name="profile_details_close_button">Close</string>
+    <string name="profile_save_button">SAVE</string>
+    <string name="profile_cancel_button">CANCEL</string>
+    <string name="profile_details_edit_button">EDIT</string>
+    <string name="profile_details_close_button">CLOSE</string>
     <string name="add_comment">ADD</string>
     <string-array name="type_of_products">
         <item>Type Of Products</item>

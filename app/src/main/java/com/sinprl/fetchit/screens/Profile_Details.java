@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -63,6 +66,19 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         finish();
         Intent intent = new Intent(this, Profile_Display.class);
         startActivity(intent);
+    }
+
+    public void sendSMS(String phoneNumber, String message) {
+        try
+        {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            Toast.makeText(getApplicationContext(), "SMS Sent!", Toast.LENGTH_LONG).show();
+        } catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -120,6 +136,14 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
             startActivity(intent);
+        });
+
+        TextView send_sms = findViewById(R.id.text_profile_details_send_sms);
+        send_sms.setOnClickListener(v -> {
+//            Toast message = Toast.makeText(Profile_Details.this, "Not implemented. InProgress",Toast.LENGTH_SHORT);
+//            message.setGravity(Gravity.TOP, 0, 0);
+//            message.show();
+            sendSMS(user_mobile.getText().toString(), "Sample SMS");
         });
 
 //        ImageButton button_whatsapp = findViewById(R.id.button_whatsapp);
