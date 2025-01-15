@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
+import com.sinprl.fetchit.utils.CommonUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
