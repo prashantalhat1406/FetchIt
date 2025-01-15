@@ -30,7 +30,7 @@ public class Home extends AppCompatActivity {
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+//                finish();
                 Intent profile_screen = new Intent(Home.this, Profile_Add.class);
                 startActivity(profile_screen);
             }
@@ -40,7 +40,7 @@ public class Home extends AppCompatActivity {
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+//                finish();
                 Intent search_screen = new Intent(Home.this, Profile_Display.class);
                 search_screen.putExtra("report_status", "ALL");
                 startActivity(search_screen);
@@ -51,7 +51,7 @@ public class Home extends AppCompatActivity {
         button_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+//                finish();
                 Intent search_screen = new Intent(Home.this, Report_Statuswise.class);
                 startActivity(search_screen);
             }

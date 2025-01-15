@@ -65,6 +65,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         super.onBackPressed();
         finish();
         Intent intent = new Intent(this, Profile_Display.class);
+        intent.putExtra("report_status", "ALL");
         startActivity(intent);
     }
 
