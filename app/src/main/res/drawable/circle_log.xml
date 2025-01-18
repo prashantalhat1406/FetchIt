@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval"
     android:padding="10dp">
-    <solid android:color="#fffc51"/> <!-- this one is ths color of the Rounded Button -->
+    <solid android:color="@color/status_log"/> <!-- this one is ths color of the Rounded Button -->
     <size android:height="28dp" android:width="28dp"></size>
 </shape>
