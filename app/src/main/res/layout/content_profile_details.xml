@@ -300,19 +300,6 @@
             android:layout_marginTop="2dp"
             >
 
-<!--            <Button-->
-<!--                android:layout_weight="0.5"-->
-<!--                android:id="@+id/button_profile_details_close"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:background="@drawable/roundbutton_blue"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:text="@string/profile_details_close_button"-->
-<!--                android:layout_margin="4dp"-->
-<!--                android:textColor="#ffffff" />-->
-
             <com.google.android.material.button.MaterialButton
                 android:layout_weight="0.5"
                 android:id="@+id/button_profile_details_close"
@@ -329,19 +316,6 @@
                 android:textColor="#ffffff"
                 />
 
-<!--            <Button-->
-<!--                android:layout_weight="0.5"-->
-<!--                android:id="@+id/button_profile_details_edit"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:background="@drawable/roundbutton_blue"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:text="@string/profile_details_edit_button"-->
-<!--                android:layout_margin="4dp"-->
-<!--                android:textColor="#ffffff" />-->
-
             <com.google.android.material.button.MaterialButton
                 android:layout_weight="0.5"
                 android:id="@+id/button_profile_details_edit"
@@ -357,8 +331,6 @@
                 android:layout_margin="4dp"
                 android:textColor="#ffffff"
                 />
-
-
 
         </LinearLayout>
 
