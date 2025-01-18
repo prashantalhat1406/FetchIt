@@ -3,9 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="gray">#b5aeae</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="status_new">#5e29c5</color>
-    <color name="status_kyc">#ffac1e</color>
-    <color name="status_log">#fffc51</color>
-    <color name="status_san">#6eed0a</color>
-    <color name="status_dis">#214703</color>
+<!--    <color name="status_new">#5e29c5</color>-->
+<!--    <color name="status_kyc">#ffac1e</color>-->
+<!--    <color name="status_log">#fffc51</color>-->
+<!--    <color name="status_san">#6eed0a</color>-->
+<!--    <color name="status_dis">#214703</color>-->
+    <color name="status_new">#28a745</color>
+    <color name="status_kyc">#007bff</color>
+    <color name="status_log">#ffc107</color>
+    <color name="status_san">#fd7e14</color>
+    <color name="status_dis">#dc3545</color>
+    <color name="add_comment">#6eed0a</color>
 </resources>

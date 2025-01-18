@@ -18,7 +18,7 @@
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/status_san"
+        android:backgroundTint="@color/add_comment"
         android:src="@drawable/add_comment"
         />
 
