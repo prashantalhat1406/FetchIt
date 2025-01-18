@@ -144,7 +144,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         send_sms.setOnClickListener(v -> {
 //            sendSMS(user_mobile.getText().toString(), "Sample SMS");
             Intent sms_intent = new Intent(Intent.ACTION_VIEW);
-            sms_intent.setData(Uri.parse("sms:" + user_mobile.getText().toString()));
+            sms_intent.setData(Uri.parse("sms:+91" + user_mobile.getText().toString()));
             sms_intent.putExtra("sms_body", "Greetings from GFS !!");
             startActivity(sms_intent);
         });
@@ -152,7 +152,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         TextView send_whatsapp = findViewById(R.id.text_profile_details_send_whatsapp);
         send_whatsapp.setOnClickListener(v -> {
             try {
-                String url = "https://api.whatsapp.com/send?phone=" + user_mobile.getText().toString();
+                String url = "https://api.whatsapp.com/send?phone=+91" + user_mobile.getText().toString();
                 Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
                 whatsapp_intent.setData(Uri.parse(url));
                 startActivity(whatsapp_intent);
