@@ -141,16 +141,20 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
 
         TextView send_sms = findViewById(R.id.text_profile_details_send_sms);
         send_sms.setOnClickListener(v -> {
-            sendSMS(user_mobile.getText().toString(), "Sample SMS");
+//            sendSMS(user_mobile.getText().toString(), "Sample SMS");
+            Intent sms_intent = new Intent(Intent.ACTION_VIEW);
+            sms_intent.setData(Uri.parse("sms:" + user_mobile.getText().toString()));
+            sms_intent.putExtra("sms_body", "Greetings from GFS !!");
+            startActivity(sms_intent);
         });
 
         TextView send_whatsapp = findViewById(R.id.text_profile_details_send_whatsapp);
         send_whatsapp.setOnClickListener(v -> {
             try {
                 String url = "https://api.whatsapp.com/send?phone=" + user_mobile.getText().toString();
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
+                Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
+                whatsapp_intent.setData(Uri.parse(url));
+                startActivity(whatsapp_intent);
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Error While opening Whatsapp", Toast.LENGTH_LONG).show();
             }
