@@ -11,6 +11,8 @@ public class Profile {
     public String status;
     public String entry_date;
     public String code;
+    public String reference;
+    public String bankmanager;
 
     public Profile() {
     }
@@ -91,5 +93,21 @@ public class Profile {
 
     public void setEntry_date(String entry_date) {
         this.entry_date = entry_date;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getBankmanager() {
+        return bankmanager;
+    }
+
+    public void setBankmanager(String bankmanager) {
+        this.bankmanager = bankmanager;
     }
 }

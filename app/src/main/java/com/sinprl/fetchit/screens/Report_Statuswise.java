@@ -98,44 +98,6 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
         startActivity(profileIntent);
     }
 
-//    public String get_formatted_date(String bDate){
-//        SimpleDateFormat spf = new SimpleDateFormat("dd-MMM-yyyy");
-//        Date fromatedDate = null;
-//        try {
-//            fromatedDate = spf.parse(bDate);
-//        } catch (ParseException e) {
-//            throw new RuntimeException(e);
-//        }
-//        spf= new SimpleDateFormat("dd/MM/yyyy");
-//        String _temp_basedate = spf.format(fromatedDate);
-//        return _temp_basedate;
-//    }
-//
-//    public boolean isDateInCurrentWeek(Date date, String baseDate) {
-//        Calendar currentCalendar = Calendar.getInstance();
-//        try {
-//            currentCalendar.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(baseDate));
-//        }catch (Exception e){
-//            Log.d("REPORT_STATUSWISE", "isDateInCurrentWeek: " + e.getMessage());
-//        }
-//        Date min, max;
-//        min = currentCalendar.getTime();
-//        currentCalendar.add(Calendar.DAY_OF_MONTH, 6);
-//        max = currentCalendar.getTime();
-//        return date.compareTo(min) >= 0 && date.compareTo(max) <= 0;
-//    }
-//
-//    public String getCurrentWeek(String baseDate){
-//        String currWeek = "";
-//        Calendar currentCalendar = Calendar.getInstance();
-//        try {
-//            currentCalendar.setTime(new SimpleDateFormat("dd-MMM-yyyy").parse(baseDate));
-//        }catch (Exception e){}
-//        currWeek = "" + new SimpleDateFormat("dd-MMM").format(currentCalendar.getTime());
-//        currentCalendar.add(Calendar.DAY_OF_MONTH, 6);
-//        currWeek = currWeek +" to "+ new SimpleDateFormat("dd-MMM").format(currentCalendar.getTime());
-//        return  currWeek;
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
