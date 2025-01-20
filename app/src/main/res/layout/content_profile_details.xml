@@ -229,6 +229,42 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="5dp"
+            >
+
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/text_profile_details_placeholder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="8900000"
+                android:layout_weight="0.5"
+                android:padding="2dp"
+                android:paddingStart="10dp"
+                android:layout_gravity="bottom"
+                android:gravity="center_horizontal|left|center"
+                android:textSize="@dimen/textamount"
+                />
+
+            <TextView
+                android:id="@+id/text_profile_details_dis_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="01May2025"
+                android:layout_weight="0.5"
+                android:textSize="@dimen/textLabels"
+                android:padding="2dp"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|center|right"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
             android:layout_marginTop="2dp"
             >
 

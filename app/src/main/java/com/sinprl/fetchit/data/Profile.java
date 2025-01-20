@@ -10,6 +10,7 @@ public class Profile {
     public String amount;
     public String status;
     public String entry_date;
+    public String dis_date;
     public String code;
     public String reference;
     public String bankmanager;
@@ -93,6 +94,15 @@ public class Profile {
 
     public void setEntry_date(String entry_date) {
         this.entry_date = entry_date;
+    }
+
+
+    public String getDis_date() {
+        return dis_date;
+    }
+
+    public void setDis_date(String dis_date) {
+        this.dis_date = dis_date;
     }
 
     public String getReference() {

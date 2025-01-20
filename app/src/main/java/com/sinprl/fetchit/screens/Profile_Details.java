@@ -43,7 +43,7 @@ import java.util.List;
 public class Profile_Details extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
     String userID;
-    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code,user_bankmanager,user_reference;
+    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code,user_bankmanager,user_reference, user_dis_date;
     FloatingActionButton add_comment;
     RecyclerView comments_recyclerview;
     List<Comment> all_comments_list;
@@ -103,6 +103,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         user_code = findViewById(R.id.text_profile_details_code);
         user_bankmanager = findViewById(R.id.text_profile_details_bank_manager);
         user_reference = findViewById(R.id.text_profile_details_reference);
+        user_dis_date = findViewById(R.id.text_profile_details_dis_date);
         comments_recyclerview = findViewById(R.id.list_profile_history);
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -225,6 +226,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_code.setText(profile.getCode());
                 user_bankmanager.setText(profile.getBankmanager());
                 user_reference.setText(profile.getReference());
+                user_dis_date.setText(profile.getDis_date());
                 DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + "" + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());

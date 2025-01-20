@@ -115,6 +115,13 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("bankmanager").setValue(user_bankmanager.getText().toString().trim());
 
             String new_status = user_status.getSelectedItem().toString();
+
+            if (new_status.equals("DIS")) {
+                DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+                Date date = new Date();
+                userreference.child("dis_date").setValue(dateFormat.format(date));
+            }
+
             if (!new_status.equals(old_status)){
                 DatabaseReference comment_ref = database.getReference("Profiles/"+userID+"/Comments/");
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

@@ -101,7 +101,9 @@ public class Profile_Add extends AppCompatActivity {
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             new_profile.setEntry_date(dateFormat.format(date));
+            new_profile.setDis_date("");
             databaseReference.child(uniqueKey).setValue(new_profile);
+
 
             DatabaseReference comment_ref = database.getReference("Profiles/"+uniqueKey+"/Comments/");
             Comment new_comment = new Comment();
