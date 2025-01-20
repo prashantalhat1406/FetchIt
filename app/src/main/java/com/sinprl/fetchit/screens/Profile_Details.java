@@ -1,16 +1,13 @@
 package com.sinprl.fetchit.screens;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +15,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,8 +34,6 @@ import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
 import com.sinprl.fetchit.utils.StringUtils;
 
-import java.net.URI;
-import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -50,7 +44,7 @@ import java.util.List;
 public class Profile_Details extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
     String userID;
-    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code;
+    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code,user_bankmanager,user_reference;
     FloatingActionButton add_comment;
     RecyclerView comments_recyclerview;
     List<Comment> all_comments_list;
@@ -70,18 +64,18 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         startActivity(intent);
     }
 
-    public void sendSMS(String phoneNumber, String message) {
-        try
-        {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
-            Toast.makeText(getApplicationContext(), "SMS Sent!", Toast.LENGTH_LONG).show();
-        } catch (Exception e)
-        {
-            Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-    }
+//    public void sendSMS(String phoneNumber, String message) {
+//        try
+//        {
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+//            Toast.makeText(getApplicationContext(), "SMS Sent!", Toast.LENGTH_LONG).show();
+//        } catch (Exception e)
+//        {
+//            Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +102,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         choice_of_bank = findViewById(R.id.text_profile_details_choice_of_bank);
         type_of_product = findViewById(R.id.text_profile_details_type_of_product);
         user_code = findViewById(R.id.text_profile_details_code);
+        user_bankmanager = findViewById(R.id.text_profile_details_bank_manager);
+        user_reference = findViewById(R.id.text_profile_details_reference);
         comments_recyclerview = findViewById(R.id.list_profile_history);
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -228,6 +224,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(StringUtils.toCamelCase( profile.getAddress()));
                 user_code.setText(profile.getCode());
+                user_bankmanager.setText(profile.getBankmanager());
+                user_reference.setText(profile.getReference());
                 DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + "" + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
