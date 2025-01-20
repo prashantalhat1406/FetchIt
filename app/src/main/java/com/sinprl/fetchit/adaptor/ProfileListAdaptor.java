@@ -48,6 +48,7 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
         holder.profile_id.setText(profile.getId());
         holder.user_name.setText(StringUtils.toCamelCase(profile.getName()));
         holder.user_status.setText(profile.getStatus());
+        holder.product_type.setText(profile.getTypeofproduct());
 
         SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
         Date fromatedDate = null;
@@ -91,6 +92,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
     public final TextView user_status;
     public final TextView created_date;
     public final TextView profile_id;
+    public final TextView product_type;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -99,6 +101,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder{
         user_status =  itemView.findViewById(R.id.text_item_data_status);
         created_date =  itemView.findViewById(R.id.text_item_data_createddate);
         profile_id = itemView.findViewById(R.id.text_item_profile_id);
+        product_type = itemView.findViewById(R.id.text_item_data_product_type);
 
     }
 }
