@@ -3,7 +3,6 @@ package com.sinprl.fetchit.screens;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -246,38 +245,59 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         TextView circle3 = findViewById(R.id.circle_3);
         TextView circle4 = findViewById(R.id.circle_4);
         TextView circle5 = findViewById(R.id.circle_5);
+        TextView circle6 = findViewById(R.id.circle_6);
+        TextView circle7 = findViewById(R.id.circle_7);
 
         circle1.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle2.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle3.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle4.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle5.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle6.setBackground(getResources().getDrawable(R.drawable.circle_gray));
+        circle7.setBackground(getResources().getDrawable(R.drawable.circle_gray));
 
         switch (status){
             case "NEW":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 break;
-            case "KYC":
+            case "FOW":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
-                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 break;
             case "LOG":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
-                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 break;
             case "SAN":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
-                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 break;
             case "DIS":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
-                circle2.setBackground(getResources().getDrawable(R.drawable.circle_kyc));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
+                break;
+            case "OTC":
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
+                circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
+                circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
+                circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
+                circle6.setBackground(getResources().getDrawable(R.drawable.circle_otc));
+                break;
+            case "PAY":
+                circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
+                circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
+                circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
+                circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
+                circle6.setBackground(getResources().getDrawable(R.drawable.circle_otc));
+                circle7.setBackground(getResources().getDrawable(R.drawable.circle_pay));
                 break;
         }
     }

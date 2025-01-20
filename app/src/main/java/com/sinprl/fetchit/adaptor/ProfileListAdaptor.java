@@ -64,8 +64,8 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
             case "NEW": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_new));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
-            case "KYC": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_kyc));
-                holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
+            case "FOW": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_fow));
+                holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
             case "LOG": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_log));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
@@ -74,6 +74,12 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.black));
                 break;
             case "DIS": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_dis));
+                holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
+                break;
+            case "OTC": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_otc));
+                holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
+                break;
+            case "PAY": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_pay));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
                 break;
         }

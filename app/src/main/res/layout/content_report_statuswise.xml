@@ -208,7 +208,7 @@
                 android:id="@+id/layout_report_kyc"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
-                android:background="@drawable/button_kyc_border"
+                android:background="@drawable/button_fow_border"
                 android:layout_height="match_parent"
                 android:foreground="?attr/selectableItemBackground" >
 
@@ -223,7 +223,7 @@
                         android:layout_height="50dp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:background="@drawable/circle_kyc"
+                        android:background="@drawable/circle_fow"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical|center"
                         android:text="KYC"

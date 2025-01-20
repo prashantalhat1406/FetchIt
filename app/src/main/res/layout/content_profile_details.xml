@@ -235,65 +235,93 @@
             <TextView
                 android:id="@+id/circle_1"
                 android:background="@drawable/circle_gray"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="2dp"
                 android:layout_marginStart="40dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|left|center"
                 />
             <View
-                android:layout_width="45dp"
+                android:layout_width="25dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center|center_vertical"
                 android:background="#c0c0c0"/>
             <TextView
                 android:id="@+id/circle_2"
-                android:background="@drawable/circle_gray"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:background="@drawable/circle_new"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|left|center"
                 />
             <View
-                android:layout_width="45dp"
+                android:layout_width="25dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center|center_vertical"
                 android:background="#c0c0c0"/>
             <TextView
                 android:id="@+id/circle_3"
                 android:background="@drawable/circle_gray"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|left|center"
                 />
             <View
-                android:layout_width="45dp"
+                android:layout_width="25dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center|center_vertical"
                 android:background="#c0c0c0"/>
             <TextView
                 android:id="@+id/circle_4"
                 android:background="@drawable/circle_gray"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|left|center"
                 />
             <View
-                android:layout_width="45dp"
+                android:layout_width="25dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center|center_vertical"
                 android:background="#c0c0c0"/>
             <TextView
                 android:id="@+id/circle_5"
                 android:background="@drawable/circle_gray"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="2dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|left|center"
+                />
+            <View
                 android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center|center_vertical"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/circle_6"
+                android:background="@drawable/circle_gray"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="2dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|left|center"
+                />
+            <View
+                android:layout_width="25dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center|center_vertical"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/circle_7"
+                android:background="@drawable/circle_gray"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:padding="2dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|left|center"
