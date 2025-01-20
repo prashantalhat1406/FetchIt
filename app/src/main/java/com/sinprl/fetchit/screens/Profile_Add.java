@@ -90,7 +90,7 @@ public class Profile_Add extends AppCompatActivity {
             new_profile.setId(uniqueKey);
             new_profile.setName(user_name.getText().toString().trim());
             new_profile.setAddress(user_address.getText().toString().trim());
-            new_profile.setMobile(user_mobile.getText().toString().trim());
+            new_profile.setMobile(getValidMobile(user_mobile.getText().toString().trim()));
             new_profile.setTypeofproduct(type_of_product.getSelectedItem().toString());
             new_profile.setChoiceofbank(user_bank.getText().toString().trim());
             new_profile.setAmount(user_amount.getText().toString().trim());
@@ -116,6 +116,18 @@ public class Profile_Add extends AppCompatActivity {
             return false;
     }
 
+    private String getValidMobile(String raw_mobile) {
+        String clean_mobile = raw_mobile;
+
+        if (raw_mobile.length() > 10)
+        {
+            clean_mobile = raw_mobile.replaceAll("\\s+", "");
+            clean_mobile = clean_mobile.substring(clean_mobile.length() - 10);
+        }
+
+        return clean_mobile;
+    }
+
     private boolean valid_input() {
         if (user_name.getText().toString().isEmpty()){
             user_name.setError("Name is mandatory");
@@ -125,10 +137,7 @@ public class Profile_Add extends AppCompatActivity {
             user_mobile.setError("Mobile is mandatory");
             return false;
         }
-        if (user_mobile.getText().toString().length() != 10){
-            user_mobile.setError("Mobile must be 10 digits");
-            return false;
-        }
+
         if (user_address.getText().toString().isEmpty()){
             user_address.setError("Address is mandatory");
             return false;
