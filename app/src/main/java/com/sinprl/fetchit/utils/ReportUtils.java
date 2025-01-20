@@ -2,9 +2,7 @@ package com.sinprl.fetchit.utils;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.data.Profile;
@@ -66,10 +64,12 @@ public class ReportUtils {
                 reportData.filtered_profiles.add(profile);
                 switch (profile.status) {
                     case "NEW": reportData.setStatus_new(reportData.getStatus_new() + 1); break;
-                    case "KYC": reportData.setStatus_kyc(reportData.getStatus_kyc() + 1); break;
+                    case "KYC": reportData.setStatus_fow(reportData.getStatus_fow() + 1); break;
                     case "LOG": reportData.setStatus_log(reportData.getStatus_log() + 1); break;
                     case "SAN": reportData.setStatus_san(reportData.getStatus_san() + 1); break;
                     case "DIS": reportData.setStatus_dis(reportData.getStatus_dis() + 1); break;
+                    case "OTC": reportData.setStatus_otc(reportData.getStatus_otc() + 1); break;
+                    case "PAY": reportData.setStatus_pay(reportData.getStatus_pay() + 1); break;
                 }
             }
         }
@@ -90,21 +90,13 @@ public class ReportUtils {
                     reportData.filtered_profiles.add(profile);
                     switch (profile.status)
                     {
-                        case "NEW":
-                            reportData.setStatus_new(reportData.getStatus_new() + 1);
-                            break;
-                        case "KYC":
-                            reportData.setStatus_kyc(reportData.getStatus_kyc() + 1);
-                            break;
-                        case "LOG":
-                            reportData.setStatus_log(reportData.getStatus_log() + 1);
-                            break;
-                        case "SAN":
-                            reportData.setStatus_san(reportData.getStatus_san() + 1);
-                            break;
-                        case "DIS":
-                            reportData.setStatus_dis(reportData.getStatus_dis() + 1);
-                            break;
+                        case "NEW": reportData.setStatus_new(reportData.getStatus_new() + 1); break;
+                        case "FOW": reportData.setStatus_fow(reportData.getStatus_fow() + 1); break;
+                        case "LOG": reportData.setStatus_log(reportData.getStatus_log() + 1); break;
+                        case "SAN": reportData.setStatus_san(reportData.getStatus_san() + 1); break;
+                        case "DIS": reportData.setStatus_dis(reportData.getStatus_dis() + 1); break;
+                        case "OTC": reportData.setStatus_otc(reportData.getStatus_otc() + 1); break;
+                        case "PAY": reportData.setStatus_pay(reportData.getStatus_pay() + 1); break;
                     }
                 }
             }
@@ -122,10 +114,12 @@ public class ReportUtils {
                     reportData.filtered_profiles.add(profile);
                     switch (profile.status) {
                         case "NEW": reportData.setStatus_new(reportData.getStatus_new() + 1); break;
-                        case "KYC": reportData.setStatus_kyc(reportData.getStatus_kyc() + 1); break;
+                        case "FOW": reportData.setStatus_fow(reportData.getStatus_fow() + 1); break;
                         case "LOG": reportData.setStatus_log(reportData.getStatus_log() + 1); break;
                         case "SAN": reportData.setStatus_san(reportData.getStatus_san() + 1); break;
                         case "DIS": reportData.setStatus_dis(reportData.getStatus_dis() + 1); break;
+                        case "OTC": reportData.setStatus_otc(reportData.getStatus_otc() + 1); break;
+                        case "PAY": reportData.setStatus_pay(reportData.getStatus_pay() + 1); break;
                     }
                 }
             }

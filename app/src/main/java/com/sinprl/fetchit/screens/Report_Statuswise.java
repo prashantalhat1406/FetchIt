@@ -3,9 +3,7 @@ package com.sinprl.fetchit.screens;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
@@ -30,11 +28,9 @@ import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.data.ReportData;
 import com.sinprl.fetchit.utils.ReportUtils;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Report_Statuswise extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -42,7 +38,7 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
     private FirebaseDatabase database;
     private List<Profile> all_profiles;
     Integer count_NEW=0,count_KYC=0,count_LOG=0,count_SAN=0,count_DIS=0;
-    TextView txtNEW, txtKYC, txtLOG,txtSAN, txtDIS, txtCurrentSelection;
+    TextView txtNEW, txtFOW, txtLOG,txtSAN, txtDIS,txtOTC, txtPAY,  txtCurrentSelection;
     boolean dailyFlag = false, weeklyFlag = false, monthlyFlag = false;
     Button back, next;
     String baseDate="";
@@ -112,10 +108,12 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
 
         all_profiles = new ArrayList<>();
         txtNEW = findViewById(R.id.txt_report_status_new);
-        txtKYC = findViewById(R.id.txt_report_status_kyc);
+        txtFOW = findViewById(R.id.txt_report_status_fow);
         txtLOG = findViewById(R.id.txt_report_status_log);
         txtSAN = findViewById(R.id.txt_report_status_san);
         txtDIS = findViewById(R.id.txt_report_status_dis);
+        txtOTC = findViewById(R.id.txt_report_status_otc);
+        txtPAY = findViewById(R.id.txt_report_status_pay);
         txtCurrentSelection = findViewById(R.id.txt_report_currentselection);
 
         calendar = Calendar.getInstance();
@@ -168,10 +166,12 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
             txtCurrentSelection.setText("" + baseDate.split("-")[1]);
             ReportData rd = ReportUtils.getReportDataForMonth(all_profiles, baseDate);
             txtNEW.setText("" + rd.getStatus_new());
-            txtKYC.setText("" + rd.getStatus_kyc());
+            txtFOW.setText("" + rd.getStatus_fow());
             txtLOG.setText("" + rd.getStatus_log());
             txtSAN.setText("" + rd.getStatus_san());
             txtDIS.setText("" + rd.getStatus_dis());
+            txtOTC.setText("" + rd.getStatus_otc());
+            txtPAY.setText("" + rd.getStatus_pay());
         });
 
         txtWeekly.setOnClickListener(v -> {
@@ -182,10 +182,12 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
             txtCurrentSelection.setText(ReportUtils.getCurrentWeek(baseDate));
             ReportData rd = ReportUtils.getReportDataForWeek(all_profiles, baseDate);
             txtNEW.setText("" + rd.getStatus_new());
-            txtKYC.setText("" + rd.getStatus_kyc());
+            txtFOW.setText("" + rd.getStatus_fow());
             txtLOG.setText("" + rd.getStatus_log());
             txtSAN.setText("" + rd.getStatus_san());
             txtDIS.setText("" + rd.getStatus_dis());
+            txtOTC.setText("" + rd.getStatus_otc());
+            txtPAY.setText("" + rd.getStatus_pay());
         });
 
         txtDaily.setOnClickListener(v -> {
@@ -196,10 +198,12 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
             txtCurrentSelection.setText("" + baseDate);
             ReportData rd = ReportUtils.getReportDataForDay(all_profiles, baseDate);
             txtNEW.setText("" + rd.getStatus_new());
-            txtKYC.setText("" + rd.getStatus_kyc());
+            txtFOW.setText("" + rd.getStatus_fow());
             txtLOG.setText("" + rd.getStatus_log());
             txtSAN.setText("" + rd.getStatus_san());
             txtDIS.setText("" + rd.getStatus_dis());
+            txtOTC.setText("" + rd.getStatus_otc());
+            txtPAY.setText("" + rd.getStatus_pay());
         });
 
         back = findViewById(R.id.but_reportorderwise_back);
@@ -262,10 +266,10 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
                 showErrorMessage("No Profiles to show !");
         });
 
-        LinearLayout llkyc = findViewById(R.id.layout_report_kyc);
-        llkyc.setOnClickListener(v -> {
-            if (Integer.parseInt( txtKYC.getText().toString()) > 0)
-                showProfilesStatusWise("KYC");
+        LinearLayout llfow = findViewById(R.id.layout_report_fow);
+        llfow.setOnClickListener(v -> {
+            if (Integer.parseInt( txtFOW.getText().toString()) > 0)
+                showProfilesStatusWise("FOW");
             else
                 showErrorMessage("No Profiles to show !");
         });
@@ -290,6 +294,22 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
         lldis.setOnClickListener(v -> {
             if (Integer.parseInt( txtDIS.getText().toString()) > 0)
                 showProfilesStatusWise("DIS");
+            else
+                showErrorMessage("No Profiles to show !");
+        });
+
+        LinearLayout llotc = findViewById(R.id.layout_report_otc);
+        llotc.setOnClickListener(v -> {
+            if (Integer.parseInt( txtOTC.getText().toString()) > 0)
+                showProfilesStatusWise("OTC");
+            else
+                showErrorMessage("No Profiles to show !");
+        });
+
+        LinearLayout llpay = findViewById(R.id.layout_report_pay);
+        llpay.setOnClickListener(v -> {
+            if (Integer.parseInt( txtPAY.getText().toString()) > 0)
+                showProfilesStatusWise("PAY");
             else
                 showErrorMessage("No Profiles to show !");
         });
