@@ -18,13 +18,17 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
+import com.sinprl.fetchit.adaptor.SpinnerAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.utils.CommonUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Profile_Add extends AppCompatActivity {
 
@@ -55,13 +59,12 @@ public class Profile_Add extends AppCompatActivity {
         user_bank_manager = findViewById(R.id.text_user_bank_manager);
 
         type_of_product = findViewById(R.id.spinner_type_of_product);
-        ArrayAdapter<CharSequence> product_adaptor = ArrayAdapter.createFromResource(
-                this,
-                R.array.type_of_products,
-                android.R.layout.simple_spinner_item
-        );
-        product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String[] stringArray = getResources().getStringArray(R.array.type_of_products);
+        List<String> arrayList = new ArrayList<>(Arrays.asList(stringArray));
+        SpinnerAdaptor product_adaptor = new SpinnerAdaptor(this, R.layout.spinner_value, arrayList);
         type_of_product.setAdapter(product_adaptor);
+
+
 
         Button button_save = findViewById(R.id.button_profile_save);
         button_save.setOnClickListener(v -> {

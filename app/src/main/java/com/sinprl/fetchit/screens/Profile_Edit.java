@@ -21,12 +21,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
+import com.sinprl.fetchit.adaptor.SpinnerAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
@@ -59,22 +63,34 @@ public class Profile_Edit extends AppCompatActivity {
         user_reference = findViewById(R.id.text_edit_user_reference);
 
 
-        type_of_product = findViewById(R.id.spinner_edit_type_of_product);
+//        type_of_product = findViewById(R.id.spinner_edit_type_of_product);
         product_adaptor = ArrayAdapter.createFromResource(
                 this,
                 R.array.type_of_products,
                 android.R.layout.simple_spinner_item
         );
-        product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        type_of_product.setAdapter(product_adaptor);
+//        product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        type_of_product.setAdapter(product_adaptor);
 
-        user_status = findViewById(R.id.spinner_edit_user_status);
+//        user_status = findViewById(R.id.spinner_edit_user_status);
         status_adaptor = ArrayAdapter.createFromResource(
                 this,
                 R.array.status,
                 android.R.layout.simple_spinner_item
         );
-        status_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        status_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        user_status.setAdapter(status_adaptor);
+
+        type_of_product = findViewById(R.id.spinner_edit_type_of_product);
+        String[] productsArray = getResources().getStringArray(R.array.type_of_products);
+        List<String> productArrayList = new ArrayList<>(Arrays.asList(productsArray));
+        SpinnerAdaptor product_spn_adaptor = new SpinnerAdaptor(this, R.layout.spinner_value, productArrayList);
+        type_of_product.setAdapter(product_spn_adaptor);
+
+        user_status = findViewById(R.id.spinner_edit_user_status);
+        String[] statusArray = getResources().getStringArray(R.array.status);
+        List<String> statusArrayList = new ArrayList<>(Arrays.asList(statusArray));
+        SpinnerAdaptor status_adaptor = new SpinnerAdaptor(this, R.layout.spinner_value, statusArrayList);
         user_status.setAdapter(status_adaptor);
 
         populate_userinformation();
