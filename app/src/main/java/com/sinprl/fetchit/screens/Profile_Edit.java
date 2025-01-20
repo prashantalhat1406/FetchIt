@@ -31,7 +31,7 @@ import java.util.Date;
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
     String userID, old_status;
-    EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank;
+    EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank, user_bankmanager, user_reference;
     Spinner type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
 
@@ -55,6 +55,8 @@ public class Profile_Edit extends AppCompatActivity {
         user_amount = findViewById(R.id.text_edit_user_amount);
         user_code = findViewById(R.id.text_edit_user_code);
         user_bank = findViewById(R.id.text_edit_user_bank);
+        user_bankmanager = findViewById(R.id.text_edit_user_bank_manager);
+        user_reference = findViewById(R.id.text_edit_user_reference);
 
 
         type_of_product = findViewById(R.id.spinner_edit_type_of_product);
@@ -101,14 +103,16 @@ public class Profile_Edit extends AppCompatActivity {
     private boolean save_profile_data_to_database() {
         if(valid_input()) {
             DatabaseReference userreference = database.getReference("Profiles/"+userID+"/");
-            userreference.child("name").setValue(user_name.getText().toString());
-            userreference.child("address").setValue(user_address.getText().toString());
-            userreference.child("mobile").setValue(user_mobile.getText().toString());
-            userreference.child("amount").setValue(user_amount.getText().toString());
-            userreference.child("choiceofbank").setValue(user_bank.getText().toString());
+            userreference.child("name").setValue(user_name.getText().toString().trim());
+            userreference.child("address").setValue(user_address.getText().toString().trim());
+            userreference.child("mobile").setValue(user_mobile.getText().toString().trim());
+            userreference.child("amount").setValue(user_amount.getText().toString().trim());
+            userreference.child("choiceofbank").setValue(user_bank.getText().toString().trim());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
             userreference.child("status").setValue(user_status.getSelectedItem().toString());
-            userreference.child("code").setValue(user_code.getText().toString());
+            userreference.child("code").setValue(user_code.getText().toString().trim());
+            userreference.child("reference").setValue(user_reference.getText().toString().trim());
+            userreference.child("bankmanager").setValue(user_bankmanager.getText().toString().trim());
 
             String new_status = user_status.getSelectedItem().toString();
             if (!new_status.equals(old_status)){
@@ -182,6 +186,8 @@ public class Profile_Edit extends AppCompatActivity {
                 type_of_product.setSelection(product_adaptor.getPosition(profile.getTypeofproduct()));
                 old_status = profile.getStatus();
                 user_status.setSelection(status_adaptor.getPosition(old_status));
+                user_reference.setText(profile.getReference());
+                user_bankmanager.setText(profile.getBankmanager());
             }
 
             @Override
