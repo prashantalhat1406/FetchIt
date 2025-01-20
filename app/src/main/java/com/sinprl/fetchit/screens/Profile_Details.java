@@ -221,7 +221,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 Profile profile = snapshot.getValue(Profile.class);
                 profile.setId(snapshot.getKey());
                 user_name.setText(StringUtils.toCamelCase(profile.getName()));
-                user_mobile.setText(profile.getMobile());
+                user_mobile.setText("    " + profile.getMobile());
                 user_address.setText(StringUtils.toCamelCase( profile.getAddress()));
                 user_code.setText(profile.getCode());
                 user_bankmanager.setText(profile.getBankmanager());
