@@ -1,5 +1,7 @@
 package com.sinprl.fetchit.screens;
 
+import static android.view.View.GONE;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -230,10 +232,40 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 user_name.setText(StringUtils.toCamelCase(profile.getName()));
                 user_mobile.setText(profile.getMobile());
                 user_address.setText(StringUtils.toCamelCase( profile.getAddress()));
-                user_code.setText(profile.getCode());
-                user_bankmanager.setText(profile.getBankmanager());
-                user_reference.setText(profile.getReference());
-                user_dis_date.setText(profile.getDis_date());
+
+
+                if (profile.getReference().isEmpty())
+                {
+                    user_code.setVisibility(GONE);
+                    findViewById(R.id.text_profile_details_label_code).setVisibility(GONE);
+                }
+                else
+                    user_code.setText(profile.getCode());
+
+
+                if (profile.getReference().isEmpty())
+                {
+                    user_bankmanager.setVisibility(GONE);
+                    findViewById(R.id.text_profile_details_label_bank_manager).setVisibility(GONE);
+                }
+                else
+                    user_bankmanager.setText(profile.getBankmanager());
+
+                if (profile.getReference().isEmpty())
+                {
+                    user_reference.setVisibility(GONE);
+                    findViewById(R.id.text_profile_details_label_reference).setVisibility(GONE);
+                }
+                else
+                    user_reference.setText(profile.getReference());
+
+                if (profile.getDis_date().isEmpty())
+                {
+                    user_dis_date.setVisibility(GONE);
+                    findViewById(R.id.text_profile_details_label_dis_date).setVisibility(GONE);
+                }
+                else
+                    user_dis_date.setText(profile.getDis_date());
                 DecimalFormat df = new DecimalFormat("##,##,##,##,##,###");
                 user_amount.setText(getResources().getString(R.string.rupee) + "" + df.format(Integer.parseInt(profile.getAmount())));
                 choice_of_bank.setText(profile.getChoiceofbank());
