@@ -24,6 +24,7 @@ import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.SpinnerAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
+import com.sinprl.fetchit.utils.StringUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -121,7 +122,7 @@ public class Profile_Edit extends AppCompatActivity {
             DatabaseReference userreference = database.getReference("Profiles/"+userID+"/");
             userreference.child("name").setValue(user_name.getText().toString().trim());
             userreference.child("address").setValue(user_address.getText().toString().trim());
-            userreference.child("mobile").setValue(user_mobile.getText().toString().trim());
+            userreference.child("mobile").setValue(StringUtils.getValidMobile(user_mobile.getText().toString().trim()));
             userreference.child("amount").setValue(user_amount.getText().toString().trim());
             userreference.child("choiceofbank").setValue(user_bank.getText().toString().trim());
             userreference.child("typeofproduct").setValue(type_of_product.getSelectedItem().toString());
@@ -164,10 +165,10 @@ public class Profile_Edit extends AppCompatActivity {
             user_mobile.setError("Mobile is mandatory");
             return false;
         }
-        if (user_mobile.getText().toString().length() != 10){
-            user_mobile.setError("Mobile must be 10 digits");
-            return false;
-        }
+//        if (user_mobile.getText().toString().length() != 10){
+//            user_mobile.setError("Mobile must be 10 digits");
+//            return false;
+//        }
         if (user_address.getText().toString().isEmpty()){
             user_address.setError("Address is mandatory");
             return false;

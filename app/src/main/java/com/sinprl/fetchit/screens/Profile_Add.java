@@ -22,6 +22,7 @@ import com.sinprl.fetchit.adaptor.SpinnerAdaptor;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.utils.CommonUtils;
+import com.sinprl.fetchit.utils.StringUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -93,7 +94,7 @@ public class Profile_Add extends AppCompatActivity {
             new_profile.setId(uniqueKey);
             new_profile.setName(user_name.getText().toString().trim());
             new_profile.setAddress(user_address.getText().toString().trim());
-            new_profile.setMobile(getValidMobile(user_mobile.getText().toString().trim()));
+            new_profile.setMobile(StringUtils.getValidMobile((user_mobile.getText().toString().trim())));
             new_profile.setTypeofproduct(type_of_product.getSelectedItem().toString());
             new_profile.setChoiceofbank(user_bank.getText().toString().trim());
             new_profile.setAmount(user_amount.getText().toString().trim());
@@ -121,17 +122,17 @@ public class Profile_Add extends AppCompatActivity {
             return false;
     }
 
-    private String getValidMobile(String raw_mobile) {
-        String clean_mobile = raw_mobile;
-
-        if (raw_mobile.length() > 10)
-        {
-            clean_mobile = raw_mobile.replaceAll("\\s+", "");
-            clean_mobile = clean_mobile.substring(clean_mobile.length() - 10);
-        }
-
-        return clean_mobile;
-    }
+//    private String getValidMobile(String raw_mobile) {
+//        String clean_mobile = raw_mobile;
+//
+//        if (raw_mobile.length() > 10)
+//        {
+//            clean_mobile = raw_mobile.replaceAll("\\s+", "");
+//            clean_mobile = clean_mobile.substring(clean_mobile.length() - 10);
+//        }
+//
+//        return clean_mobile;
+//    }
 
     private boolean valid_input() {
         if (user_name.getText().toString().isEmpty()){
