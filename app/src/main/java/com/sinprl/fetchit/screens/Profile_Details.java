@@ -130,7 +130,14 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
             startActivity(intent);
         });
 
-        user_mobile.setOnClickListener(v -> {
+//        user_mobile.setOnClickListener(v -> {
+//            Intent intent = new Intent(Intent.ACTION_CALL);
+//            intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
+//            startActivity(intent);
+//        });
+
+        TextView call_mobile = findViewById(R.id.text_profile_details_call);
+        call_mobile.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
             startActivity(intent);
@@ -221,7 +228,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 Profile profile = snapshot.getValue(Profile.class);
                 profile.setId(snapshot.getKey());
                 user_name.setText(StringUtils.toCamelCase(profile.getName()));
-                user_mobile.setText("    " + profile.getMobile());
+                user_mobile.setText(profile.getMobile());
                 user_address.setText(StringUtils.toCamelCase( profile.getAddress()));
                 user_code.setText(profile.getCode());
                 user_bankmanager.setText(profile.getBankmanager());
