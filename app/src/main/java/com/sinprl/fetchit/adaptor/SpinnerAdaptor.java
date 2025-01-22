@@ -34,6 +34,15 @@ public class SpinnerAdaptor extends ArrayAdapter<String> {
 
         TextView textView = convertView.findViewById(R.id.spinnerText);
         textView.setText(mValues.get(position));
+        switch (mValues.get(position)){
+            case "NEW": textView.setTextColor(mContext.getResources().getColor(R.color.status_new));break;
+            case "FOW": textView.setTextColor(mContext.getResources().getColor(R.color.status_fow));break;
+            case "LOG": textView.setTextColor(mContext.getResources().getColor(R.color.status_log));break;
+            case "SAN": textView.setTextColor(mContext.getResources().getColor(R.color.status_san));break;
+            case "DIS": textView.setTextColor(mContext.getResources().getColor(R.color.status_dis));break;
+            case "OTC": textView.setTextColor(mContext.getResources().getColor(R.color.status_otc));break;
+            case "PAY": textView.setTextColor(mContext.getResources().getColor(R.color.status_pay));break;
+        }
 
         return convertView;
     }
@@ -46,6 +55,16 @@ public class SpinnerAdaptor extends ArrayAdapter<String> {
 
         TextView textView = convertView.findViewById(R.id.spinnerText);
         textView.setText(mValues.get(position));
+
+        switch (mValues.get(position)){
+            case "NEW": textView.setTextColor(mContext.getResources().getColor(R.color.status_new));break;
+            case "FOW": textView.setTextColor(mContext.getResources().getColor(R.color.status_fow));break;
+            case "LOG": textView.setTextColor(mContext.getResources().getColor(R.color.status_log));break;
+            case "SAN": textView.setTextColor(mContext.getResources().getColor(R.color.status_san));break;
+            case "DIS": textView.setTextColor(mContext.getResources().getColor(R.color.status_dis));break;
+            case "OTC": textView.setTextColor(mContext.getResources().getColor(R.color.status_otc));break;
+            case "PAY": textView.setTextColor(mContext.getResources().getColor(R.color.status_pay));break;
+        }
 
         return convertView;
     }

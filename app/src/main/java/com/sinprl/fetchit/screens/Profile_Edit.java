@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Profile_Edit extends AppCompatActivity {
@@ -39,6 +40,7 @@ public class Profile_Edit extends AppCompatActivity {
     EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank, user_bankmanager, user_reference;
     Spinner type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
+    HashMap<String, String> statusMapping;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,23 +66,25 @@ public class Profile_Edit extends AppCompatActivity {
         user_reference = findViewById(R.id.text_edit_user_reference);
 
 
-//        type_of_product = findViewById(R.id.spinner_edit_type_of_product);
+//        statusMapping = new HashMap<>();
+//        statusMapping.put("New Proposal", "NEW");
+//        statusMapping.put("Follow up", "FOW");
+//        statusMapping.put("Log Proposal", "LOG");
+//        statusMapping.put("Sanction", "SAN");
+//        statusMapping.put("Disbursement", "DIS");
+//        statusMapping.put("OTC - PDD", "OTC");
+//        statusMapping.put("Payment Done", "PAY");
+
         product_adaptor = ArrayAdapter.createFromResource(
                 this,
                 R.array.type_of_products,
                 android.R.layout.simple_spinner_item
         );
-//        product_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        type_of_product.setAdapter(product_adaptor);
-
-//        user_status = findViewById(R.id.spinner_edit_user_status);
         status_adaptor = ArrayAdapter.createFromResource(
                 this,
                 R.array.status,
                 android.R.layout.simple_spinner_item
         );
-//        status_adaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        user_status.setAdapter(status_adaptor);
 
         type_of_product = findViewById(R.id.spinner_edit_type_of_product);
         String[] productsArray = getResources().getStringArray(R.array.type_of_products);
