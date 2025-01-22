@@ -43,6 +43,7 @@
                 android:layout_weight="0.25"
                 android:padding="10dp"
                 android:maxLength="50"
+                android:maxLines="1"
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_name"
                 android:autofillHints="name"

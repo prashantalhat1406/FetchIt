@@ -141,18 +141,27 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
 
         TextView call_mobile = findViewById(R.id.text_profile_details_call);
         call_mobile.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
-            startActivity(intent);
+            try{
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:+91" + user_mobile.getText().toString()));
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Assign CALL permission and try again.", Toast.LENGTH_LONG).show();
+            }
         });
 
         TextView send_sms = findViewById(R.id.text_profile_details_send_sms);
         send_sms.setOnClickListener(v -> {
 //            sendSMS(user_mobile.getText().toString(), "Sample SMS");
-            Intent sms_intent = new Intent(Intent.ACTION_VIEW);
-            sms_intent.setData(Uri.parse("sms:+91" + user_mobile.getText().toString()));
-            sms_intent.putExtra("sms_body", "Greetings from GFS !!");
-            startActivity(sms_intent);
+            try{
+                Intent sms_intent = new Intent(Intent.ACTION_VIEW);
+                sms_intent.setData(Uri.parse("sms:+91" + user_mobile.getText().toString()));
+                sms_intent.putExtra("sms_body", "Greetings from GFS !!");
+                startActivity(sms_intent);
+            }catch (Exception e) {
+                Toast.makeText(this, "Assign SMS permission and try again.", Toast.LENGTH_LONG).show();
+            }
+
         });
 
         TextView send_whatsapp = findViewById(R.id.text_profile_details_send_whatsapp);

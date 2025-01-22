@@ -156,12 +156,12 @@ public class Profile_Add extends AppCompatActivity {
             user_bank.setError("Bank is mandatory");
             return false;
         }
-        if (user_amount.getText().toString().isEmpty()){
-            user_amount.setError("Amount is mandatory");
-            return false;
-        }
         if (user_code.getText().toString().isEmpty()){
             user_code.setError("Code is mandatory");
+            return false;
+        }
+        if (user_amount.getText().toString().isEmpty()){
+            user_amount.setError("Amount is mandatory");
             return false;
         }
 
