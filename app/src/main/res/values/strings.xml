@@ -8,16 +8,16 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="search_name">Type User Name to search...</string>
-    <string name="profile_name">Name</string>
-    <string name="profile_mobile">Mobile</string>
-    <string name="profile_Address">Address</string>
+    <string name="profile_name">Name<font color='#FF0000'>*</font></string>
+    <string name="profile_mobile">Mobile<font color='#FF0000'>*</font></string>
+    <string name="profile_Address">Address<font color='#FF0000'>*</font></string>
     <string name="profile_reference">Reference</string>
-    <string name="profile_type_of_product">Product</string>
-    <string name="profile_choice_of_bank">Bank</string>
+    <string name="profile_type_of_product">Product<font color='#FF0000'>*</font></string>
+    <string name="profile_choice_of_bank">Bank<font color='#FF0000'>*</font></string>
     <string name="profile_bank_manager">Manager</string>
     <string name="profile_bank_manager_2">Bank Manager</string>
-    <string name="profile_amount">Amount</string>
-    <string name="profile_code">Code</string>
+    <string name="profile_amount">Amount<font color='#FF0000'>*</font></string>
+    <string name="profile_code">Code<font color='#FF0000'>*</font></string>
     <string name="profile_status">Status</string>
     <string name="profile_save_button">SAVE</string>
     <string name="profile_cancel_button">CANCEL</string>
