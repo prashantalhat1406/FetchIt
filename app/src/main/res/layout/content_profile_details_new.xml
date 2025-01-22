@@ -11,7 +11,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
     <LinearLayout
-        android:background="@drawable/roundbutton_lightblue"
+        android:background="@drawable/roundbutton_lightgreen"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -164,7 +164,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/roundbutton_lightblue"
+        android:background="@drawable/roundbutton_lightgreen"
         android:orientation="vertical"
         android:paddingTop="2dp"
         android:paddingBottom="5dp"
@@ -621,7 +621,7 @@
     <LinearLayout
         android:layout_weight="0.51"
         android:orientation="vertical"
-        android:background="@drawable/square_greyborder"
+        android:background="@drawable/square_lightgreen"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -668,7 +668,8 @@
                 android:layout_weight="0.5"
                 android:id="@+id/button_profile_details_edit"
                 android:layout_width="match_parent"
-                android:background="@drawable/roundbutton_blue"
+                android:background="@drawable/roundbutton_green"
+                app:backgroundTint="@null"
                 app:icon="@drawable/profile_edit"
                 app:iconGravity="textStart"
                 android:layout_gravity="center"

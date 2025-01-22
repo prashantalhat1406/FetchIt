@@ -1,9 +1,4 @@
 package com.sinprl.fetchit.adaptor;
-
-//public class SpinnerAdaptor {
-//}
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

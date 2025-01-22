@@ -56,7 +56,7 @@
     <string-array name="status_full">
         <item>New Proposal</item>
         <item>Follow Up</item>
-        <item>Log Proposal</item>
+        <item>Login Created</item>
         <item>Sanction</item>
         <item>Disbursement</item>
         <item>OTC - PDD</item>

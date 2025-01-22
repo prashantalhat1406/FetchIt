@@ -3,6 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="gray">#b5aeae</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_blue">#4285f4</color>
+    <color name="google_red">#EA4335</color>
+    <color name="google_green">#34A853</color>
 <!--    <color name="status_new">#5e29c5</color>-->
 <!--    <color name="status_kyc">#ffac1e</color>-->
 <!--    <color name="status_log">#fffc51</color>-->

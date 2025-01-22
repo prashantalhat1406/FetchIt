@@ -299,7 +299,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         HashMap<String, String> statusMapping = new HashMap<>();
         statusMapping.put("NEW","New Proposal" );
         statusMapping.put("FOW", "Follow Up");
-        statusMapping.put("LOG", "Log Proposal");
+        statusMapping.put("LOG", "Login Created");
         statusMapping.put("SAN","Sanction");
         statusMapping.put("DIS", "Disbursement");
         statusMapping.put("OTC", "OTC - PDD");

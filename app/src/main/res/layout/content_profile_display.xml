@@ -68,7 +68,8 @@
         <com.google.android.material.button.MaterialButton
             android:layout_weight="0.5"
             android:id="@+id/button_search_report"
-            android:background="@drawable/roundbutton_blue"
+            android:background="@drawable/roundbutton_yellow"
+            app:backgroundTint="@null"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

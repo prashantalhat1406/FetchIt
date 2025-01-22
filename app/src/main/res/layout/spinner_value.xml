@@ -18,14 +18,12 @@
             <TextView
                 android:id="@+id/spinnerText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:text="comment _1"
+                android:background="@drawable/square_lightred_spinner"
                 android:textSize="@dimen/textLabels"
-                android:layout_weight="0.75"
-                android:padding="5dp"
                 android:gravity="center"
                 android:textStyle="normal"
-                android:layout_marginStart="6dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />

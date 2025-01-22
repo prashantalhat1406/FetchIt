@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/square_greyborder"
+    android:background="@drawable/square_lightred"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
     <LinearLayout
         android:layout_weight="0.1"
-        android:background="@drawable/square_greyborder"
+        android:background="@drawable/square_lightred"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -163,7 +163,7 @@
 
     <LinearLayout
         android:layout_weight="0.1"
-        android:background="@drawable/square_greyborder"
+        android:background="@drawable/square_lightred"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -353,7 +353,7 @@
 
 
     <LinearLayout
-        android:background="@drawable/square_greyborder"
+        android:background="@drawable/square_lightred"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -382,7 +382,8 @@
             android:padding="5dp"
             android:id="@+id/button_profile_save"
             android:layout_width="match_parent"
-            android:background="@drawable/roundbutton_blue"
+            android:background="@drawable/roundbutton_red"
+            app:backgroundTint="@null"
             app:icon="@drawable/profile_save"
             app:iconGravity="textStart"
             android:layout_gravity="center"

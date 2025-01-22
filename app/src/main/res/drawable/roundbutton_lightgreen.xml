@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" android:padding="10dp">
-    <solid android:color="#ceceff"/> <!-- this one is ths color of the Rounded Button -->
+<!--    <solid android:color="#ceceff"/> &lt;!&ndash; this one is ths color of the Rounded Button &ndash;&gt;-->
+    <solid android:color="#c2e4cb"/>
     <padding
         android:bottom="5dp"
         android:left="5dp"
