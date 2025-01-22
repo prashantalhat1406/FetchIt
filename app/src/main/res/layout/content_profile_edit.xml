@@ -48,7 +48,7 @@
                 android:autofillHints="name"
                 android:visibility="visible"
                 android:inputType="text|textCapWords"
-                android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
+                android:imeOptions="actionNext"
                 />
         </LinearLayout>
 
@@ -150,7 +150,7 @@
                 android:autofillHints="name"
                 android:visibility="visible"
                 android:inputType="text|textCapWords"
-                android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
+                android:imeOptions="actionNext"
                 />
         </LinearLayout>
 
@@ -233,6 +233,7 @@
                 android:textSize="@dimen/textLabels"
                 android:hint="@string/profile_choice_of_bank"
                 android:visibility="visible"
+                android:imeOptions="actionNext"
                 />
 
 
