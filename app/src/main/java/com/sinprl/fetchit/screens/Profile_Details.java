@@ -41,6 +41,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Profile_Details extends AppCompatActivity implements OnItemClickListener {
@@ -107,6 +108,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         user_bankmanager = findViewById(R.id.text_profile_details_bank_manager);
         user_reference = findViewById(R.id.text_profile_details_reference);
         user_dis_date = findViewById(R.id.text_profile_details_dis_date);
+        user_status = findViewById(R.id.text_profile_details_status);
         comments_recyclerview = findViewById(R.id.list_profile_history);
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -294,26 +296,42 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         circle6.setBackground(getResources().getDrawable(R.drawable.circle_gray));
         circle7.setBackground(getResources().getDrawable(R.drawable.circle_gray));
 
+        HashMap<String, String> statusMapping = new HashMap<>();
+        statusMapping.put("NEW","New Proposal" );
+        statusMapping.put("FOW", "Follow Up");
+        statusMapping.put("LOG", "Log Proposal");
+        statusMapping.put("SAN","Sanction");
+        statusMapping.put("DIS", "Disbursement");
+        statusMapping.put("OTC", "OTC - PDD");
+        statusMapping.put("PAY", "Payment Done");
+
+        user_status.setText(statusMapping.get(status));
+
         switch (status){
             case "NEW":
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
+                user_status.setTextColor(getResources().getColor(R.color.status_new));
                 break;
             case "FOW":
+                user_status.setTextColor(getResources().getColor(R.color.status_fow));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 break;
             case "LOG":
+                user_status.setTextColor(getResources().getColor(R.color.status_log));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 break;
             case "SAN":
+                user_status.setTextColor(getResources().getColor(R.color.status_san));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
                 circle4.setBackground(getResources().getDrawable(R.drawable.circle_san));
                 break;
             case "DIS":
+                user_status.setTextColor(getResources().getColor(R.color.status_dis));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
@@ -321,6 +339,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 circle5.setBackground(getResources().getDrawable(R.drawable.circle_dis));
                 break;
             case "OTC":
+                user_status.setTextColor(getResources().getColor(R.color.status_otc));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
@@ -329,6 +348,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                 circle6.setBackground(getResources().getDrawable(R.drawable.circle_otc));
                 break;
             case "PAY":
+                user_status.setTextColor(getResources().getColor(R.color.status_pay));
                 circle1.setBackground(getResources().getDrawable(R.drawable.circle_new));
                 circle2.setBackground(getResources().getDrawable(R.drawable.circle_fow));
                 circle3.setBackground(getResources().getDrawable(R.drawable.circle_log));
