@@ -19,6 +19,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:src="@mipmap/gfs_background"
             />
 
@@ -36,22 +37,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-<!--            <Button-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@drawable/roundbutton_blue"-->
-<!--                android:id="@+id/button_home_add"-->
-<!--                android:text="@string/add_button_text"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:layout_weight="0.5"                -->
-<!--                android:layout_margin="4dp"-->
-<!--                />-->
-
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
-                android:background="@drawable/roundbutton_blue"
+                android:background="@drawable/roundbutton_red"
+                app:backgroundTint="@null"
                 android:id="@+id/button_home_add"
                 android:layout_height="match_parent"
                 android:text="@string/add_button_text"
@@ -63,7 +53,8 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
-                android:background="@drawable/roundbutton_blue"
+                android:background="@drawable/roundbutton_green"
+                app:backgroundTint="@null"
                 android:id="@+id/button_home_search"
                 android:layout_height="match_parent"
                 android:text="@string/search_button_text"
@@ -72,17 +63,6 @@
                 android:layout_margin="4dp"
                 />
 
-<!--            <Button-->
-<!--                android:background="@drawable/roundbutton_blue"-->
-<!--                android:id="@+id/button_home_search"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:text="@string/search_button_text"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_weight="0.5"-->
-<!--                android:textSize="@dimen/textLabels"-->
-<!--                android:layout_margin="4dp"-->
-<!--                />-->
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +74,8 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
-                android:background="@drawable/roundbutton_blue"
+                android:background="@drawable/roundbutton_yellow"
+                app:backgroundTint="@null"
                 android:id="@+id/button_home_report"
                 android:layout_height="match_parent"
                 android:text="@string/report_button_text"

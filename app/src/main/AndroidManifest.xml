@@ -21,22 +21,12 @@
         android:theme="@style/Theme.FetchIt"
         tools:targetApi="31">
         <activity
-            android:name=".screens.Profile_Add_Bank"
-            android:exported="false" />
-        <activity
-            android:name=".screens.Porfile_Add_Personal"
-            android:exported="false" />
-        <activity
             android:name=".screens.Report_Statuswise"
             android:exported="false" />
         <activity
             android:name=".screens.Welcome"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".screens.Profile_Edit"
@@ -52,7 +42,13 @@
             android:exported="false" />
         <activity
             android:name=".screens.Home"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
