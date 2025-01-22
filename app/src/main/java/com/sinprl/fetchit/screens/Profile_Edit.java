@@ -68,7 +68,7 @@ public class Profile_Edit extends AppCompatActivity {
 
 //        statusMapping = new HashMap<>();
 //        statusMapping.put("New Proposal", "NEW");
-//        statusMapping.put("Follow up", "FOW");
+//        statusMapping.put("Follow Up", "FOW");
 //        statusMapping.put("Log Proposal", "LOG");
 //        statusMapping.put("Sanction", "SAN");
 //        statusMapping.put("Disbursement", "DIS");
@@ -177,10 +177,10 @@ public class Profile_Edit extends AppCompatActivity {
             user_address.setError("Address is mandatory");
             return false;
         }
-        if (type_of_product.getSelectedItem().toString().equals("Type Of Products")){
-            ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
-            return false;
-        }
+//        if (type_of_product.getSelectedItem().toString().equals("Type Of Products")){
+//            ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
+//            return false;
+//        }
         if (user_bank.getText().toString().isEmpty()){
             user_bank.setError("Bank is mandatory");
             return false;

@@ -24,8 +24,8 @@
     <string name="profile_details_edit_button">EDIT</string>
     <string name="profile_details_close_button">CLOSE</string>
     <string name="add_comment">ADD</string>
+<!--    <item>Type Of Products</item>-->
     <string-array name="type_of_products">
-        <item>Type Of Products</item>
         <item>Business Loan</item>
         <item>Car Loan - New</item>
         <item>Car Loan - Used</item>
@@ -52,6 +52,15 @@
         <item>DIS</item>
         <item>OTC</item>
         <item>PAY</item>
+    </string-array>
+    <string-array name="status_full">
+        <item>New Proposal</item>
+        <item>Follow Up</item>
+        <item>Log Proposal</item>
+        <item>Sanction</item>
+        <item>Disbursement</item>
+        <item>OTC - PDD</item>
+        <item>Payment Done</item>
     </string-array>
     <string name="rupee">\u20B9</string>
 </resources>

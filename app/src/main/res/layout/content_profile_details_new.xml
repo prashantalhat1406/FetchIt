@@ -100,6 +100,7 @@
                 app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_mobile"
 
                 />
+
             <TextView
                 android:id="@+id/text_profile_details_send_sms"
                 android:layout_width="wrap_content"
@@ -107,8 +108,8 @@
                 android:drawableLeft="@drawable/sms"
                 android:layout_gravity="center|center_vertical"
                 android:gravity="center|center_vertical"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
                 app:layout_constraintStart_toEndOf="@id/text_profile_details_send_whatsapp"
                 app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_mobile"
                 />
@@ -120,8 +121,8 @@
                 android:drawableLeft="@drawable/phone_blue"
                 android:layout_gravity="center|center_vertical"
                 android:gravity="center|center_vertical"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
                 app:layout_constraintStart_toEndOf="@id/text_profile_details_send_sms"
                 app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_mobile"
                 />

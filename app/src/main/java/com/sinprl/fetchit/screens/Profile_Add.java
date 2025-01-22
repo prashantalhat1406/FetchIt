@@ -148,10 +148,10 @@ public class Profile_Add extends AppCompatActivity {
             user_address.setError("Address is mandatory");
             return false;
         }
-        if (type_of_product.getSelectedItem().toString().equals("Type Of Products")){
-            ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
-            return false;
-        }
+//        if (type_of_product.getSelectedItem().toString().equals("Type Of Products")){
+//            ((TextView) type_of_product.getSelectedView()).setError("Select Type Of Products");
+//            return false;
+//        }
         if (user_bank.getText().toString().isEmpty()){
             user_bank.setError("Bank is mandatory");
             return false;
