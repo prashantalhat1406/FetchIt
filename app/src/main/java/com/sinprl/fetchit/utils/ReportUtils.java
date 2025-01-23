@@ -64,7 +64,7 @@ public class ReportUtils {
                 reportData.filtered_profiles.add(profile);
                 switch (profile.status) {
                     case "NEW": reportData.setStatus_new(reportData.getStatus_new() + 1); break;
-                    case "KYC": reportData.setStatus_fow(reportData.getStatus_fow() + 1); break;
+                    case "FOW": reportData.setStatus_fow(reportData.getStatus_fow() + 1); break;
                     case "LOG": reportData.setStatus_log(reportData.getStatus_log() + 1); break;
                     case "SAN": reportData.setStatus_san(reportData.getStatus_san() + 1); break;
                     case "DIS": reportData.setStatus_dis(reportData.getStatus_dis() + 1); break;

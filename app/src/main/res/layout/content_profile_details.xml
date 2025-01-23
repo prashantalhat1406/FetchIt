@@ -23,12 +23,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="2dp"
+            android:layout_marginStart="5dp"
             >
+            <TextView
+                android:id="@+id/text_profile_details_label_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="@dimen/textLabelsVerySmall"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+            />
 
             <TextView
                 android:id="@+id/text_profile_details_name"
@@ -37,14 +47,15 @@
                 android:text="Vikas Malhotra"
                 android:layout_weight="0.65"
                 android:textColor="@color/black"
-                android:padding="5dp"
-                android:layout_gravity="center|center_horizontal|center_vertical"
-                android:gravity="center|start|center_horizontal|center_vertical"
+                android:layout_gravity="start|center"
+                android:gravity="start|center"
                 android:textSize="@dimen/textamount"
                 android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_name"
+                app:layout_constraintStart_toStartOf="parent"
                 />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,13 +63,53 @@
             android:orientation="horizontal"
             android:padding="2dp"
             >
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.10"
-                android:orientation="horizontal"
+                android:layout_weight="0.5"
+                android:layout_marginStart="5dp"
                 >
+                <TextView
+                    android:id="@+id/text_profile_details_label_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_mobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="8239562685"
+                    android:textSize="@dimen/list_mobile_size"
+                    android:layout_weight="0.45"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="start|center"
+                    android:gravity="start|center"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_mobile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_icons_lable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
                 <TextView
                     android:id="@+id/text_profile_details_send_whatsapp"
@@ -67,10 +118,11 @@
                     android:drawableRight="@drawable/whatsapp"
                     android:layout_gravity="center|center_vertical"
                     android:gravity="center|center_vertical"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginStart="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_icons_lable"
+                    app:layout_constraintStart_toStartOf="parent"
 
                     />
+
                 <TextView
                     android:id="@+id/text_profile_details_send_sms"
                     android:layout_width="wrap_content"
@@ -78,37 +130,47 @@
                     android:drawableLeft="@drawable/sms"
                     android:layout_gravity="center|center_vertical"
                     android:gravity="center|center_vertical"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@id/text_profile_details_send_whatsapp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     />
 
+                <TextView
+                    android:id="@+id/text_profile_details_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/phone_blue"
+                    android:layout_gravity="center|center_vertical"
+                    android:gravity="center|center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="17dp"
+                    app:layout_constraintStart_toEndOf="@id/text_profile_details_send_sms"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_profile_details_mobile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="    823956268"
-                android:drawableLeft="@drawable/phone_blue"
-                android:textSize="@dimen/list_mobile_size"
-                android:layout_weight="0.45"
-                android:padding="10dp"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
-                android:layout_marginStart="2dp"
-                android:layout_gravity="start|center"
-                android:gravity="start|center"
-                />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
             >
+            <TextView
+                android:id="@+id/text_profile_details_label_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="@dimen/textLabelsVerySmall"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
             <TextView
                 android:id="@+id/text_profile_details_address"
                 android:layout_width="0dp"
@@ -116,13 +178,14 @@
                 android:text="Lane 11, Gokul, FC Road, Pune"
                 android:textSize="@dimen/list_mobile_size"
                 android:layout_weight="0.75"
-                android:padding="10dp"
                 android:layout_gravity="top|start"
                 android:gravity="top|start"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_address"
+                app:layout_constraintStart_toStartOf="parent"
                 />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -143,31 +206,69 @@
             android:orientation="horizontal"
             android:padding="2dp"
             >
-
-            <TextView
-                android:id="@+id/text_profile_details_choice_of_bank"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="State Bank Of India"
-                android:layout_weight="0.75"
-                android:padding="2dp"
-                android:layout_gravity="bottom"
-                android:paddingStart="5dp"
-                android:gravity="center_horizontal|left|center_vertical"
-                android:textSize="@dimen/list_mobile_size"
-                />
-
-            <TextView
-                android:id="@+id/text_profile_details_type_of_product"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="LAP - Mortgage Loan"
-                android:textSize="@dimen/list_mobile_size"
-                android:layout_weight="0.75"
-                android:padding="10dp"
-                android:layout_gravity="bottom"
-                android:gravity="right"
-                />
+                android:layout_weight="0.5"
+                android:layout_marginStart="5dp"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_bank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bank"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_choice_of_bank"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:text="State Bank Of India"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textLabels"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_bank_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/text_profile_details_type_of_product"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="LAP - Mortgage Loan"
+                    android:textSize="@dimen/textLabels"
+                    android:layout_weight="0.75"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_product"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
@@ -177,31 +278,71 @@
             android:orientation="horizontal"
             android:padding="2dp"
             >
-
-            <TextView
-                android:id="@+id/text_profile_details_bank_manager"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="Bank Manager"
-                android:layout_weight="0.75"
-                android:padding="2dp"
-                android:layout_gravity="bottom"
-                android:paddingStart="5dp"
-                android:gravity="center_horizontal|left|center_vertical"
-                android:textSize="@dimen/list_mobile_size"
-                />
-
-            <TextView
-                android:id="@+id/text_profile_details_reference"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Reference"
-                android:textSize="@dimen/list_mobile_size"
-                android:layout_weight="0.75"
-                android:padding="10dp"
-                android:layout_gravity="bottom"
-                android:gravity="right"
-                />
+                android:layout_weight="0.5"
+                android:layout_marginStart="5dp"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_bank_manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manager"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_bank_manager"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Bank Manager"
+                    android:layout_weight="0.75"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textLabels"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_bank_manager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_reference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reference"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_reference"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Reference"
+                    android:textSize="@dimen/textLabels"
+                    android:layout_weight="0.75"
+                    android:textColor="@color/black"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_reference"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
@@ -209,34 +350,76 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
+            android:padding="2dp"
             >
-
-            <TextView
-                android:id="@+id/text_profile_details_amount"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="8900000"
                 android:layout_weight="0.5"
-                android:padding="2dp"
-                android:paddingStart="10dp"
-                android:layout_gravity="bottom"
-                android:gravity="center_horizontal|left|center"
-                android:textSize="@dimen/textamount"
-                />
+                android:layout_marginStart="5dp"
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
-            <TextView
-                android:id="@+id/text_profile_details_code"
+                <TextView
+                    android:id="@+id/text_profile_details_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="8900000"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/black"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:textSize="@dimen/textamount"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_amount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="NEW"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/textLabels"
-                android:padding="2dp"
-                android:visibility="visible"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal|center|right"
-                />
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Code"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/text_profile_details_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="code-456"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textLabels"
+                    android:visibility="visible"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_code"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
@@ -244,37 +427,114 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
+            android:padding="2dp"
             >
-
-            <TextView
-                android:visibility="invisible"
-                android:id="@+id/text_profile_details_placeholder"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="8900000"
                 android:layout_weight="0.5"
-                android:padding="2dp"
-                android:paddingStart="10dp"
-                android:layout_gravity="bottom"
-                android:gravity="center_horizontal|left|center"
-                android:textSize="@dimen/textamount"
-                />
+                android:layout_marginStart="5dp"
+                >
 
-            <TextView
-                android:id="@+id/text_profile_details_dis_date"
+                <TextView
+                    android:id="@+id/text_profile_details_label_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Follow Up"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/textLabels"
+                    android:visibility="visible"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="01May2025"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/textLabels"
-                android:padding="2dp"
-                android:visibility="visible"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal|center|right"
-                />
+                >
+                <TextView
+                    android:id="@+id/text_profile_details_label_dis_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disbursement Date"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textLabelsVerySmall"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/text_profile_details_dis_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="01May2025"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/textLabels"
+                    android:textColor="@color/black"
+                    android:visibility="visible"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_dis_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="5dp"-->
+<!--            >-->
+
+<!--            <TextView-->
+<!--                android:visibility="invisible"-->
+<!--                android:id="@+id/text_profile_details_placeholder"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="8900000"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:padding="2dp"-->
+<!--                android:paddingStart="10dp"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:gravity="center_horizontal|left|center"-->
+<!--                android:textSize="@dimen/textamount"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_profile_details_dis_date"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="01May2025"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:textSize="@dimen/textLabels"-->
+<!--                android:padding="2dp"-->
+<!--                android:visibility="visible"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:gravity="center_horizontal|center|right"-->
+<!--                />-->
+
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -387,7 +647,7 @@
     <LinearLayout
         android:layout_weight="0.51"
         android:orientation="vertical"
-        android:background="@drawable/square_greyborder"
+        android:background="@drawable/square_lightgreen"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
@@ -434,7 +694,8 @@
                 android:layout_weight="0.5"
                 android:id="@+id/button_profile_details_edit"
                 android:layout_width="match_parent"
-                android:background="@drawable/roundbutton_blue"
+                android:background="@drawable/roundbutton_green"
+                app:backgroundTint="@null"
                 app:icon="@drawable/profile_edit"
                 app:iconGravity="textStart"
                 android:layout_gravity="center"

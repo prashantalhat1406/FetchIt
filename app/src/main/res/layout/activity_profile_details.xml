@@ -8,7 +8,7 @@
     tools:context=".screens.Profile_Details">
 
 <!--    <include layout="@layout/content_profile_details" />-->
-    <include layout="@layout/content_profile_details_new" />
+    <include layout="@layout/content_profile_details" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_profile_details_addcomment"
