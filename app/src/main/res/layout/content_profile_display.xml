@@ -28,6 +28,7 @@
             android:autofillHints="name"
             android:visibility="visible"
             android:inputType="text"
+            android:imeOptions="actionDone"
             android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
             />
     </LinearLayout>
@@ -42,6 +43,21 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
         tools:listitem="@layout/item_profile_card" />
+
+    <TextView
+        android:id="@+id/text_profile_display_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/no_profiles_to_display"
+        android:textSize="@dimen/list_name_size"
+        android:textStyle="bold"
+        android:layout_weight="0.16"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:visibility="gone"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/google_red"
+        />
 
     <LinearLayout
         android:background="@drawable/square_greyborder"

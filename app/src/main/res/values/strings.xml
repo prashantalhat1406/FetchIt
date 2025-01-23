@@ -63,4 +63,5 @@
         <item>Payment Done</item>
     </string-array>
     <string name="rupee">\u20B9</string>
+    <string name="no_profiles_to_display">No Profiles to Display</string>
 </resources>

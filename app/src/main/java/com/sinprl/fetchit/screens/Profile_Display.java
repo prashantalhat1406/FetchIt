@@ -1,5 +1,8 @@
 package com.sinprl.fetchit.screens;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,6 +50,7 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
     RecyclerView data_recycle_view;
     EditText search_user;
     String report_status, base_date;
+    TextView no_resutls;
     Integer period;
 
     @Override
@@ -61,9 +65,9 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
         });
 
         Bundle b = getIntent().getExtras();
-        report_status = b.getString("report_status","ALL");
-        base_date = b.getString("base_date","");
-        period = b.getInt("period",-1);
+        report_status = b.getString("report_status", "ALL");
+        base_date = b.getString("base_date", "");
+        period = b.getInt("period", -1);
 
         Button button_home = findViewById(R.id.button_search_home);
         button_home.setOnClickListener(v -> {
@@ -81,18 +85,24 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
 
         database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
         data_recycle_view = findViewById(R.id.list_data);
+        no_resutls = findViewById(R.id.text_profile_display_no_result);
+
+        data_recycle_view.setVisibility(VISIBLE);
+        no_resutls.setVisibility(GONE);
+
         populate_data();
         search_user = findViewById(R.id.text_search_user_name);
         search_user.setText("");
         search_user.setOnTouchListener((v, event) -> {
-            if (search_user.getText().length() > 0){
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-                    if(event.getRawX() >= (search_user.getRight() - search_user.getCompoundDrawables()[2].getBounds().width())) {
+            if (search_user.getText().length() > 0) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (search_user.getRight() - search_user.getCompoundDrawables()[2].getBounds().width())) {
                         search_user.setText("");
                         search_user.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                         return true;
                     }
-                }}
+                }
+            }
             return false;
         });
 
@@ -108,7 +118,9 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
 
         search_user.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 search_user.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_clear, 0);
@@ -121,21 +133,27 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
                         try {
                             if (profile.getName().toUpperCase().contains(search_user.getText().toString().trim().toUpperCase()))
                                 tempList.add(profile);
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             Log.d("searchProfile", e.getMessage());
                         }
                     }
+                    if (!tempList.isEmpty()) {
+                        data_recycle_view.setVisibility(VISIBLE);
+                        no_resutls.setVisibility(GONE);
+                    }else{
+                        data_recycle_view.setVisibility(GONE);
+                        no_resutls.setVisibility(VISIBLE);
+                    }
                 }
+
                 ProfileListAdaptor profileListAdaptor = new ProfileListAdaptor(Profile_Display.this, tempList, Profile_Display.this);
                 data_recycle_view.setAdapter(profileListAdaptor);
             }
+
             @Override
-            public void afterTextChanged(Editable s) {           }
+            public void afterTextChanged(Editable s) {
+            }
         });
-
-
-
-
 
 
     }
@@ -144,6 +162,8 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
 
         final LinearLayoutManager data_entry_layoutmanager = new LinearLayoutManager(this);
         data_recycle_view.setLayoutManager(data_entry_layoutmanager);
+        data_recycle_view.setVisibility(VISIBLE);
+        no_resutls.setVisibility(GONE);
 
         DatabaseReference databaseReference = database.getReference("Profiles/");
         all_profiles = new ArrayList<>();
@@ -151,14 +171,12 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 all_profiles.clear();
-                for (DataSnapshot s:snapshot.getChildren()) {
+                for (DataSnapshot s : snapshot.getChildren()) {
                     Profile profile = s.getValue(Profile.class);
-                    if (report_status.equals("ALL")){
+                    if (report_status.equals("ALL")) {
                         profile.setId(s.getKey());
                         all_profiles.add(profile);
-                    }
-                    else
-                    {
+                    } else {
                         if (profile.getStatus().equals(report_status)) {
                             profile.setId(s.getKey());
                             all_profiles.add(profile);
@@ -170,7 +188,7 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
                 List<Profile> tempProfiles = new ArrayList<>();
                 ReportData rd;
 
-                switch (period){
+                switch (period) {
                     case -1:
                         tempProfiles = all_profiles;
                         break;
