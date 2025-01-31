@@ -40,7 +40,7 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
     private List<Profile> all_profiles;
     Integer count_NEW=0,count_KYC=0,count_LOG=0,count_SAN=0,count_DIS=0;
     TextView txtNEW, txtFOW, txtLOG,txtSAN, txtDIS,txtOTC, txtPAY,  txtCurrentSelection;
-    boolean dailyFlag = false, weeklyFlag = false, monthlyFlag = false;
+    boolean dailyFlag = false, weeklyFlag = false, monthlyFlag = true;
     Button back, next;
     String baseDate="";
     TextView txtDaily,txtMonthly,txtWeekly;
@@ -125,10 +125,11 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
                 Report_Statuswise.this, Report_Statuswise.this, year, month, day);
 
         baseDate = new SimpleDateFormat("dd-MMM-yyyy").format(Calendar.getInstance().getTime());
-        dailyFlag = true;
+        dailyFlag = false;
         weeklyFlag = false;
-        monthlyFlag = false;
-        txtCurrentSelection.setText(baseDate);
+        monthlyFlag = true;
+//        txtCurrentSelection.setText(baseDate);
+        txtCurrentSelection.setText("" + baseDate.split("-")[1]+" - " + baseDate.split("-")[2]);
         txtCurrentSelection.setOnClickListener(v -> {
             datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
             datePickerDialog.show();
@@ -153,7 +154,8 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
                     profile.setId(postSnapshot.getKey());
                     all_profiles.add(profile);
                 }
-                txtDaily.callOnClick();
+//                txtDaily.callOnClick();
+                txtMonthly.callOnClick();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -165,7 +167,7 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
             dailyFlag = false;
             weeklyFlag = false;
             monthlyFlag = true;
-            txtCurrentSelection.setText("" + baseDate.split("-")[1]);
+            txtCurrentSelection.setText("" + baseDate.split("-")[1]+" - " + baseDate.split("-")[2]);
             ReportData rd = ReportUtils.getReportDataForMonth(all_profiles, baseDate);
             txtNEW.setText("" + rd.getStatus_new());
             txtFOW.setText("" + rd.getStatus_fow());

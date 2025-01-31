@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
 
         <LinearLayout android:layout_weight="0.1"
             android:layout_width="match_parent"
@@ -73,20 +75,11 @@
 
     </LinearLayout>
 
-    <LinearLayout android:layout_weight="0.85" android:paddingStart="5dp" android:paddingEnd="5dp"
-        android:layout_width="match_parent" android:orientation="horizontal"
+    <LinearLayout android:layout_weight="0.92"
+        android:paddingStart="5dp" android:paddingEnd="5dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="match_parent">
-
-<!--        <Button android:id="@+id/but_reportorderwise_back"-->
-<!--            android:layout_weight="0.6"-->
-<!--            android:background="@drawable/button_blue_border"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:text="Prev"-->
-<!--            android:foreground="?attr/selectableItemBackground"-->
-<!--            >-->
-<!--        </Button>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/but_reportorderwise_back"
@@ -112,23 +105,11 @@
                 android:textSize="@dimen/textLabels"
                 android:background="@drawable/button_green_border"
                 android:foreground="?attr/selectableItemBackground"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="22-27 June">
 
             </TextView>
         </LinearLayout>
-
-<!--        <Button android:id="@+id/but_reportorderwise_next"-->
-<!--            android:layout_weight="0.6"-->
-<!--            android:background="@drawable/button_blue_border"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:foreground="?attr/selectableItemBackground"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:text="Next">-->
-
-<!--            -->
-<!--        </Button>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/but_reportorderwise_next"
@@ -142,10 +123,9 @@
             android:foreground="?attr/selectableItemBackground"
             />
 
-
     </LinearLayout>
 
-    <LinearLayout android:layout_weight="0.15"
+    <LinearLayout android:layout_weight="0.08"
         android:layout_width="match_parent" android:orientation="vertical"
         android:paddingStart="5dp" android:paddingEnd="5dp" android:paddingBottom="5dp" android:paddingTop="5dp"
         android:layout_height="match_parent">
