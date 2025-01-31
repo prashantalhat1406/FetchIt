@@ -48,7 +48,7 @@ import java.util.List;
 public class Profile_Details extends AppCompatActivity implements OnItemClickListener {
     FirebaseDatabase database;
     String userID;
-    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code,user_bankmanager,user_reference, user_dis_date;
+    TextView user_name, user_mobile, user_address, user_amount, choice_of_bank, type_of_product, user_status, user_code,user_bankmanager,user_reference, user_dis_date, user_bankmanager_mobile;
     FloatingActionButton add_comment;
     RecyclerView comments_recyclerview;
     List<Comment> all_comments_list;
@@ -111,6 +111,7 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         user_dis_date = findViewById(R.id.text_profile_details_dis_date);
         user_status = findViewById(R.id.text_profile_details_status);
         comments_recyclerview = findViewById(R.id.list_profile_history);
+        user_bankmanager_mobile = findViewById(R.id.text_profile_details_bank_manager_mobile);
 
 //        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
         database = FirebaseDatabase.getInstance(App_Constants.FIREBASE_DATABASE);
@@ -172,6 +173,29 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         send_whatsapp.setOnClickListener(v -> {
             try {
                 String url = "https://api.whatsapp.com/send?phone=+91" + user_mobile.getText().toString();
+                Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
+                whatsapp_intent.setData(Uri.parse(url));
+                startActivity(whatsapp_intent);
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Error While opening Whatsapp", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        TextView call_manager_mobile = findViewById(R.id.text_profile_details_bank_manager_call);
+        call_manager_mobile.setOnClickListener(v -> {
+            try{
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:+91" + user_bankmanager_mobile.getText().toString()));
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Assign CALL permission and try again.", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        TextView send_manager_whatsapp = findViewById(R.id.text_profile_details_bank_manager_whatsapp);
+        send_manager_whatsapp.setOnClickListener(v -> {
+            try {
+                String url = "https://api.whatsapp.com/send?phone=+91" + user_bankmanager_mobile.getText().toString();
                 Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
                 whatsapp_intent.setData(Uri.parse(url));
                 startActivity(whatsapp_intent);
@@ -256,6 +280,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
                     user_bankmanager.setText("--");
                 else
                     user_bankmanager.setText(profile.getBankmanager());
+
+                user_bankmanager_mobile.setText(profile.getManagermobile());
 
                 if (profile.getReference().isEmpty())
                     user_reference.setText("--");

@@ -38,7 +38,7 @@ import java.util.List;
 public class Profile_Edit extends AppCompatActivity {
     FirebaseDatabase database;
     String userID, old_status;
-    EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank, user_bankmanager, user_reference;
+    EditText user_name, user_mobile, user_address, user_amount, user_code, user_bank, user_bankmanager, user_reference, user_bankmanager_mobile;
     Spinner type_of_product, user_status;
     ArrayAdapter<CharSequence> product_adaptor, bank_adaptor, status_adaptor;
     HashMap<String, String> statusMapping;
@@ -66,6 +66,7 @@ public class Profile_Edit extends AppCompatActivity {
         user_bank = findViewById(R.id.text_edit_user_bank);
         user_bankmanager = findViewById(R.id.text_edit_user_bank_manager);
         user_reference = findViewById(R.id.text_edit_user_reference);
+        user_bankmanager_mobile = findViewById(R.id.text_edit_user_bank_manager_mobile);
 
 
 //        statusMapping = new HashMap<>();
@@ -136,6 +137,7 @@ public class Profile_Edit extends AppCompatActivity {
             userreference.child("code").setValue(user_code.getText().toString().trim());
             userreference.child("reference").setValue(user_reference.getText().toString().trim());
             userreference.child("bankmanager").setValue(user_bankmanager.getText().toString().trim());
+            userreference.child("managermobile").setValue(StringUtils.getValidMobile(user_bankmanager_mobile.getText().toString().trim()));
 
             String new_status = user_status.getSelectedItem().toString();
 
@@ -218,6 +220,8 @@ public class Profile_Edit extends AppCompatActivity {
                 user_status.setSelection(status_adaptor.getPosition(old_status));
                 user_reference.setText(profile.getReference());
                 user_bankmanager.setText(profile.getBankmanager());
+                user_bankmanager_mobile.setText(profile.getManagermobile());
+
             }
 
             @Override

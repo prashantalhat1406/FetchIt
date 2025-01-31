@@ -35,7 +35,7 @@ import java.util.List;
 public class Profile_Add extends AppCompatActivity {
 
     FirebaseDatabase database;
-    EditText user_name, user_address, user_mobile, user_amount, user_code, user_bank, user_reference, user_bank_manager;
+    EditText user_name, user_address, user_mobile, user_amount, user_code, user_bank, user_reference, user_bank_manager,user_bank_manager_mobile;
     Spinner type_of_product;
 
     @Override
@@ -60,6 +60,7 @@ public class Profile_Add extends AppCompatActivity {
         user_bank = findViewById(R.id.text_user_choice_of_bank);
         user_reference = findViewById(R.id.text_user_reference);
         user_bank_manager = findViewById(R.id.text_user_bank_manager);
+        user_bank_manager_mobile = findViewById(R.id.text_user_bank_manager_mobile);
 
         type_of_product = findViewById(R.id.spinner_type_of_product);
         String[] stringArray = getResources().getStringArray(R.array.type_of_products);
@@ -103,6 +104,7 @@ public class Profile_Add extends AppCompatActivity {
             new_profile.setCode(user_code.getText().toString().trim());
             new_profile.setReference(user_reference.getText().toString().trim());
             new_profile.setBankmanager(user_bank_manager.getText().toString().trim());
+            new_profile.setManagermobile(StringUtils.getValidMobile((user_bank_manager_mobile.getText().toString().trim())));
             new_profile.setStatus("NEW");
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();

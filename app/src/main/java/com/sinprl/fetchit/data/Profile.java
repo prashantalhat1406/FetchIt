@@ -14,8 +14,18 @@ public class Profile {
     public String code;
     public String reference;
     public String bankmanager;
+    public String managermobile;
+
 
     public Profile() {
+    }
+
+    public String getManagermobile() {
+        return managermobile;
+    }
+
+    public void setManagermobile(String managermobile) {
+        this.managermobile = managermobile;
     }
 
     public String getId() {

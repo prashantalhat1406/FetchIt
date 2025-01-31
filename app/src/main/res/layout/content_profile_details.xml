@@ -309,6 +309,55 @@
                     app:layout_constraintStart_toStartOf="parent"
                     />
 
+                <TextView
+                    android:id="@+id/text_profile_details_bank_manager_mobile"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textLabels"
+                    app:layout_constraintTop_toBottomOf="@id/text_profile_details_label_bank_manager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="14dp"
+                    >
+                    <TextView
+                        android:id="@+id/text_profile_details_bank_manager_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/whatsapp"
+                        android:layout_gravity="center|center_vertical"
+                        android:gravity="center|center_vertical"
+                        app:layout_constraintTop_toBottomOf="@id/text_profile_details_icons_lable"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <TextView
+                        android:id="@+id/text_profile_details_bank_manager_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/phone_blue"
+                        android:layout_gravity="center|center_vertical"
+                        android:gravity="start"
+                        android:layout_marginTop="4dp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
