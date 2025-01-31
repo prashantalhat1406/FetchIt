@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
+import com.sinprl.fetchit.constants.App_Constants;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.data.ReportData;
 import com.sinprl.fetchit.utils.ReportUtils;
@@ -138,7 +139,8 @@ public class Report_Statuswise extends AppCompatActivity implements DatePickerDi
         txtWeekly = findViewById(R.id.txt_report_orderwise_weekly);
 
 
-        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+//        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+        database = FirebaseDatabase.getInstance(App_Constants.FIREBASE_DATABASE);
         DatabaseReference profile_ref = database.getReference("Profiles/");
         Query query = profile_ref.orderByKey();
         query.addValueEventListener(new ValueEventListener() {

@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.ProfileListAdaptor;
+import com.sinprl.fetchit.constants.App_Constants;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.data.ReportData;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
@@ -83,7 +84,8 @@ public class Profile_Display extends AppCompatActivity implements OnItemClickLis
             startActivity(report_screen);
         });
 
-        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+//        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+        database = FirebaseDatabase.getInstance(App_Constants.FIREBASE_DATABASE);
         data_recycle_view = findViewById(R.id.list_data);
         no_resutls = findViewById(R.id.text_profile_display_no_result);
 

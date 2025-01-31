@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.CommentAdaptor;
+import com.sinprl.fetchit.constants.App_Constants;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.interfaces.OnItemClickListener;
@@ -111,7 +112,8 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
         user_status = findViewById(R.id.text_profile_details_status);
         comments_recyclerview = findViewById(R.id.list_profile_history);
 
-        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+//        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+        database = FirebaseDatabase.getInstance(App_Constants.FIREBASE_DATABASE);
         populate_userinformation();
         populate_comments();
 

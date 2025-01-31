@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sinprl.fetchit.R;
 import com.sinprl.fetchit.adaptor.SpinnerAdaptor;
+import com.sinprl.fetchit.constants.App_Constants;
 import com.sinprl.fetchit.data.Comment;
 import com.sinprl.fetchit.data.Profile;
 import com.sinprl.fetchit.utils.CommonUtils;
@@ -49,7 +50,8 @@ public class Profile_Add extends AppCompatActivity {
         });
 
 
-        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+//        database = FirebaseDatabase.getInstance("https://fetchit-a4181-default-rtdb.asia-southeast1.firebasedatabase.app");
+        database = FirebaseDatabase.getInstance(App_Constants.FIREBASE_DATABASE);
         user_name = findViewById(R.id.text_user_name);
         user_address = findViewById(R.id.text_user_address);
         user_mobile = findViewById(R.id.text_user_mobile);
