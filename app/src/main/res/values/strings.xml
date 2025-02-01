@@ -26,6 +26,7 @@
     <string name="add_comment">ADD</string>
 <!--    <item>Type Of Products</item>-->
     <string-array name="type_of_products">
+        <item>To Be Decided</item>
         <item>Business Loan</item>
         <item>Car Loan - New</item>
         <item>Car Loan - Used</item>
