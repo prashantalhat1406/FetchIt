@@ -63,6 +63,7 @@ public class ProfileListAdaptor extends RecyclerView.Adapter<ProfileListAdaptor.
         switch (profile.getStatus()){
             case "NEW": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_new));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
+                holder.user_status.setText("INQ");
                 break;
             case "FOW": holder.user_status.setBackground(context.getDrawable(R.drawable.circle_fow));
                 holder.user_status.setTextColor(context.getResources().getColor(R.color.white));
