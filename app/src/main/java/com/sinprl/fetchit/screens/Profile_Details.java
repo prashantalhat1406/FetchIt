@@ -183,24 +183,33 @@ public class Profile_Details extends AppCompatActivity implements OnItemClickLis
 
         TextView call_manager_mobile = findViewById(R.id.text_profile_details_bank_manager_call);
         call_manager_mobile.setOnClickListener(v -> {
-            try{
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:+91" + user_bankmanager_mobile.getText().toString()));
-                startActivity(intent);
-            } catch (Exception e) {
-                Toast.makeText(this, "Assign CALL permission and try again.", Toast.LENGTH_LONG).show();
+            if (user_bankmanager_mobile.getText().length() < 10)
+                Toast.makeText(this, "Incorrect Mobile Number.", Toast.LENGTH_LONG).show();
+            else
+            {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse("tel:+91" + user_bankmanager_mobile.getText().toString()));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(this, "Assign CALL permission and try again.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         TextView send_manager_whatsapp = findViewById(R.id.text_profile_details_bank_manager_whatsapp);
         send_manager_whatsapp.setOnClickListener(v -> {
-            try {
-                String url = "https://api.whatsapp.com/send?phone=+91" + user_bankmanager_mobile.getText().toString();
-                Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
-                whatsapp_intent.setData(Uri.parse(url));
-                startActivity(whatsapp_intent);
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Error While opening Whatsapp", Toast.LENGTH_LONG).show();
+            if (user_bankmanager_mobile.getText().length() < 10)
+                Toast.makeText(this, "Incorrect Mobile Number.", Toast.LENGTH_LONG).show();
+            else {
+                try {
+                    String url = "https://api.whatsapp.com/send?phone=+91" + user_bankmanager_mobile.getText().toString();
+                    Intent whatsapp_intent = new Intent(Intent.ACTION_VIEW);
+                    whatsapp_intent.setData(Uri.parse(url));
+                    startActivity(whatsapp_intent);
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Error While opening Whatsapp", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
